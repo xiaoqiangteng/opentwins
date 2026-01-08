@@ -25,7 +25,11 @@ spec:
       restartPolicy: Never
       containers:
       - name: "post-install-mosquitto-target-connection"
-        image: "curlimages/curl:8.2.1"
+        image:
+          repository: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/curlimages-curl
+          tag: "7.73.0"
+          pullPolicy: IfNotPresent
+        imagePullPolicy: IfNotPresent
         env:
           - name: DITTO_HOST
             value: {{ include "opentwins.ditto.fullname" . | quote }}

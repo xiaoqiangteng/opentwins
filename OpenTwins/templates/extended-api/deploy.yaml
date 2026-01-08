@@ -22,29 +22,43 @@ spec:
       containers:
       - name: ditto-extended-api
         image: {{ printf "%s:%s" .Values.extendedAPI.image.repository .Values.extendedAPI.image.tag }}
-        imagePullPolicy: Always
-        env: 
-        - name: HOST 
-          value: "localhost" 
-        - name: PORT 
-          value: "{{ .Values.extendedAPI.service.port }}" 
-        - name: MONGO_URI_POLICIES 
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: HOST
+          value: "localhost"
+        - name: PORT
+          value: "3000"
+        - name: MONGO_URI_POLICIES
           value: {{- if ((.Values.extendedAPI.mongodb).uri) }} {{ .Values.extendedAPI.mongodb.uri }} {{- else }} mongodb://{{ include "opentwins.mongodb.fullname" . }}/ditto {{- end }}
-        - name: DITTO_URI_THINGS 
+        - name: DITTO_URI_THINGS
           value: {{- if ((.Values.extendedAPI.ditto).uri) }} {{ .Values.extendedAPI.ditto.uri }} {{- else }} http://{{ include "opentwins.ditto.fullname" . }}-nginx:{{ .Values.ditto.nginx.service.port }} {{- end}}
-        - name: DITTO_USERNAME_API 
-          value: {{ coalesce ((((.Values.extendedAPI.ditto).credentials).basic).user) .Values.ditto.global.basicAuthUsers.ditto.user "ditto" }} 
-        - name: DITTO_PASSWORD_API 
-          value: {{ coalesce ((((.Values.extendedAPI.ditto).credentials).basic).password) .Values.ditto.global.basicAuthUsers.ditto.password "ditto" }} 
-        - name: DITTO_USERNAME_DEVOPS 
-          value: {{ coalesce ((((.Values.extendedAPI.ditto).credentials).devops).user) "devops" }} 
-        - name: DITTO_PASSWORD_DEVOPS 
-          value: {{ coalesce ((((.Values.extendedAPI.ditto).credentials).devops).password) .Values.ditto.gateway.config.authentication.devops.devopsPassword "foobar" }} 
+        - name: DITTO_USERNAME_API
+          value: {{ coalesce ((((.Values.extendedAPI.ditto).credentials).basic).user) .Values.ditto.global.basicAuthUsers.ditto.user "ditto" }}
+        - name: DITTO_PASSWORD_API
+          value: {{ coalesce ((((.Values.extendedAPI.ditto).credentials).basic).password) .Values.ditto.global.basicAuthUsers.ditto.password "ditto" }}
+        - name: DITTO_USERNAME_DEVOPS
+          value: {{ coalesce ((((.Values.extendedAPI.ditto).credentials).devops).user) "devops" }}
+        - name: DITTO_PASSWORD_DEVOPS
+          value: {{ coalesce ((((.Values.extendedAPI.ditto).credentials).devops).password) .Values.ditto.gateway.config.authentication.devops.devopsPassword "foobar" }}
         - name: ALL_LOGS
           value: {{ coalesce .Values.extendedAPI.allLogs false }}
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+      - name: nginx-proxy
+        image: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/nginx:1.24
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
           protocol: TCP
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: {{ .Release.Name }}-extended-api-nginx-config
 
 {{- end }}

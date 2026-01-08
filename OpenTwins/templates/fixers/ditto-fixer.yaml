@@ -38,7 +38,8 @@ spec:
     spec:
       containers:
       - name: fixer
-        image: alpine:latest
+        image: "crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/alpine:latest"
+        imagePullPolicy: IfNotPresent
         command: ["/bin/sh", "-c"]
         # Montamos el volumen en /data
         volumeMounts:

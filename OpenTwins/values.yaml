@@ -7,9 +7,10 @@
 
 
 # Example digital twin
+# Set to false if you don't need the Raspberry Pi example
 ##################################################################
 example:
-  enabled: true
+  enabled: false
 
 
 
@@ -32,7 +33,7 @@ connections:
   ditto:
     source:
       hono:
-        enabled: true
+        enabled: false
         tenantName: ditto
         username: "ditto"
         password: "ditto"
@@ -88,7 +89,20 @@ ditto:
 
   # Enables a workaround pod that cleans up stale connections that remain in a zombie state (neither open nor closed) after a crash.
   cleanupStaleConnections: true
-  
+
+  extraEnv:
+    - name: DITTO_POLICIES_ENFORCE
+      value: "false"
+
+  things:
+    extraEnv:
+      - name: DITTO_POLICIES_ENFORCE
+        value: "false"
+
+  connectivity:
+    extraEnv:
+      - name: DITTO_POLICIES_ENFORCE
+        value: "false"
 
   # Eclipse Ditto Helm Chart Values
   ####################################
@@ -103,6 +117,13 @@ ditto:
         user: devops
         password: foobar
   nginx:
+    image:
+      repository: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/nginx
+      tag: "1.24"
+      pullPolicy: IfNotPresent
+    initContainers:
+      waitForGateway:
+        image: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/curlimages-curl:7.73.0
     service:
       type: NodePort
       nodePort: 30525
@@ -122,26 +143,72 @@ ditto:
     uriSecret: ditto-mongodb-connection-secret
   # ----------------------------------------------
 
+
   gateway:
+    image:
+      repository: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/ditto-gateway
+      tag: 3.3.7
+      pullPolicy: IfNotPresent
     config:
       authentication:
         enablePreAuthentication: true
         devops:
           devopsPassword: foobar
           statusPassword: foobar
+    extraEnv:
+      - name: DITTO_POLICIES_ENFORCE
+        value: "false"
+
+  # Add image configs for all Ditto components
+  connectivity:
+    image:
+      repository: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/ditto-connectivity
+      tag: 3.3.7
+      pullPolicy: IfNotPresent
+
+  things:
+    image:
+      repository: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/ditto-things
+      tag: 3.3.7
+      pullPolicy: IfNotPresent
+
+  thingsSearch:
+    image:
+      repository: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/ditto-things-search
+      tag: 3.3.7
+      pullPolicy: IfNotPresent
+
+  policies:
+    enabled: true
+    enforce:
+      enabled: true
+    image:
+      repository: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/ditto-policies
+      tag: 3.3.7
+      pullPolicy: IfNotPresent
+    # Note: Bootstrap policies via file mounting doesn't work with Ditto chart v3.3.7
+    # because the env configuration gets overridden by the subchart defaults.
+    # Policies are created via post-install job instead (see templates/post-install-jobs/post-install-ditto-default.yaml)
   #connectivity:
   #  readinessProbe:
   #    initialDelaySeconds: 30
   #  livenessProbe:
   #    initialDelaySeconds: 80
 
-
+  fixerImage:
+    repository: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/alpine
+    tag: latest
+    pullPolicy: IfNotPresent
 
 # OpenTwins recommended values for Mosquitto
 ##################################################################
 mosquitto:
   enabled: true # Value added by OpenTwins to indicate if this component should be installed or not
   nameOverride: mosquitto
+  image:
+    repository: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/eclipse-mosquitto
+    tag: "2.0.14"
+    pullPolicy: IfNotPresent
   service:
     type: NodePort
     nodePort: 30511
@@ -163,12 +230,14 @@ kafka:
 ##################################################################
 telegraf:
   enabled: true # Value added by OpenTwins to indicate if this component should be installed or not
+  image:
+    repo: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/telegraf
+    tag: "1.36-alpine"
+    pullPolicy: IfNotPresent
   metrics:
     internal:
       enabled: false
   config:
-# Do no modify
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     processors: [] 
     outputs: [] 
     inputs: [] 
@@ -192,18 +261,18 @@ telegraf:
 ##################################################################
 influxdb2:
   enabled: true # Value added by OpenTwins to indicate if this component should be installed or not
+  image:
+    repository: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/influxdb
+    tag: "2.7.4-alpine"
+    pullPolicy: IfNotPresent
   nameOverride: influxdb2
-  persistence:
-    enabled: true
   service:
     type: NodePort
     nodePort: 30716
-  image:
-    pullPolicy: Always
   adminUser:
     organization: "opentwins"
-    bucket: "default"
-    password: "password"
+    bucket: "opentwins"  # Changed from "default" to "opentwins" to match Grafana queries
+    password: "Test123456!"
   # ----------------------------------------------
   # We have generated this token randomly in this page: https://generate-random.org/api-token-generator
   # We recommend to generate one of your own and assign it to this value in your values file.
@@ -215,14 +284,19 @@ influxdb2:
 # OpenTwins recommended values for Grafana
 ##################################################################
 grafana:
-  enabled: true # Value added by OpenTwins to indicate if this component should be installed or not
+  enabled: true
+  image:
+    registry: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com
+    repository: opentwins/grafana
+    tag: "10.2.2"
+    pullPolicy: IfNotPresent
   persistence:
     enabled: true
   service:
     type: NodePort
     nodePort: 30718
   adminUser: admin
-  adminPassword: admin
+  adminPassword: Test123456!
   grafana.ini:
     plugins:
       plugin_admin_enabled: true
@@ -230,13 +304,27 @@ grafana:
     navigation.app_sections:
       ertis-opentwins-app: root -1700
   sidecar:
+    image:
+      registry: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com
+      repository: opentwins/k8s-sidecar
+      tag: 1.30.10
+      pullPolicy: IfNotPresent
     datasources:
       enabled: true
     plugins:
       enabled: true
+  initChownData:
+    enabled: false
+  # initChownData:
+  #   enabled: true
+  #   image:
+  #     repository: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/busybox
+  #     tag: 1.31.1
+  #     pullPolicy: IfNotPresent
   extraInitContainers:
   - name: install-opentwins-plugins
-    image: busybox
+    image: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/busybox:1.31.1
+    imagePullPolicy: IfNotPresent
     command:
       - /bin/sh
       - -c
@@ -245,10 +333,10 @@ grafana:
         set -euo pipefail
         mkdir -p /grafana-storage/plugins
         cd /grafana-storage/plugins
-        wget --no-cache --no-check-certificate -O ertis-opentwins-app.zip https://github.com/ertis-research/opentwins-in-grafana/releases/download/2.0.0/ertis-opentwins-app.zip
+        wget --no-cache --no-check-certificate --proxy=off -O ertis-opentwins-app.zip "https://opentwins.oss-cn-beijing.aliyuncs.com/ertis-opentwins-app.zip?Expires=1767871346&OSSAccessKeyId=TMP.3KmFFHVTfYscjm6gNg4n6zyCFcmqAtf6NgbVAxd7difGWToXSZFz8k3PQ3RkkYhpt74vqH8Kxd3RzXogPh4CBzsxANTqzg&Signature=5Qr66nve%2BJCQD0UpVIMW3xtDiAg%3D"
         unzip -o ertis-opentwins-app.zip
         rm ertis-opentwins-app.zip
-        wget --no-cache --no-check-certificate -O ertis-unity-panel.zip https://github.com/ertis-research/grafana-panel-unity/releases/download/latest/ertis-unity-panel.zip
+        wget --no-cache --no-check-certificate --proxy=off -O ertis-unity-panel.zip "https://opentwins.oss-cn-beijing.aliyuncs.com/ertis-unity-panel.zip?Expires=1767871369&OSSAccessKeyId=TMP.3KmFFHVTfYscjm6gNg4n6zyCFcmqAtf6NgbVAxd7difGWToXSZFz8k3PQ3RkkYhpt74vqH8Kxd3RzXogPh4CBzsxANTqzg&Signature=QMv0nRgbYwoLACXDgMMNQ1dpv3U%3D"
         unzip -o ertis-unity-panel.zip
         rm ertis-unity-panel.zip
     volumeMounts:
@@ -331,15 +419,15 @@ mongodb:
   auth:
     enabled: false
   image:
-    registry: docker.io
-    repository: bitnamilegacy/mongodb
+    repository: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/mongodb
     tag: 6.0.10-debian-11-r8
+    pullPolicy: IfNotPresent
   volumePermissions:
     enabled: true
     image: 
-      registry: docker.io
-      repository: bitnamilegacy/os-shell
+      repository: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/os-shell
       tag: 11-debian-11-r72
+      pullPolicy: IfNotPresent
 
 
 # OpenTwins recommended values for Ditto Extended API
@@ -347,58 +435,10 @@ mongodb:
 extendedAPI:
   enabled: true
   image:
-    repository: ertis/ditto-extended-api
+    repository: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/ditto-extended-api
     tag: latest
+    pullPolicy: IfNotPresent
   allLogs: false
   service:
     port: 8080
     nodePort: 30526
-# ----------------------------------------------
-# If you want to use another instance of Eclipse Ditto or configure it manually
-#
-#  ditto:
-#    uri: http://research.adabyron.uma.es:8047
-#    credentials:
-#      basic:
-#        user: ditto
-#        password: ditto
-#      devops:
-#        user: devops
-#        password: foobar
-# ----------------------------------------------
-#  If you use another mongodb and you want to query all the policies
-#
-#  mongodb:
-#    uri: mongodb://localhost:30185/policies
-      
-
-
-# OpenTwins recommended values for ERTIS MongoDB 
-##################################################################
-# OpenTwins-MongoDB:
-#   enabled: false # Value added by OpenTwins to indicate if this component should be installed or not
-#   nameOverride: mongodb
-#   auth:
-#     enabled: false
-#   securityContext:
-#     enabled: false
-#   persistence:
-#     enabled: false
-#   metadata:
-#     labels:
-#       app: database
-#       selector: mongodb
-#   service:
-#     type: NodePort
-#     nodePort: 30718
-#   spec:
-#     containers:
-#     - name: mongodb
-#       image:
-#         repository: mongo
-#         tag: 4.4.6
-      # env:
-      #   - name: MONGO_INITDB_ROOT_USERNAME
-      #     value: admin
-      #   - name: MONGO_INITDB_ROOT_PASSWORD
-      #     value: password

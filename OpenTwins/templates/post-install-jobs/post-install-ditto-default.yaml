@@ -10,12 +10,14 @@ metadata:
     app.kubernetes.io/version: {{ .Chart.AppVersion }}
     helm.sh/chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
   annotations:
-    # Esto es lo que define este recurso como un gancho. Sin esta línea, 
+    # Esto es lo que define este recurso como un gancho. Sin esta línea,
     # el trabajo se considera parte del release.
     "helm.sh/hook": post-install
     "helm.sh/hook-weight": "-5"
-    "helm.sh/hook-delete-policy": hook-succeeded
+    "helm.sh/hook-delete-policy": before-hook-creation
 spec:
+  backoffLimit: 3
+  ttlSecondsAfterFinished: 600
   template:
     metadata:
       name: "{{ .Release.Name }}-post-install-ditto-default"
@@ -27,7 +29,8 @@ spec:
       restartPolicy: Never
       containers:
       - name: "post-install-ditto-default"
-        image: "curlimages/curl:8.2.1"
+        image: crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com/opentwins/curlimages-curl:7.73.0
+        imagePullPolicy: IfNotPresent
         env:
           - name: DITTO_HOST
             value: {{ include "opentwins.ditto.fullname" . | quote }}

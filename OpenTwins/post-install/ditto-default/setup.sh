@@ -12,3 +12,9 @@ response_body_and_status=$(curl --silent --write-out "\n%{http_code}" \
     -X PUT -u "$DITTO_BASIC_USER_PW" --header 'Content-Type: application/json' \
     --data-binary "@basic-policy.json" "${DITTO_POLICIES_BASE_URL}/default:basic_policy")
 check_status $? "$response_body_and_status"
+
+echo "Adding opentwins policy [URL: ${DITTO_POLICIES_BASE_URL}/opentwins:basic_policy]"
+response_body_and_status=$(curl --silent --write-out "\n%{http_code}" \
+    -X PUT -u "$DITTO_BASIC_USER_PW" --header 'Content-Type: application/json' \
+    --data-binary "@opentwins-policy.json" "${DITTO_POLICIES_BASE_URL}/opentwins:basic_policy")
+check_status $? "$response_body_and_status"

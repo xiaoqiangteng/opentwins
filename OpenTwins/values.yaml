@@ -333,15 +333,22 @@ grafana:
         set -euo pipefail
         mkdir -p /grafana-storage/plugins
         cd /grafana-storage/plugins
-        wget --no-cache --no-check-certificate --proxy=off -O ertis-opentwins-app.zip "https://opentwins.oss-cn-beijing.aliyuncs.com/ertis-opentwins-app.zip?Expires=1767871346&OSSAccessKeyId=TMP.3KmFFHVTfYscjm6gNg4n6zyCFcmqAtf6NgbVAxd7difGWToXSZFz8k3PQ3RkkYhpt74vqH8Kxd3RzXogPh4CBzsxANTqzg&Signature=5Qr66nve%2BJCQD0UpVIMW3xtDiAg%3D"
+        cp /plugins-src/ertis-opentwins-app.zip .
         unzip -o ertis-opentwins-app.zip
         rm ertis-opentwins-app.zip
-        wget --no-cache --no-check-certificate --proxy=off -O ertis-unity-panel.zip "https://opentwins.oss-cn-beijing.aliyuncs.com/ertis-unity-panel.zip?Expires=1767871369&OSSAccessKeyId=TMP.3KmFFHVTfYscjm6gNg4n6zyCFcmqAtf6NgbVAxd7difGWToXSZFz8k3PQ3RkkYhpt74vqH8Kxd3RzXogPh4CBzsxANTqzg&Signature=QMv0nRgbYwoLACXDgMMNQ1dpv3U%3D"
+        cp /plugins-src/ertis-unity-panel.zip .
         unzip -o ertis-unity-panel.zip
         rm ertis-unity-panel.zip
     volumeMounts:
     - name: storage
       mountPath: /grafana-storage
+    - name: grafana-plugins-src
+      mountPath: /plugins-src
+  extraVolumes:
+  - name: grafana-plugins-src
+    hostPath:
+      path: /mnt/data/grafana-plugins
+      type: Directory
 
 
 # OpenTwins recommended values for Eclipse Hono

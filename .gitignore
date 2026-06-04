@@ -1,2 +1,5 @@
 fmi-engine
 OpenTwins/.tmp/
+wine-ferment-twin/logs/
+wine-ferment-twin/wine-simulator/data/
+wine-ferment-twin/.venv/

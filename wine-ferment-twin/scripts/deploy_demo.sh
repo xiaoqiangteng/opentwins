@@ -58,7 +58,7 @@ fi
 bash scripts/stop_demo.sh >/dev/null 2>&1 || true
 
 (cd winetwin-service && DITTO_BASE_URL="$DITTO_BASE_URL" INFLUX_URL="$INFLUX_URL" INFLUX_TOKEN="$INFLUX_TOKEN" CORS_ALLOW_ORIGINS="$CORS_ALLOW_ORIGINS" setsid -f "$PYTHON_BIN" -m uvicorn app.main:app --host 0.0.0.0 --port 8010 > "$ROOT_DIR/logs/winetwin-service.log" 2>&1 < /dev/null)
-(cd wine-frontend && npm install && VITE_API_BASE_URL="$WINE_SERVICE_URL" setsid -f npm run dev -- --host 0.0.0.0 --port 5173 > "$ROOT_DIR/logs/wine-frontend.log" 2>&1 < /dev/null)
+(cd wine-frontend && npm install && VITE_API_BASE_URL="http://127.0.0.1:8010" setsid -f npm run dev -- --host 0.0.0.0 --port 5173 > "$ROOT_DIR/logs/wine-frontend.log" 2>&1 < /dev/null)
 MQTT_HOST="$MQTT_HOST" MQTT_PORT="$MQTT_PORT" setsid -f "$PYTHON_BIN" wine-simulator/wine_fermentation_simulator.py --config configs/wine_simulation.yaml > logs/wine-simulator.log 2>&1 < /dev/null
 
 sleep 2

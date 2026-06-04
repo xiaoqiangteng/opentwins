@@ -11,7 +11,9 @@ export type Tank = {
   updated_at?: string | null;
 };
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8010';
+// 使用相对路径，由 Vite dev server proxy 转发到后端
+// 这样无论从本机、局域网还是 SSH 端口转发访问，都能正确路由
+const API_BASE = '';
 
 async function get<T>(path: string): Promise<T> {
   const response = await fetch(`${API_BASE}${path}`);

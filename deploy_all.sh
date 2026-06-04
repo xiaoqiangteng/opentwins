@@ -431,7 +431,7 @@ if [[ "$DEPLOY_DEMO" == true ]]; then
   fi
   export INFLUX_TOKEN="${INFLUX_TOKEN:-}"
 
-  # 1) WineTwin Service (FastAPI/uvicorn)
+  # 1) WineTwin Service (FastAPI/uvicorn) — 必须在 winetwin-service/ 目录下启动
   (cd winetwin-service && \
     DITTO_BASE_URL="$DITTO_BASE_URL" \
     INFLUX_URL="$INFLUX_URL" INFLUX_TOKEN="$INFLUX_TOKEN" \
@@ -441,8 +441,11 @@ if [[ "$DEPLOY_DEMO" == true ]]; then
   info "WineTwin Service 启动中 (port 8010)..."
 
   # 2) Wine Frontend (Vite/React)
+  #    VITE_API_BASE_URL 设置为 http://127.0.0.1:8010 供 Vite proxy 使用
+  #    前端 JS 使用相对路径 /api，由 Vite proxy 转发到后端
+  #    这样无论是本机、局域网还是 SSH 端口转发访问，都能正常工作
   (cd wine-frontend && npm install && \
-    VITE_API_BASE_URL="$WINE_SERVICE_URL" \
+    VITE_API_BASE_URL="http://127.0.0.1:8010" \
     setsid -f npm run dev -- --host 0.0.0.0 --port 5173 \
     > "$WINE_DEMO_DIR/logs/wine-frontend.log" 2>&1 < /dev/null)
   info "Wine Frontend 启动中 (port 5173)..."

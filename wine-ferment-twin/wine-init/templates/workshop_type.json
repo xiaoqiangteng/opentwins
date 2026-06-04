@@ -1,0 +1,6 @@
+{
+  "id": "wine:Workshop",
+  "name": "Workshop",
+  "description": "Fermentation workshop type",
+  "features": ["status", "tank_count", "risk_level"]
+}

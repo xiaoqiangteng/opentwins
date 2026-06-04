@@ -1,0 +1,772 @@
+timestamp,tank_id,thing_id,temperature,ph,brix,specific_gravity,co2,pressure,liquid_level,alcohol_estimation,fermentation_progress,fermentation_stage,quality_score,risk_level,recommendation
+2026-06-04T11:13:16.195618+00:00,tank_01,wine:tank_01,24.91,3.43,24.5,1.1034,926.9,101.51,82.0,0.0,0,initial,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:13:16.196719+00:00,tank_02,wine:tank_02,26.11,3.51,25.0,1.1057,996.6,101.66,82.0,0.0,0,initial,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:13:16.197617+00:00,tank_03,wine:tank_03,14.18,3.31,22.5,1.0942,937.6,101.43,82.0,0.0,0,initial,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:13:21.203596+00:00,tank_01,wine:tank_01,26.85,3.45,22.32,1.0934,1097.4,101.63,82.0,1.13,8.5,initial,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:13:21.204742+00:00,tank_02,wine:tank_02,27.8,3.51,22.79,1.0956,1192.2,101.66,82.0,1.16,8.5,initial,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:13:21.205844+00:00,tank_03,wine:tank_03,15.4,3.29,20.53,1.0853,1177.0,101.47,82.0,1.02,8.4,initial,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:13:26.212268+00:00,tank_01,wine:tank_01,27.46,3.43,20.34,1.0845,1356.2,101.65,82.0,2.16,16.3,active,88.0,warning,CO2 is lower than expected for active fermentation; check yeast vitality.
+2026-06-04T11:13:26.213364+00:00,tank_02,wine:tank_02,28.51,3.5,20.78,1.0865,1317.9,101.56,82.0,2.23,16.4,active,88.0,warning,CO2 is lower than expected for active fermentation; check yeast vitality.
+2026-06-04T11:13:26.214548+00:00,tank_03,wine:tank_03,16.02,3.31,18.72,1.0773,1353.5,101.74,82.0,1.95,16.1,active,78.0,warning,"Check yeast activity, nutrients, oxygen exposure and temperature profile."
+2026-06-04T11:13:31.219956+00:00,tank_01,wine:tank_01,27.46,3.44,18.52,1.0764,1554.9,101.52,82.0,3.1,23.5,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:13:31.221138+00:00,tank_02,wine:tank_02,28.3,3.46,18.93,1.0783,1662.3,101.67,82.0,3.2,23.5,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:13:31.222306+00:00,tank_03,wine:tank_03,16.22,3.28,17.06,1.07,1599.7,101.72,82.0,2.8,23.1,active,78.0,warning,"Check yeast activity, nutrients, oxygen exposure and temperature profile."
+2026-06-04T11:13:36.228757+00:00,tank_01,wine:tank_01,27.91,3.44,16.85,1.0691,1853.9,101.67,82.0,3.96,30.0,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:13:36.229864+00:00,tank_02,wine:tank_02,28.78,3.46,17.25,1.0708,1844.2,101.63,82.0,4.09,30.1,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:13:36.231012+00:00,tank_03,wine:tank_03,16.76,3.29,15.54,1.0635,1860.1,101.71,82.0,3.58,29.6,active,78.0,warning,"Check yeast activity, nutrients, oxygen exposure and temperature profile."
+2026-06-04T11:13:41.237570+00:00,tank_01,wine:tank_01,28.98,3.41,15.33,1.0625,2237.1,101.71,82.0,4.75,36.0,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:13:41.238685+00:00,tank_02,wine:tank_02,29.8,3.49,15.7,1.0641,2153.1,101.88,82.0,4.9,36.0,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:13:41.239804+00:00,tank_03,wine:tank_03,17.52,3.26,14.15,1.0575,2273.7,101.97,82.0,4.3,35.5,active,78.0,warning,"Check yeast activity, nutrients, oxygen exposure and temperature profile."
+2026-06-04T11:13:46.245756+00:00,tank_01,wine:tank_01,29.3,3.41,13.93,1.0566,2672.5,101.87,82.0,5.47,41.4,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:13:46.247015+00:00,tank_02,wine:tank_02,30.63,3.48,14.29,1.0581,2538.1,101.88,82.0,5.64,41.5,active,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:13:46.248286+00:00,tank_03,wine:tank_03,18.49,3.27,12.88,1.0521,2612.3,101.96,82.0,4.95,40.9,active,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:13:51.254951+00:00,tank_01,wine:tank_01,29.28,3.43,12.66,1.0512,3118.4,102.05,82.0,6.13,46.4,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:13:51.256080+00:00,tank_02,wine:tank_02,30.26,3.49,13.0,1.0526,3103.5,102.08,82.0,6.32,46.5,active,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:13:51.257180+00:00,tank_03,wine:tank_03,18.25,3.27,11.72,1.0472,3108.8,101.94,82.0,5.55,45.9,active,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:13:56.263800+00:00,tank_01,wine:tank_01,28.51,3.41,11.5,1.0463,3558.6,102.15,82.0,6.73,51.0,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:13:56.264934+00:00,tank_02,wine:tank_02,34.42,3.48,11.82,1.0476,3559.8,102.07,82.0,6.95,51.1,active,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:13:56.265980+00:00,tank_03,wine:tank_03,17.62,3.28,10.65,1.0427,3622.3,102.3,82.0,6.1,50.4,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:01.269144+00:00,tank_01,wine:tank_01,28.37,3.43,10.43,1.0418,4074.2,102.33,82.0,7.28,55.2,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:01.270390+00:00,tank_02,wine:tank_02,34.52,3.46,10.74,1.0431,4111.5,102.16,82.0,7.52,55.3,active,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:14:01.271505+00:00,tank_03,wine:tank_03,17.35,3.28,9.67,1.0387,4133.6,102.16,82.0,6.61,54.6,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:06.278139+00:00,tank_01,wine:tank_01,29.06,3.4,9.45,1.0378,4626.6,102.36,82.0,7.79,59.0,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:06.279526+00:00,tank_02,wine:tank_02,35.01,3.47,9.76,1.039,4561.6,102.37,82.0,8.04,59.1,active,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:14:06.280878+00:00,tank_03,wine:tank_03,18.41,3.27,8.77,1.035,4545.5,102.27,82.0,7.07,58.4,active,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:14:11.283601+00:00,tank_01,wine:tank_01,29.23,3.38,8.56,1.0341,5061.9,102.52,82.0,8.25,62.5,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:11.284679+00:00,tank_02,wine:tank_02,35.58,3.46,8.85,1.0353,5163.3,102.52,82.0,8.51,62.6,active,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:14:11.285852+00:00,tank_03,wine:tank_03,18.19,3.23,7.95,1.0316,5171.3,102.57,82.0,7.49,61.9,active,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:14:16.292602+00:00,tank_01,wine:tank_01,28.58,3.4,7.75,1.0308,5619.6,102.77,82.0,8.67,65.7,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:16.293967+00:00,tank_02,wine:tank_02,34.87,3.45,8.03,1.0319,5739.4,102.54,82.0,8.95,65.8,active,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:14:16.295140+00:00,tank_03,wine:tank_03,17.36,3.27,7.2,1.0285,5745.3,102.63,82.0,7.88,65.1,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:21.299676+00:00,tank_01,wine:tank_01,27.87,3.4,7.0,1.0277,6115.4,102.8,82.0,9.06,68.6,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:21.300804+00:00,tank_02,wine:tank_02,34.11,3.45,7.27,1.0288,6114.4,102.66,82.0,9.34,68.7,active,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:14:21.301903+00:00,tank_03,wine:tank_03,16.89,3.25,6.51,1.0257,6195.1,102.64,82.0,8.23,68.0,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:26.308637+00:00,tank_01,wine:tank_01,27.72,3.37,6.32,1.025,6608.4,102.91,82.0,9.41,71.3,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:26.309958+00:00,tank_02,wine:tank_02,34.23,3.47,6.58,1.026,6598.5,102.74,82.0,9.71,71.4,active,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:14:26.311057+00:00,tank_03,wine:tank_03,17.0,3.22,5.88,1.0232,6633.2,102.8,82.0,8.56,70.7,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:31.317823+00:00,tank_01,wine:tank_01,28.57,3.39,5.69,1.0225,7013.0,102.89,82.0,9.73,73.7,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:31.318978+00:00,tank_02,wine:tank_02,34.78,3.42,5.95,1.0235,7059.9,103.11,82.0,10.04,73.8,active,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:14:31.320028+00:00,tank_03,wine:tank_03,17.59,3.22,17.25,1.0209,7011.3,103.04,82.0,2.7,22.3,active,78.0,warning,"Check yeast activity, nutrients, oxygen exposure and temperature profile."
+2026-06-04T11:14:36.326707+00:00,tank_01,wine:tank_01,28.42,3.37,5.12,1.0202,7378.4,102.99,82.0,10.03,76.0,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:36.327835+00:00,tank_02,wine:tank_02,34.98,3.42,5.38,1.0212,7325.4,103.18,82.0,10.34,76.1,active,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:14:36.328935+00:00,tank_03,wine:tank_03,17.38,3.22,17.18,1.0188,7218.0,103.06,82.0,2.74,22.6,active,78.0,warning,"Check yeast activity, nutrients, oxygen exposure and temperature profile."
+2026-06-04T11:14:41.335723+00:00,tank_01,wine:tank_01,27.36,3.37,4.6,1.0181,7520.6,103.23,82.0,10.3,78.0,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:41.336889+00:00,tank_02,wine:tank_02,34.27,3.42,4.85,1.0191,7419.3,102.98,82.0,10.62,78.1,active,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:14:41.337971+00:00,tank_03,wine:tank_03,16.28,3.23,17.11,1.0168,7419.5,103.18,82.0,2.78,22.9,active,78.0,warning,"Check yeast activity, nutrients, oxygen exposure and temperature profile."
+2026-06-04T11:14:46.344630+00:00,tank_01,wine:tank_01,26.61,3.38,4.12,1.0162,7686.1,103.02,82.0,10.55,79.9,active,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:46.345782+00:00,tank_02,wine:tank_02,33.59,3.43,4.36,1.0171,7617.5,103.04,82.0,10.88,80.0,active,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:14:46.346843+00:00,tank_03,wine:tank_03,16.06,3.24,17.03,1.0151,7613.3,103.26,82.0,2.82,23.3,active,78.0,warning,"Check yeast activity, nutrients, oxygen exposure and temperature profile."
+2026-06-04T11:14:51.351595+00:00,tank_01,wine:tank_01,27.1,3.4,3.69,1.0144,7613.6,103.09,82.0,10.77,81.6,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:51.352540+00:00,tank_02,wine:tank_02,33.77,3.43,3.92,1.0154,7636.6,103.17,82.0,11.11,81.7,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:14:51.353426+00:00,tank_03,wine:tank_03,15.88,3.23,16.96,1.0134,7617.1,103.15,82.0,2.85,23.6,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:56.359968+00:00,tank_01,wine:tank_01,27.49,3.4,3.29,1.0129,7455.9,103.06,82.0,10.98,83.2,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:14:56.361070+00:00,tank_02,wine:tank_02,34.74,3.46,3.52,1.0138,7542.0,103.05,82.0,11.32,83.3,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:14:56.362210+00:00,tank_03,wine:tank_03,16.76,3.23,16.88,1.012,7437.7,103.01,82.0,2.89,23.9,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:01.367656+00:00,tank_01,wine:tank_01,27.36,3.36,2.92,1.0114,7303.7,102.93,82.0,11.17,84.6,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:01.368550+00:00,tank_02,wine:tank_02,34.34,3.44,3.15,1.0123,7237.1,103.14,82.0,11.52,84.7,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:15:01.369488+00:00,tank_03,wine:tank_03,16.42,3.22,16.8,1.0106,7185.6,103.12,82.0,2.93,24.3,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:06.376007+00:00,tank_01,wine:tank_01,26.53,3.39,2.59,1.0101,7037.2,103.04,82.0,11.34,85.9,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:06.377111+00:00,tank_02,wine:tank_02,33.58,3.45,2.81,1.011,6936.7,102.96,82.0,11.7,86.0,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:15:06.378239+00:00,tank_03,wine:tank_03,15.65,3.22,16.73,1.0094,7013.8,102.91,82.0,2.97,24.6,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:11.384614+00:00,tank_01,wine:tank_01,25.94,3.36,2.28,1.0089,6602.5,102.88,82.0,11.5,87.1,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:11.385573+00:00,tank_02,wine:tank_02,33.34,3.45,2.5,1.0098,6586.9,102.93,82.0,11.86,87.2,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:15:11.386576+00:00,tank_03,wine:tank_03,14.96,3.22,16.66,1.0083,6481.6,102.9,82.0,3.01,24.9,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:16.391650+00:00,tank_01,wine:tank_01,26.28,3.36,2.0,1.0078,6026.3,102.75,82.0,11.65,88.2,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:16.392843+00:00,tank_02,wine:tank_02,34.14,3.43,2.22,1.0087,6039.0,102.67,82.0,12.01,88.3,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:15:16.393923+00:00,tank_03,wine:tank_03,15.53,3.23,16.58,1.0072,6012.1,102.8,82.0,3.05,25.2,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:21.400527+00:00,tank_01,wine:tank_01,26.79,3.36,1.74,1.0068,5513.3,102.72,82.0,11.78,89.2,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:21.401740+00:00,tank_02,wine:tank_02,34.38,3.41,1.96,1.0076,5655.0,102.66,82.0,12.14,89.3,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:15:21.402891+00:00,tank_03,wine:tank_03,16.09,3.21,16.51,1.0063,5597.9,102.5,82.0,3.08,25.5,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:26.409520+00:00,tank_01,wine:tank_01,26.48,3.38,1.51,1.0059,4973.7,102.62,82.0,11.9,90.2,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:26.410654+00:00,tank_02,wine:tank_02,34.12,3.41,1.73,1.0067,5137.7,102.47,82.0,12.27,90.2,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:15:26.411723+00:00,tank_03,wine:tank_03,15.65,3.24,16.43,1.0054,5083.9,102.59,82.0,3.13,25.8,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:31.418317+00:00,tank_01,wine:tank_01,25.8,3.4,1.3,1.005,4521.4,102.23,82.0,12.01,91.0,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:31.419444+00:00,tank_02,wine:tank_02,33.67,3.43,1.51,1.0059,4468.3,102.5,82.0,12.38,91.0,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:15:31.420531+00:00,tank_03,wine:tank_03,14.59,3.23,16.36,1.0047,4602.1,102.48,82.0,3.16,26.1,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:36.428249+00:00,tank_01,wine:tank_01,25.71,3.36,1.1,1.0043,3981.8,102.13,82.0,12.11,91.8,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:36.429510+00:00,tank_02,wine:tank_02,33.05,3.43,1.31,1.0051,4063.9,102.21,82.0,12.49,91.8,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:15:36.430550+00:00,tank_03,wine:tank_03,14.7,3.23,16.28,1.0039,3993.3,102.15,82.0,3.2,26.5,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:41.435774+00:00,tank_01,wine:tank_01,25.87,3.36,0.92,1.0036,3522.9,102.14,82.0,12.21,92.5,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:41.436968+00:00,tank_02,wine:tank_02,34.07,3.42,1.13,1.0044,3488.1,102.2,82.0,12.58,92.5,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:15:41.438145+00:00,tank_03,wine:tank_03,15.15,3.24,16.21,1.0033,3459.2,102.17,82.0,3.24,26.8,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:46.444941+00:00,tank_01,wine:tank_01,26.32,3.38,0.76,1.0029,2906.8,102.04,82.0,12.29,93.1,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:46.446104+00:00,tank_02,wine:tank_02,34.21,3.4,0.97,1.0038,3060.8,101.99,82.0,12.67,93.2,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:15:46.447192+00:00,tank_03,wine:tank_03,15.5,3.21,16.13,1.0027,2934.9,102.14,82.0,3.28,27.1,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:51.453804+00:00,tank_01,wine:tank_01,26.14,3.4,0.61,1.0024,2511.3,101.87,82.0,12.37,93.7,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:51.454839+00:00,tank_02,wine:tank_02,33.68,3.42,0.82,1.0032,2573.8,101.86,82.0,12.75,93.7,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:15:51.455831+00:00,tank_03,wine:tank_03,14.8,3.23,16.05,1.0021,2585.1,102.01,82.0,3.32,27.4,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:56.462390+00:00,tank_01,wine:tank_01,25.34,3.35,0.47,1.0018,2123.2,101.85,82.0,12.44,94.2,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:15:56.463413+00:00,tank_02,wine:tank_02,32.91,3.41,0.68,1.0026,2247.2,101.81,82.0,12.82,94.3,late,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:15:56.464449+00:00,tank_03,wine:tank_03,14.44,3.22,15.98,1.0016,2203.1,101.86,82.0,3.36,27.7,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:01.467656+00:00,tank_01,wine:tank_01,25.37,3.35,0.34,1.0013,1809.4,101.75,82.0,12.5,94.7,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:01.468724+00:00,tank_02,wine:tank_02,33.21,3.42,0.55,1.0021,1846.9,101.63,82.0,12.89,94.8,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:16:01.469783+00:00,tank_03,wine:tank_03,14.13,3.23,15.91,1.0012,1749.8,101.84,82.0,3.39,28.0,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:06.476248+00:00,tank_01,wine:tank_01,25.7,3.37,0.23,1.0009,1593.7,101.53,82.0,12.56,95.2,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:06.477331+00:00,tank_02,wine:tank_02,33.95,3.41,0.44,1.0017,1503.0,101.66,82.0,12.95,95.2,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:16:06.478417+00:00,tank_03,wine:tank_03,15.04,3.24,15.83,1.0007,1478.1,101.8,82.0,3.43,28.4,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:11.484988+00:00,tank_01,wine:tank_01,26.16,3.35,0.13,1.0005,1316.4,101.5,82.0,12.62,95.6,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:11.486087+00:00,tank_02,wine:tank_02,33.93,3.41,0.33,1.0013,1239.7,101.6,82.0,13.0,95.6,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:16:11.487107+00:00,tank_03,wine:tank_03,14.97,3.2,15.76,1.0003,1232.3,101.48,82.0,3.47,28.7,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:16.493727+00:00,tank_01,wine:tank_01,25.51,3.4,0.03,1.0001,1084.1,101.47,82.0,12.67,96.0,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:16.494891+00:00,tank_02,wine:tank_02,33.1,3.42,0.23,1.0009,1093.7,101.68,82.0,13.06,96.0,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:16:16.495915+00:00,tank_03,wine:tank_03,14.6,3.22,15.68,1.0,1102.2,101.58,82.0,3.51,29.0,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:21.502606+00:00,tank_01,wine:tank_01,24.92,3.37,-0.06,1.0,862.9,101.43,82.0,12.71,96.3,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:21.503806+00:00,tank_02,wine:tank_02,32.57,3.45,0.15,1.0006,903.6,101.43,82.0,13.1,96.3,late,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:16:21.504909+00:00,tank_03,wine:tank_03,14.14,3.2,15.61,1.0,852.1,101.43,82.0,3.55,29.3,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:26.511555+00:00,tank_01,wine:tank_01,25.34,3.4,-0.14,1.0,795.6,101.5,82.0,12.75,96.6,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:26.512639+00:00,tank_02,wine:tank_02,32.76,3.42,0.06,1.0002,710.3,101.61,82.0,13.14,96.6,late,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:16:26.513627+00:00,tank_03,wine:tank_03,14.04,3.22,15.53,1.0,770.4,101.51,82.0,3.59,29.7,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:31.519282+00:00,tank_01,wine:tank_01,25.74,3.38,-0.21,1.0,765.0,101.39,82.0,12.79,96.9,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:31.520344+00:00,tank_02,wine:tank_02,33.85,3.42,-0.01,1.0,756.7,101.53,82.0,13.18,96.9,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:16:31.521382+00:00,tank_03,wine:tank_03,14.93,3.24,15.46,1.0,747.2,101.53,82.0,3.62,30.0,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:36.527608+00:00,tank_01,wine:tank_01,25.93,3.38,-0.28,1.0,667.6,101.47,82.0,12.83,97.2,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:36.528697+00:00,tank_02,wine:tank_02,33.44,3.44,-0.08,1.0,649.3,101.42,82.0,13.22,97.2,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:16:36.529794+00:00,tank_03,wine:tank_03,14.81,3.22,15.38,1.0,552.0,101.48,82.0,3.67,30.3,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:41.536317+00:00,tank_01,wine:tank_01,25.38,3.37,-0.34,1.0,538.2,101.29,82.0,12.86,97.4,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:41.537340+00:00,tank_02,wine:tank_02,33.17,3.44,-0.14,1.0,547.3,101.57,82.0,13.25,97.4,late,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:16:41.538343+00:00,tank_03,wine:tank_03,14.4,3.2,15.31,1.0,615.9,101.42,82.0,3.7,30.6,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:46.543609+00:00,tank_01,wine:tank_01,24.6,3.39,-0.4,1.0,518.4,101.29,82.0,12.89,97.6,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:46.544684+00:00,tank_02,wine:tank_02,32.25,3.42,-0.2,1.0,576.7,101.36,82.0,13.28,97.7,late,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:16:46.545664+00:00,tank_03,wine:tank_03,13.85,3.23,15.23,1.0,446.7,101.46,82.0,3.74,30.9,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:51.552151+00:00,tank_01,wine:tank_01,25.24,3.39,-0.45,1.0,507.1,101.53,82.0,12.91,97.8,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:51.553234+00:00,tank_02,wine:tank_02,32.86,3.42,-0.25,1.0,523.6,101.44,82.0,13.31,97.9,late,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:16:51.554319+00:00,tank_03,wine:tank_03,13.96,3.22,15.16,1.0,526.6,101.52,82.0,3.78,31.2,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:16:56.560977+00:00,tank_01,wine:tank_01,25.72,3.37,-0.5,1.0,501.2,101.35,82.0,12.94,98.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:16:56.562007+00:00,tank_02,wine:tank_02,33.61,3.4,-0.29,1.0,528.5,101.46,82.0,13.33,98.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:16:56.563038+00:00,tank_03,wine:tank_03,15.02,3.21,15.08,1.0,547.0,101.5,82.0,3.82,31.6,late,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:17:01.569535+00:00,tank_01,wine:tank_01,25.66,3.39,-0.54,1.0,498.7,101.42,82.0,12.96,98.2,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:17:01.570727+00:00,tank_02,wine:tank_02,33.29,3.42,-0.34,1.0,493.0,101.28,82.0,13.36,98.2,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:17:01.571822+00:00,tank_03,wine:tank_03,14.71,3.24,15.01,1.0,525.7,101.39,82.0,3.86,31.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:17:06.578225+00:00,tank_01,wine:tank_01,24.72,3.37,-0.58,1.0,381.5,101.5,82.0,12.98,98.3,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:17:06.579284+00:00,tank_02,wine:tank_02,32.51,3.42,-0.38,1.0,519.1,101.3,82.0,13.38,98.4,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:17:06.580244+00:00,tank_03,wine:tank_03,13.98,3.21,14.93,1.0,430.6,101.55,82.0,3.9,32.2,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:17:11.586841+00:00,tank_01,wine:tank_01,24.71,3.39,-0.61,1.0,436.7,101.43,82.0,13.0,98.5,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:17:11.587956+00:00,tank_02,wine:tank_02,32.24,3.41,-0.41,1.0,490.2,101.44,82.0,13.4,98.5,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:17:11.588994+00:00,tank_03,wine:tank_03,13.59,3.2,14.86,1.0,477.2,101.44,82.0,3.93,32.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:17:16.595726+00:00,tank_01,wine:tank_01,25.27,3.36,-0.65,1.0,514.4,101.43,82.0,13.02,98.6,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:17:16.596817+00:00,tank_02,wine:tank_02,32.89,3.4,-0.45,1.0,514.5,101.42,82.0,13.41,98.6,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:17:16.597887+00:00,tank_03,wine:tank_03,14.41,3.24,14.78,1.0,353.0,101.3,82.0,3.97,32.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:17:21.604453+00:00,tank_01,wine:tank_01,25.54,3.38,-0.68,1.0,444.7,101.39,82.0,13.03,98.7,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:17:21.605541+00:00,tank_02,wine:tank_02,33.52,3.44,-0.48,1.0,345.6,101.35,82.0,13.43,98.7,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:17:21.606607+00:00,tank_03,wine:tank_03,14.5,3.21,14.71,1.0,453.9,101.36,82.0,4.01,33.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:17:26.613146+00:00,tank_01,wine:tank_01,25.25,3.38,-0.7,1.0,344.9,101.35,82.0,13.05,98.8,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:17:26.614220+00:00,tank_02,wine:tank_02,33.31,3.42,-0.5,1.0,380.5,101.28,82.0,13.44,98.9,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:17:26.615260+00:00,tank_03,wine:tank_03,14.38,3.22,14.63,1.0,422.5,101.37,82.0,4.05,33.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:17:31.619821+00:00,tank_01,wine:tank_01,24.56,3.35,-0.73,1.0,356.8,101.43,82.0,13.06,98.9,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:17:31.621047+00:00,tank_02,wine:tank_02,32.43,3.43,-0.53,1.0,381.1,101.34,82.0,13.46,99.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:17:31.622135+00:00,tank_03,wine:tank_03,13.56,3.23,14.55,1.0,406.9,101.35,82.0,4.09,33.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:17:36.627698+00:00,tank_01,wine:tank_01,24.43,3.39,-0.75,1.0,413.8,101.48,82.0,13.07,99.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:17:36.628908+00:00,tank_02,wine:tank_02,32.56,3.43,-0.55,1.0,395.3,101.37,82.0,13.47,99.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:17:36.629983+00:00,tank_03,wine:tank_03,13.47,3.2,14.48,1.0,465.1,101.46,82.0,4.13,34.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:17:41.636579+00:00,tank_01,wine:tank_01,25.39,3.39,-0.77,1.0,438.1,101.44,82.0,13.08,99.1,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:17:41.637883+00:00,tank_02,wine:tank_02,32.95,3.43,-0.57,1.0,336.5,101.26,82.0,13.48,99.1,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:17:41.639121+00:00,tank_03,wine:tank_03,14.33,3.23,14.41,1.0,336.3,101.3,82.0,4.17,34.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:17:46.643407+00:00,tank_01,wine:tank_01,25.65,3.35,-0.79,1.0,396.4,101.33,82.0,13.09,99.2,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:17:46.644596+00:00,tank_02,wine:tank_02,33.33,3.42,-0.59,1.0,456.4,101.55,82.0,13.49,99.2,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:17:46.645654+00:00,tank_03,wine:tank_03,14.58,3.24,14.33,1.0,395.8,101.43,82.0,4.21,34.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:17:51.652336+00:00,tank_01,wine:tank_01,25.39,3.36,-0.81,1.0,400.8,101.44,82.0,13.1,99.3,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:17:51.653470+00:00,tank_02,wine:tank_02,33.18,3.41,-0.61,1.0,499.7,101.43,82.0,13.5,99.3,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:17:51.654679+00:00,tank_03,wine:tank_03,14.05,3.24,14.26,1.0,485.6,101.56,82.0,4.24,35.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:17:56.661212+00:00,tank_01,wine:tank_01,24.34,3.38,-0.83,1.0,484.6,101.5,82.0,13.11,99.3,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:17:56.662394+00:00,tank_02,wine:tank_02,32.35,3.42,-0.63,1.0,383.5,101.48,82.0,13.51,99.3,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:17:56.663380+00:00,tank_03,wine:tank_03,13.49,3.23,14.18,1.0,377.4,101.52,82.0,4.28,35.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:18:01.669970+00:00,tank_01,wine:tank_01,24.58,3.38,-0.84,1.0,431.3,101.3,82.0,13.12,99.4,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:18:01.671185+00:00,tank_02,wine:tank_02,32.67,3.42,-0.64,1.0,393.0,101.33,82.0,13.52,99.4,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:18:01.672245+00:00,tank_03,wine:tank_03,13.44,3.22,14.11,1.0,403.2,101.46,82.0,4.32,35.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:18:06.678784+00:00,tank_01,wine:tank_01,25.16,3.37,-0.86,1.0,509.7,101.51,82.0,13.13,99.4,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:18:06.679998+00:00,tank_02,wine:tank_02,33.07,3.4,-0.66,1.0,467.1,101.42,82.0,13.52,99.4,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:18:06.681146+00:00,tank_03,wine:tank_03,14.13,3.21,14.03,1.0,365.2,101.46,82.0,4.36,36.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:18:11.687814+00:00,tank_01,wine:tank_01,25.74,3.36,-0.87,1.0,457.3,101.38,82.0,13.13,99.5,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:18:11.688899+00:00,tank_02,wine:tank_02,33.28,3.4,-0.67,1.0,500.2,101.48,82.0,13.53,99.5,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:18:11.689967+00:00,tank_03,wine:tank_03,14.42,3.21,13.96,1.0,400.5,101.26,82.0,4.4,36.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:18:16.695659+00:00,tank_01,wine:tank_01,24.92,3.39,-0.88,1.0,402.2,101.3,82.0,13.14,99.5,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:18:16.696760+00:00,tank_02,wine:tank_02,32.91,3.43,-0.68,1.0,408.3,101.3,82.0,13.54,99.5,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:18:16.697768+00:00,tank_03,wine:tank_03,14.29,3.22,13.88,1.0,336.3,101.35,82.0,4.44,36.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:18:21.703817+00:00,tank_01,wine:tank_01,24.7,3.37,-0.89,1.0,393.3,101.36,82.0,13.14,99.6,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:18:21.705034+00:00,tank_02,wine:tank_02,32.24,3.44,-0.69,1.0,409.5,101.31,82.0,13.54,99.6,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:18:21.706139+00:00,tank_03,wine:tank_03,13.48,3.22,13.81,1.0,338.0,101.29,82.0,4.47,37.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:18:26.712716+00:00,tank_01,wine:tank_01,24.99,3.35,-0.9,1.0,384.5,101.54,82.0,13.15,99.6,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:18:26.713958+00:00,tank_02,wine:tank_02,32.74,3.41,-0.7,1.0,480.7,101.38,82.0,13.55,99.6,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:18:26.715164+00:00,tank_03,wine:tank_03,13.99,3.22,13.73,1.0,366.9,101.37,82.0,4.52,37.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:18:31.721683+00:00,tank_01,wine:tank_01,25.37,3.36,-0.91,1.0,364.2,101.31,82.0,13.15,99.6,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:18:31.722871+00:00,tank_02,wine:tank_02,33.32,3.4,-0.71,1.0,455.4,101.54,82.0,13.55,99.6,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:18:31.724051+00:00,tank_03,wine:tank_03,14.26,3.22,13.66,1.0,483.3,101.31,82.0,4.55,37.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:18:36.730597+00:00,tank_01,wine:tank_01,25.71,3.39,-0.92,1.0,346.2,101.25,82.0,13.16,99.7,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:18:36.731818+00:00,tank_02,wine:tank_02,33.25,3.42,-0.72,1.0,479.9,101.41,82.0,13.56,99.7,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:18:36.732933+00:00,tank_03,wine:tank_03,14.71,3.23,13.58,1.0,432.1,101.37,82.0,4.59,38.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:18:41.735684+00:00,tank_01,wine:tank_01,24.91,3.39,-0.92,1.0,509.5,101.55,82.0,13.16,99.7,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:18:41.736852+00:00,tank_02,wine:tank_02,32.88,3.4,-0.72,1.0,384.9,101.36,82.0,13.56,99.7,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:18:41.738049+00:00,tank_03,wine:tank_03,13.76,3.23,13.51,1.0,354.9,101.26,82.0,4.63,38.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:18:46.744607+00:00,tank_01,wine:tank_01,24.28,3.38,-0.93,1.0,405.6,101.31,82.0,13.16,99.7,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:18:46.745778+00:00,tank_02,wine:tank_02,32.31,3.42,-0.73,1.0,427.3,101.47,82.0,13.56,99.7,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:18:46.747000+00:00,tank_03,wine:tank_03,13.62,3.23,13.43,1.0,469.9,101.37,82.0,4.67,38.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:18:51.753593+00:00,tank_01,wine:tank_01,24.92,3.39,-0.94,1.0,479.9,101.38,82.0,13.17,99.7,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:18:51.754921+00:00,tank_02,wine:tank_02,32.89,3.41,-0.74,1.0,438.6,101.52,82.0,13.57,99.7,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:18:51.756144+00:00,tank_03,wine:tank_03,13.82,3.2,13.36,1.0,428.3,101.38,82.0,4.71,38.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:18:56.762778+00:00,tank_01,wine:tank_01,25.39,3.37,-0.94,1.0,428.8,101.35,82.0,13.17,99.8,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:18:56.764025+00:00,tank_02,wine:tank_02,33.27,3.4,-0.74,1.0,415.8,101.31,82.0,13.57,99.8,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:18:56.765092+00:00,tank_03,wine:tank_03,14.42,3.22,13.28,1.0,431.3,101.53,82.0,4.75,39.2,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:19:01.771659+00:00,tank_01,wine:tank_01,25.67,3.35,-0.95,1.0,392.7,101.32,82.0,13.17,99.8,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:19:01.772775+00:00,tank_02,wine:tank_02,33.4,3.43,-0.75,1.0,449.0,101.44,82.0,13.57,99.8,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:19:01.773819+00:00,tank_03,wine:tank_03,14.39,3.2,13.21,1.0,465.2,101.49,82.0,4.78,39.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:19:06.780278+00:00,tank_01,wine:tank_01,24.54,3.35,-0.95,1.0,442.1,101.4,82.0,13.17,99.8,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:19:06.781365+00:00,tank_02,wine:tank_02,32.46,3.44,-0.75,1.0,407.7,101.36,82.0,13.57,99.8,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:19:06.782346+00:00,tank_03,wine:tank_03,13.49,3.21,13.13,1.0,345.6,101.4,82.0,4.82,39.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:19:11.787578+00:00,tank_01,wine:tank_01,24.35,3.35,-0.95,1.0,421.6,101.27,82.0,13.18,99.8,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:19:11.788541+00:00,tank_02,wine:tank_02,32.05,3.41,-0.75,1.0,392.2,101.4,82.0,13.58,99.8,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:19:11.789469+00:00,tank_03,wine:tank_03,13.4,3.23,13.05,1.0,366.8,101.26,82.0,4.87,40.2,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:19:16.795683+00:00,tank_01,wine:tank_01,25.22,3.37,-0.96,1.0,373.6,101.33,82.0,13.18,99.8,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:19:16.796820+00:00,tank_02,wine:tank_02,32.59,3.43,-0.76,1.0,418.4,101.39,82.0,13.58,99.8,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:19:16.797865+00:00,tank_03,wine:tank_03,13.8,3.24,12.98,1.0,344.8,101.5,82.0,4.9,40.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:19:21.803742+00:00,tank_01,wine:tank_01,25.68,3.36,-0.96,1.0,391.2,101.33,82.0,13.18,99.9,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:19:21.804944+00:00,tank_02,wine:tank_02,33.64,3.4,-0.76,1.0,418.0,101.48,82.0,13.58,99.9,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:19:21.806033+00:00,tank_03,wine:tank_03,14.5,3.2,12.91,1.0,408.8,101.28,82.0,4.94,40.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:19:26.811638+00:00,tank_01,wine:tank_01,25.51,3.39,-0.97,1.0,506.3,101.44,82.0,13.18,99.9,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:19:26.812865+00:00,tank_02,wine:tank_02,33.03,3.42,-0.77,1.0,437.7,101.53,82.0,13.58,99.9,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:19:26.814054+00:00,tank_03,wine:tank_03,14.16,3.22,12.83,1.0,405.6,101.26,82.0,4.98,41.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:19:31.820814+00:00,tank_01,wine:tank_01,24.52,3.39,-0.97,1.0,506.2,101.4,82.0,13.18,99.9,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:19:31.821996+00:00,tank_02,wine:tank_02,32.47,3.44,-0.77,1.0,498.5,101.32,82.0,13.58,99.9,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:19:31.823026+00:00,tank_03,wine:tank_03,13.84,3.2,12.76,1.0,391.2,101.34,82.0,5.02,41.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:19:36.829353+00:00,tank_01,wine:tank_01,24.41,3.38,-0.97,1.0,338.1,101.32,82.0,13.18,99.9,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:19:36.830198+00:00,tank_02,wine:tank_02,32.52,3.41,-0.77,1.0,361.1,101.24,82.0,13.58,99.9,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:19:36.830959+00:00,tank_03,wine:tank_03,13.72,3.22,12.68,1.0,357.7,101.47,82.0,5.06,41.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:19:41.837418+00:00,tank_01,wine:tank_01,25.18,3.39,-0.97,1.0,359.3,101.52,82.0,13.19,99.9,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:19:41.838720+00:00,tank_02,wine:tank_02,33.06,3.43,-0.77,1.0,372.0,101.25,82.0,13.59,99.9,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:19:41.839766+00:00,tank_03,wine:tank_03,14.39,3.23,12.61,1.0,446.0,101.38,82.0,5.09,42.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:19:46.846282+00:00,tank_01,wine:tank_01,25.39,3.38,-0.98,1.0,385.6,101.24,82.0,13.19,99.9,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:19:46.847385+00:00,tank_02,wine:tank_02,33.28,3.44,-0.78,1.0,487.4,101.4,82.0,13.59,99.9,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:19:46.848408+00:00,tank_03,wine:tank_03,14.74,3.2,12.53,1.0,506.0,101.38,82.0,5.13,42.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:19:51.855024+00:00,tank_01,wine:tank_01,25.23,3.39,-0.98,1.0,462.1,101.55,82.0,13.19,99.9,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:19:51.856164+00:00,tank_02,wine:tank_02,33.1,3.4,-0.78,1.0,460.3,101.5,82.0,13.59,99.9,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:19:51.857189+00:00,tank_03,wine:tank_03,14.0,3.24,12.46,1.0,503.1,101.29,82.0,5.17,42.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:19:56.863640+00:00,tank_01,wine:tank_01,24.5,3.36,-0.98,1.0,338.6,101.47,82.0,13.19,99.9,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:19:56.864631+00:00,tank_02,wine:tank_02,32.39,3.42,-0.78,1.0,352.0,101.39,82.0,13.59,99.9,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:19:56.865551+00:00,tank_03,wine:tank_03,13.37,3.21,12.38,1.0,378.4,101.53,82.0,5.21,43.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:20:01.872030+00:00,tank_01,wine:tank_01,24.41,3.37,-0.98,1.0,402.9,101.5,82.0,13.19,99.9,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:20:01.873177+00:00,tank_02,wine:tank_02,32.19,3.4,-0.78,1.0,371.3,101.48,82.0,13.59,99.9,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:20:01.874251+00:00,tank_03,wine:tank_03,13.51,3.23,12.3,1.0,432.8,101.45,82.0,5.25,43.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:20:06.880785+00:00,tank_01,wine:tank_01,25.55,3.39,-0.98,1.0,415.6,101.49,82.0,13.19,99.9,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:20:06.881886+00:00,tank_02,wine:tank_02,32.93,3.41,-0.78,1.0,495.9,101.56,82.0,13.59,99.9,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:20:06.882767+00:00,tank_03,wine:tank_03,14.12,3.24,12.23,1.0,381.5,101.39,82.0,5.29,43.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:20:11.889335+00:00,tank_01,wine:tank_01,25.66,3.37,-0.98,1.0,426.9,101.5,82.0,13.19,99.9,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:20:11.890475+00:00,tank_02,wine:tank_02,33.29,3.44,-0.78,1.0,354.8,101.35,82.0,13.59,99.9,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:20:11.891499+00:00,tank_03,wine:tank_03,14.4,3.24,12.16,1.0,379.1,101.25,82.0,5.32,44.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:20:16.895535+00:00,tank_01,wine:tank_01,25.0,3.37,-0.99,1.0,362.2,101.33,82.0,13.19,99.9,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:20:16.896561+00:00,tank_02,wine:tank_02,32.61,3.44,-0.79,1.0,436.4,101.47,82.0,13.59,99.9,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:20:16.897498+00:00,tank_03,wine:tank_03,13.81,3.21,12.08,1.0,457.7,101.28,82.0,5.37,44.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:20:21.903999+00:00,tank_01,wine:tank_01,24.58,3.39,-0.99,1.0,495.8,101.33,82.0,13.19,99.9,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:20:21.905065+00:00,tank_02,wine:tank_02,32.42,3.4,-0.79,1.0,387.1,101.34,82.0,13.59,99.9,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:20:21.906153+00:00,tank_03,wine:tank_03,13.33,3.24,12.01,1.0,476.0,101.39,82.0,5.4,44.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:20:26.912798+00:00,tank_01,wine:tank_01,24.68,3.36,-0.99,1.0,376.7,101.53,82.0,13.19,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:20:26.913908+00:00,tank_02,wine:tank_02,32.69,3.44,-0.79,1.0,507.8,101.47,82.0,13.59,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:20:26.915218+00:00,tank_03,wine:tank_03,13.58,3.21,11.93,1.0,397.5,101.38,82.0,5.44,45.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:20:31.921883+00:00,tank_01,wine:tank_01,25.67,3.39,-0.99,1.0,475.9,101.49,82.0,13.19,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:20:31.923005+00:00,tank_02,wine:tank_02,33.45,3.44,-0.79,1.0,333.5,101.3,82.0,13.59,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:20:31.924024+00:00,tank_03,wine:tank_03,14.45,3.21,11.86,1.0,370.6,101.46,82.0,5.48,45.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:20:36.930387+00:00,tank_01,wine:tank_01,25.76,3.39,-0.99,1.0,336.5,101.5,82.0,13.19,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:20:36.931407+00:00,tank_02,wine:tank_02,33.44,3.44,-0.79,1.0,427.0,101.48,82.0,13.59,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:20:36.932320+00:00,tank_03,wine:tank_03,14.5,3.2,11.78,1.0,465.7,101.29,82.0,5.52,45.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:20:41.939016+00:00,tank_01,wine:tank_01,24.73,3.37,-0.99,1.0,441.4,101.51,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:20:41.940282+00:00,tank_02,wine:tank_02,32.46,3.43,-0.79,1.0,415.3,101.43,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:20:41.941369+00:00,tank_03,wine:tank_03,13.84,3.22,11.71,1.0,356.4,101.33,82.0,5.56,45.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:20:46.947852+00:00,tank_01,wine:tank_01,24.56,3.38,-0.99,1.0,470.8,101.55,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:20:46.949101+00:00,tank_02,wine:tank_02,32.29,3.41,-0.79,1.0,388.3,101.35,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:20:46.950291+00:00,tank_03,wine:tank_03,13.44,3.2,11.63,1.0,336.1,101.25,82.0,5.6,46.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:20:51.957021+00:00,tank_01,wine:tank_01,24.97,3.38,-0.99,1.0,357.1,101.29,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:20:51.958225+00:00,tank_02,wine:tank_02,32.75,3.41,-0.79,1.0,376.0,101.51,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:20:51.959361+00:00,tank_03,wine:tank_03,13.75,3.21,11.55,1.0,423.2,101.37,82.0,5.64,46.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:20:56.965768+00:00,tank_01,wine:tank_01,25.64,3.38,-0.99,1.0,344.7,101.47,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:20:56.966899+00:00,tank_02,wine:tank_02,33.44,3.42,-0.79,1.0,460.2,101.36,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:20:56.967921+00:00,tank_03,wine:tank_03,14.39,3.2,11.48,1.0,428.0,101.52,82.0,5.67,46.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:21:01.974444+00:00,tank_01,wine:tank_01,25.31,3.39,-0.99,1.0,456.5,101.44,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:21:01.975637+00:00,tank_02,wine:tank_02,33.06,3.42,-0.79,1.0,339.7,101.33,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:21:01.976722+00:00,tank_03,wine:tank_03,14.53,3.2,11.41,1.0,400.4,101.28,82.0,5.71,47.2,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:21:06.983538+00:00,tank_01,wine:tank_01,24.77,3.36,-0.99,1.0,354.8,101.3,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:21:06.984659+00:00,tank_02,wine:tank_02,32.42,3.42,-0.79,1.0,362.2,101.25,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:21:06.985754+00:00,tank_03,wine:tank_03,13.54,3.24,11.33,1.0,349.9,101.38,82.0,5.75,47.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:21:11.992314+00:00,tank_01,wine:tank_01,24.53,3.35,-0.99,1.0,473.7,101.33,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:21:11.993373+00:00,tank_02,wine:tank_02,32.26,3.42,-0.79,1.0,459.5,101.32,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:21:11.994408+00:00,tank_03,wine:tank_03,13.38,3.2,11.26,1.0,347.8,101.31,82.0,5.79,47.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:21:17.000877+00:00,tank_01,wine:tank_01,24.88,3.38,-1.0,1.0,402.9,101.46,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:21:17.001831+00:00,tank_02,wine:tank_02,32.75,3.44,-0.8,1.0,333.2,101.33,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:21:17.002647+00:00,tank_03,wine:tank_03,14.2,3.2,11.18,1.0,381.5,101.33,82.0,5.83,48.2,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:21:22.009179+00:00,tank_01,wine:tank_01,25.34,3.35,-1.0,1.0,347.6,101.39,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:21:22.010252+00:00,tank_02,wine:tank_02,33.49,3.41,-0.8,1.0,335.8,101.5,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:21:22.011327+00:00,tank_03,wine:tank_03,14.4,3.23,11.11,1.0,436.5,101.48,82.0,5.86,48.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:21:27.017919+00:00,tank_01,wine:tank_01,25.06,3.35,-1.0,1.0,488.1,101.31,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:21:27.019063+00:00,tank_02,wine:tank_02,32.96,3.42,-0.8,1.0,398.6,101.41,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:21:27.020077+00:00,tank_03,wine:tank_03,14.29,3.2,11.03,1.0,508.2,101.57,82.0,5.91,48.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:21:32.026733+00:00,tank_01,wine:tank_01,24.35,3.38,-1.0,1.0,378.7,101.3,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:21:32.027831+00:00,tank_02,wine:tank_02,32.14,3.4,-0.8,1.0,373.4,101.46,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:21:32.028817+00:00,tank_03,wine:tank_03,13.41,3.22,10.96,1.0,395.0,101.39,82.0,5.94,49.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:21:37.035357+00:00,tank_01,wine:tank_01,24.51,3.35,-1.0,1.0,370.1,101.42,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:21:37.036363+00:00,tank_02,wine:tank_02,32.33,3.41,-0.8,1.0,411.2,101.26,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:21:37.037337+00:00,tank_03,wine:tank_03,13.48,3.22,10.88,1.0,475.3,101.3,82.0,5.98,49.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:21:42.043798+00:00,tank_01,wine:tank_01,25.01,3.35,-1.0,1.0,438.0,101.49,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:21:42.044971+00:00,tank_02,wine:tank_02,32.71,3.42,-0.8,1.0,374.5,101.27,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:21:42.046053+00:00,tank_03,wine:tank_03,14.07,3.22,10.8,1.0,362.5,101.34,82.0,6.02,49.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:21:47.052557+00:00,tank_01,wine:tank_01,25.72,3.35,-1.0,1.0,349.8,101.46,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:21:47.053603+00:00,tank_02,wine:tank_02,33.33,3.44,-0.8,1.0,501.0,101.42,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:21:47.054606+00:00,tank_03,wine:tank_03,14.78,3.22,10.73,1.0,400.8,101.26,82.0,6.06,50.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:21:52.061268+00:00,tank_01,wine:tank_01,25.41,3.38,-1.0,1.0,404.3,101.26,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:21:52.062388+00:00,tank_02,wine:tank_02,32.84,3.44,-0.8,1.0,413.8,101.34,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:21:52.063387+00:00,tank_03,wine:tank_03,14.17,3.24,10.66,1.0,402.5,101.41,82.0,6.1,50.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:21:57.069699+00:00,tank_01,wine:tank_01,24.45,3.35,-1.0,1.0,509.7,101.44,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:21:57.070566+00:00,tank_02,wine:tank_02,32.42,3.43,-0.8,1.0,339.7,101.43,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:21:57.071376+00:00,tank_03,wine:tank_03,13.55,3.22,10.58,1.0,350.6,101.51,82.0,6.14,50.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:22:02.075160+00:00,tank_01,wine:tank_01,24.5,3.37,-1.0,1.0,346.3,101.31,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:22:02.075830+00:00,tank_02,wine:tank_02,32.22,3.41,-0.8,1.0,438.5,101.3,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:22:02.076449+00:00,tank_03,wine:tank_03,13.74,3.24,10.51,1.0,344.3,101.36,82.0,6.17,51.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:22:07.082777+00:00,tank_01,wine:tank_01,25.34,3.37,-1.0,1.0,386.7,101.36,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:22:07.083581+00:00,tank_02,wine:tank_02,33.32,3.4,-0.8,1.0,448.7,101.43,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:22:07.084480+00:00,tank_03,wine:tank_03,14.44,3.21,10.43,1.0,364.5,101.37,82.0,6.21,51.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:22:12.091219+00:00,tank_01,wine:tank_01,25.82,3.37,-1.0,1.0,376.9,101.37,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:22:12.092359+00:00,tank_02,wine:tank_02,33.37,3.42,-0.8,1.0,486.5,101.49,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:22:12.093485+00:00,tank_03,wine:tank_03,14.63,3.24,10.36,1.0,361.3,101.3,82.0,6.25,51.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:22:17.099617+00:00,tank_01,wine:tank_01,24.9,3.37,-1.0,1.0,417.9,101.26,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:22:17.100656+00:00,tank_02,wine:tank_02,32.6,3.41,-0.8,1.0,419.3,101.34,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:22:17.101495+00:00,tank_03,wine:tank_03,14.02,3.23,10.28,1.0,417.3,101.36,82.0,6.29,52.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:22:22.108081+00:00,tank_01,wine:tank_01,24.66,3.38,-1.0,1.0,486.5,101.28,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:22:22.109179+00:00,tank_02,wine:tank_02,32.29,3.41,-0.8,1.0,496.9,101.52,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:22:22.110210+00:00,tank_03,wine:tank_03,13.54,3.21,10.21,1.0,396.7,101.39,82.0,6.33,52.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:22:27.116807+00:00,tank_01,wine:tank_01,24.92,3.35,-1.0,1.0,418.4,101.41,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:22:27.117974+00:00,tank_02,wine:tank_02,32.4,3.42,-0.8,1.0,360.1,101.43,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:22:27.119135+00:00,tank_03,wine:tank_03,13.5,3.22,10.13,1.0,501.4,101.32,82.0,6.37,52.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:22:32.125788+00:00,tank_01,wine:tank_01,25.41,3.38,-1.0,1.0,475.5,101.35,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:22:32.127019+00:00,tank_02,wine:tank_02,33.33,3.4,-0.8,1.0,421.9,101.55,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:22:32.128145+00:00,tank_03,wine:tank_03,14.31,3.23,10.05,1.0,331.1,101.46,82.0,6.41,53.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:22:37.134479+00:00,tank_01,wine:tank_01,25.36,3.39,-1.0,1.0,372.0,101.3,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:22:37.135492+00:00,tank_02,wine:tank_02,33.46,3.44,-0.8,1.0,338.2,101.49,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:22:37.136390+00:00,tank_03,wine:tank_03,14.66,3.23,9.98,1.0,467.7,101.54,82.0,6.45,53.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:22:42.142974+00:00,tank_01,wine:tank_01,24.67,3.39,-1.0,1.0,341.3,101.44,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:22:42.144033+00:00,tank_02,wine:tank_02,32.59,3.4,-0.8,1.0,452.8,101.26,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:22:42.145094+00:00,tank_03,wine:tank_03,13.94,3.22,9.91,1.0,344.5,101.34,82.0,6.48,53.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:22:47.151487+00:00,tank_01,wine:tank_01,24.43,3.36,-1.0,1.0,466.2,101.36,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:22:47.152596+00:00,tank_02,wine:tank_02,32.17,3.41,-0.8,1.0,483.3,101.55,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:22:47.153646+00:00,tank_03,wine:tank_03,13.57,3.22,9.83,1.0,412.8,101.5,82.0,6.52,53.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:22:52.160283+00:00,tank_01,wine:tank_01,24.93,3.35,-1.0,1.0,462.6,101.54,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:22:52.161428+00:00,tank_02,wine:tank_02,32.64,3.42,-0.8,1.0,462.0,101.32,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:22:52.162527+00:00,tank_03,wine:tank_03,13.98,3.21,9.76,1.0,355.8,101.25,82.0,6.56,54.2,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:22:57.167326+00:00,tank_01,wine:tank_01,25.43,3.38,-1.0,1.0,411.4,101.29,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:22:57.168310+00:00,tank_02,wine:tank_02,33.52,3.4,-0.8,1.0,356.3,101.25,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:22:57.169262+00:00,tank_03,wine:tank_03,14.56,3.21,9.68,1.0,386.2,101.27,82.0,6.6,54.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:23:02.175556+00:00,tank_01,wine:tank_01,25.22,3.39,-1.0,1.0,379.2,101.43,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:23:02.176621+00:00,tank_02,wine:tank_02,33.2,3.43,-0.8,1.0,447.1,101.47,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:23:02.177781+00:00,tank_03,wine:tank_03,14.3,3.2,9.61,1.0,433.7,101.44,82.0,6.64,54.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:23:07.183460+00:00,tank_01,wine:tank_01,24.88,3.37,-1.0,1.0,346.3,101.36,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:23:07.184526+00:00,tank_02,wine:tank_02,32.69,3.42,-0.8,1.0,407.0,101.36,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:23:07.185426+00:00,tank_03,wine:tank_03,13.79,3.22,9.53,1.0,496.7,101.31,82.0,6.68,55.2,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:23:12.191430+00:00,tank_01,wine:tank_01,24.25,3.38,-1.0,1.0,484.8,101.28,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:23:12.192474+00:00,tank_02,wine:tank_02,32.04,3.44,-0.8,1.0,433.2,101.36,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:23:12.193384+00:00,tank_03,wine:tank_03,13.46,3.21,9.46,1.0,345.7,101.43,82.0,6.71,55.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:23:17.199846+00:00,tank_01,wine:tank_01,24.76,3.37,-1.0,1.0,444.6,101.42,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:23:17.200884+00:00,tank_02,wine:tank_02,32.76,3.41,-0.8,1.0,472.5,101.53,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:23:17.201869+00:00,tank_03,wine:tank_03,14.02,3.23,9.38,1.0,406.8,101.53,82.0,6.76,55.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:23:22.207716+00:00,tank_01,wine:tank_01,25.36,3.38,-1.0,1.0,479.6,101.48,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:23:22.208865+00:00,tank_02,wine:tank_02,33.5,3.42,-0.8,1.0,481.0,101.5,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:23:22.209986+00:00,tank_03,wine:tank_03,14.69,3.2,9.3,1.0,330.6,101.49,82.0,6.8,56.2,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:23:27.216407+00:00,tank_01,wine:tank_01,25.14,3.37,-1.0,1.0,343.6,101.43,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:23:27.217429+00:00,tank_02,wine:tank_02,33.08,3.41,-0.8,1.0,470.0,101.45,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:23:27.218573+00:00,tank_03,wine:tank_03,14.45,3.24,9.23,1.0,371.1,101.53,82.0,6.83,56.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:23:32.224966+00:00,tank_01,wine:tank_01,24.67,3.36,-1.0,1.0,362.0,101.3,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:23:32.226020+00:00,tank_02,wine:tank_02,32.15,3.41,-0.8,1.0,367.1,101.53,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:23:32.227078+00:00,tank_03,wine:tank_03,13.52,3.2,9.16,1.0,476.2,101.48,82.0,6.87,56.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:23:37.233512+00:00,tank_01,wine:tank_01,24.25,3.38,-1.0,1.0,426.3,101.48,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:23:37.234548+00:00,tank_02,wine:tank_02,32.04,3.44,-0.8,1.0,476.9,101.47,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:23:37.235542+00:00,tank_03,wine:tank_03,13.31,3.22,9.08,1.0,377.8,101.53,82.0,6.91,57.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:23:42.239728+00:00,tank_01,wine:tank_01,25.34,3.35,-1.0,1.0,347.9,101.38,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:23:42.240977+00:00,tank_02,wine:tank_02,33.07,3.43,-0.8,1.0,509.8,101.29,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:23:42.242161+00:00,tank_03,wine:tank_03,13.99,3.22,9.01,1.0,446.5,101.28,82.0,6.95,57.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:23:47.248820+00:00,tank_01,wine:tank_01,25.44,3.37,-1.0,1.0,370.6,101.52,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:23:47.250079+00:00,tank_02,wine:tank_02,33.45,3.42,-0.8,1.0,441.4,101.44,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:23:47.251280+00:00,tank_03,wine:tank_03,14.57,3.2,8.93,1.0,387.2,101.38,82.0,6.99,57.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:23:52.257922+00:00,tank_01,wine:tank_01,24.93,3.36,-1.0,1.0,419.2,101.39,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:23:52.259026+00:00,tank_02,wine:tank_02,33.13,3.4,-0.8,1.0,460.5,101.34,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:23:52.260058+00:00,tank_03,wine:tank_03,14.06,3.23,8.86,1.0,416.3,101.48,82.0,7.02,58.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:23:57.266294+00:00,tank_01,wine:tank_01,24.7,3.35,-1.0,1.0,484.7,101.35,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:23:57.267108+00:00,tank_02,wine:tank_02,32.33,3.42,-0.8,1.0,496.5,101.29,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:23:57.267872+00:00,tank_03,wine:tank_03,13.68,3.23,8.78,1.0,384.8,101.4,82.0,7.06,58.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:24:02.274249+00:00,tank_01,wine:tank_01,24.4,3.35,-1.0,1.0,428.5,101.43,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:24:02.275180+00:00,tank_02,wine:tank_02,32.13,3.4,-0.8,1.0,398.6,101.26,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:24:02.276097+00:00,tank_03,wine:tank_03,13.76,3.21,8.71,1.0,430.7,101.46,82.0,7.1,58.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:24:07.282555+00:00,tank_01,wine:tank_01,25.06,3.35,-1.0,1.0,474.3,101.34,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:24:07.283609+00:00,tank_02,wine:tank_02,32.88,3.44,-0.8,1.0,411.8,101.31,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:24:07.284657+00:00,tank_03,wine:tank_03,14.21,3.21,8.63,1.0,482.6,101.54,82.0,7.14,59.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:24:12.291172+00:00,tank_01,wine:tank_01,25.37,3.36,-1.0,1.0,404.6,101.49,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:24:12.292174+00:00,tank_02,wine:tank_02,33.25,3.43,-0.8,1.0,459.4,101.54,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:24:12.293116+00:00,tank_03,wine:tank_03,14.35,3.21,8.56,1.0,370.0,101.51,82.0,7.18,59.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:24:17.299210+00:00,tank_01,wine:tank_01,24.96,3.35,-1.0,1.0,380.5,101.38,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:24:17.300135+00:00,tank_02,wine:tank_02,32.97,3.4,-0.8,1.0,499.4,101.4,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:24:17.301093+00:00,tank_03,wine:tank_03,13.82,3.2,8.48,1.0,492.7,101.3,82.0,7.22,59.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:24:22.307481+00:00,tank_01,wine:tank_01,24.23,3.38,-1.0,1.0,440.6,101.28,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:24:22.308540+00:00,tank_02,wine:tank_02,32.22,3.42,-0.8,1.0,469.4,101.48,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:24:22.309629+00:00,tank_03,wine:tank_03,13.22,3.23,8.41,1.0,401.6,101.32,82.0,7.25,60.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:24:27.315773+00:00,tank_01,wine:tank_01,24.71,3.39,-1.0,1.0,412.1,101.46,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:24:27.316817+00:00,tank_02,wine:tank_02,32.7,3.44,-0.8,1.0,492.6,101.55,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:24:27.317865+00:00,tank_03,wine:tank_03,13.88,3.21,8.33,1.0,371.5,101.39,82.0,7.3,60.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:24:32.323486+00:00,tank_01,wine:tank_01,25.26,3.39,-1.0,1.0,473.4,101.4,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:24:32.324555+00:00,tank_02,wine:tank_02,33.41,3.43,-0.8,1.0,335.4,101.31,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:24:32.325546+00:00,tank_03,wine:tank_03,14.44,3.21,8.26,1.0,452.9,101.38,82.0,7.33,60.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:24:37.330512+00:00,tank_01,wine:tank_01,25.4,3.38,-1.0,1.0,460.5,101.55,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:24:37.331456+00:00,tank_02,wine:tank_02,33.56,3.43,-0.8,1.0,407.4,101.45,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:24:37.332344+00:00,tank_03,wine:tank_03,14.32,3.23,8.18,1.0,498.4,101.55,82.0,7.37,60.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:24:42.338719+00:00,tank_01,wine:tank_01,24.91,3.39,-1.0,1.0,490.7,101.3,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:24:42.339773+00:00,tank_02,wine:tank_02,32.75,3.43,-0.8,1.0,367.0,101.38,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:24:42.340840+00:00,tank_03,wine:tank_03,13.81,3.24,8.11,1.0,354.4,101.25,82.0,7.41,61.2,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:24:47.347526+00:00,tank_01,wine:tank_01,24.54,3.35,-1.0,1.0,415.1,101.46,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:24:47.348677+00:00,tank_02,wine:tank_02,32.29,3.4,-0.8,1.0,492.8,101.38,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:24:47.349721+00:00,tank_03,wine:tank_03,13.47,3.23,8.03,1.0,345.5,101.48,82.0,7.45,61.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:24:52.356323+00:00,tank_01,wine:tank_01,24.68,3.37,-1.0,1.0,362.8,101.28,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:24:52.357561+00:00,tank_02,wine:tank_02,32.72,3.44,-0.8,1.0,509.5,101.57,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:24:52.358700+00:00,tank_03,wine:tank_03,13.93,3.23,7.96,1.0,401.6,101.52,82.0,7.49,61.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:24:57.363732+00:00,tank_01,wine:tank_01,25.75,3.38,-1.0,1.0,463.9,101.55,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:24:57.365027+00:00,tank_02,wine:tank_02,33.29,3.4,-0.8,1.0,391.8,101.39,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:24:57.366283+00:00,tank_03,wine:tank_03,14.53,3.24,7.88,1.0,381.3,101.34,82.0,7.53,62.2,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:25:02.372831+00:00,tank_01,wine:tank_01,25.66,3.36,-1.0,1.0,416.3,101.35,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:25:02.374061+00:00,tank_02,wine:tank_02,33.46,3.41,-0.8,1.0,386.8,101.27,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:25:02.375139+00:00,tank_03,wine:tank_03,14.34,3.2,7.81,1.0,359.8,101.31,82.0,7.56,62.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:25:07.381818+00:00,tank_01,wine:tank_01,24.86,3.36,-1.0,1.0,337.0,101.4,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:25:07.382904+00:00,tank_02,wine:tank_02,32.5,3.41,-0.8,1.0,342.8,101.44,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:25:07.383890+00:00,tank_03,wine:tank_03,13.78,3.2,7.73,1.0,358.6,101.47,82.0,7.6,62.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:25:12.387874+00:00,tank_01,wine:tank_01,24.6,3.35,-1.0,1.0,412.8,101.35,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:25:12.389049+00:00,tank_02,wine:tank_02,32.33,3.42,-0.8,1.0,414.8,101.36,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:25:12.390207+00:00,tank_03,wine:tank_03,13.39,3.23,7.66,1.0,416.7,101.41,82.0,7.64,63.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:25:17.395487+00:00,tank_01,wine:tank_01,25.13,3.37,-1.0,1.0,480.8,101.3,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:25:17.396505+00:00,tank_02,wine:tank_02,32.98,3.43,-0.8,1.0,436.4,101.44,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:25:17.397436+00:00,tank_03,wine:tank_03,14.04,3.2,7.58,1.0,359.6,101.28,82.0,7.68,63.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:25:22.399784+00:00,tank_01,wine:tank_01,25.54,3.37,-1.0,1.0,506.8,101.43,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:25:22.400991+00:00,tank_02,wine:tank_02,33.44,3.41,-0.8,1.0,435.7,101.35,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:25:22.402098+00:00,tank_03,wine:tank_03,14.45,3.23,7.51,1.0,452.3,101.52,82.0,7.72,63.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:25:27.408694+00:00,tank_01,wine:tank_01,25.15,3.39,-1.0,1.0,405.2,101.28,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:25:27.409867+00:00,tank_02,wine:tank_02,33.07,3.42,-0.8,1.0,491.6,101.48,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:25:27.410983+00:00,tank_03,wine:tank_03,14.42,3.22,7.43,1.0,386.0,101.54,82.0,7.76,64.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:25:32.417539+00:00,tank_01,wine:tank_01,24.76,3.38,-1.0,1.0,486.0,101.48,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:25:32.418645+00:00,tank_02,wine:tank_02,32.35,3.42,-0.8,1.0,504.8,101.32,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:25:32.419592+00:00,tank_03,wine:tank_03,13.69,3.23,7.36,1.0,488.5,101.54,82.0,7.8,64.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:25:37.425944+00:00,tank_01,wine:tank_01,24.35,3.37,-1.0,1.0,383.8,101.5,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:25:37.426903+00:00,tank_02,wine:tank_02,32.48,3.42,-0.8,1.0,437.2,101.51,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:25:37.427867+00:00,tank_03,wine:tank_03,13.69,3.22,7.28,1.0,456.0,101.49,82.0,7.84,64.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:25:42.434541+00:00,tank_01,wine:tank_01,25.23,3.38,-1.0,1.0,391.9,101.35,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:25:42.435556+00:00,tank_02,wine:tank_02,32.84,3.43,-0.8,1.0,336.3,101.42,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:25:42.436515+00:00,tank_03,wine:tank_03,14.01,3.21,7.21,1.0,444.1,101.38,82.0,7.87,65.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:25:47.443133+00:00,tank_01,wine:tank_01,25.8,3.38,-1.0,1.0,340.2,101.42,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:25:47.444319+00:00,tank_02,wine:tank_02,33.28,3.42,-0.8,1.0,383.7,101.27,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:25:47.445370+00:00,tank_03,wine:tank_03,14.53,3.21,7.13,1.0,371.4,101.44,82.0,7.91,65.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:25:52.452033+00:00,tank_01,wine:tank_01,25.08,3.38,-1.0,1.0,357.7,101.35,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:25:52.453111+00:00,tank_02,wine:tank_02,33.1,3.43,-0.8,1.0,463.7,101.48,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:25:52.454082+00:00,tank_03,wine:tank_03,14.33,3.23,7.06,1.0,345.4,101.42,82.0,7.95,65.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:25:57.460387+00:00,tank_01,wine:tank_01,24.32,3.38,-1.0,1.0,458.6,101.27,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:25:57.461345+00:00,tank_02,wine:tank_02,32.17,3.4,-0.8,1.0,418.4,101.54,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:25:57.462253+00:00,tank_03,wine:tank_03,13.23,3.2,6.98,1.0,406.5,101.33,82.0,7.99,66.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:26:02.468793+00:00,tank_01,wine:tank_01,24.63,3.38,-1.0,1.0,474.0,101.45,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:26:02.469815+00:00,tank_02,wine:tank_02,32.15,3.4,-0.8,1.0,404.2,101.48,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:26:02.470699+00:00,tank_03,wine:tank_03,13.75,3.24,6.91,1.0,378.4,101.28,82.0,8.03,66.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:26:07.477318+00:00,tank_01,wine:tank_01,25.21,3.39,-1.0,1.0,489.1,101.41,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:26:07.478473+00:00,tank_02,wine:tank_02,32.98,3.44,-0.8,1.0,440.0,101.34,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:26:07.479613+00:00,tank_03,wine:tank_03,14.21,3.23,6.83,1.0,356.6,101.38,82.0,8.07,66.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:26:12.484513+00:00,tank_01,wine:tank_01,25.59,3.38,-1.0,1.0,347.4,101.43,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:26:12.485547+00:00,tank_02,wine:tank_02,33.4,3.42,-0.8,1.0,509.5,101.43,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:26:12.486518+00:00,tank_03,wine:tank_03,14.61,3.24,6.76,1.0,456.3,101.48,82.0,8.1,67.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:26:17.491541+00:00,tank_01,wine:tank_01,24.76,3.36,-1.0,1.0,449.7,101.53,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:26:17.492464+00:00,tank_02,wine:tank_02,32.87,3.4,-0.8,1.0,502.9,101.37,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:26:17.493375+00:00,tank_03,wine:tank_03,14.05,3.24,6.68,1.0,355.4,101.32,82.0,8.15,67.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:26:22.499763+00:00,tank_01,wine:tank_01,24.25,3.36,-1.0,1.0,391.8,101.34,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:26:22.500851+00:00,tank_02,wine:tank_02,32.04,3.41,-0.8,1.0,493.3,101.39,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:26:22.501830+00:00,tank_03,wine:tank_03,13.66,3.24,6.61,1.0,414.8,101.36,82.0,8.18,67.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:26:27.508492+00:00,tank_01,wine:tank_01,24.78,3.39,-1.0,1.0,476.4,101.49,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:26:27.509587+00:00,tank_02,wine:tank_02,32.74,3.41,-0.8,1.0,400.0,101.47,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:26:27.510620+00:00,tank_03,wine:tank_03,13.61,3.22,6.53,1.0,482.1,101.39,82.0,8.22,68.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:26:32.517265+00:00,tank_01,wine:tank_01,25.23,3.36,-1.0,1.0,369.0,101.53,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:26:32.518367+00:00,tank_02,wine:tank_02,33.39,3.43,-0.8,1.0,436.2,101.41,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:26:32.519404+00:00,tank_03,wine:tank_03,14.27,3.23,6.46,1.0,480.4,101.47,82.0,8.26,68.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:26:37.525744+00:00,tank_01,wine:tank_01,25.29,3.35,-1.0,1.0,479.1,101.45,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:26:37.526704+00:00,tank_02,wine:tank_02,33.09,3.42,-0.8,1.0,390.9,101.32,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:26:37.527553+00:00,tank_03,wine:tank_03,14.62,3.24,6.38,1.0,342.1,101.49,82.0,8.3,68.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:26:42.534067+00:00,tank_01,wine:tank_01,24.81,3.39,-1.0,1.0,334.5,101.34,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:26:42.535352+00:00,tank_02,wine:tank_02,32.88,3.41,-0.8,1.0,507.7,101.28,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:26:42.536583+00:00,tank_03,wine:tank_03,14.07,3.23,6.31,1.0,432.6,101.4,82.0,8.34,68.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:26:47.543276+00:00,tank_01,wine:tank_01,24.41,3.37,-1.0,1.0,370.3,101.34,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:26:47.544519+00:00,tank_02,wine:tank_02,32.03,3.41,-0.8,1.0,476.0,101.33,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:26:47.545581+00:00,tank_03,wine:tank_03,13.56,3.21,6.23,1.0,361.6,101.35,82.0,8.38,69.2,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:26:52.552172+00:00,tank_01,wine:tank_01,24.68,3.35,-1.0,1.0,462.5,101.53,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:26:52.553453+00:00,tank_02,wine:tank_02,32.86,3.44,-0.8,1.0,414.2,101.32,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:26:52.554630+00:00,tank_03,wine:tank_03,13.9,3.21,6.16,1.0,400.1,101.26,82.0,8.41,69.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:26:57.561082+00:00,tank_01,wine:tank_01,25.58,3.36,-1.0,1.0,399.0,101.32,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:26:57.562108+00:00,tank_02,wine:tank_02,33.4,3.41,-0.8,1.0,378.4,101.36,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:26:57.562839+00:00,tank_03,wine:tank_03,14.34,3.23,6.08,1.0,438.7,101.44,82.0,8.45,69.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:27:02.569447+00:00,tank_01,wine:tank_01,25.67,3.37,-1.0,1.0,428.8,101.52,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:27:02.570522+00:00,tank_02,wine:tank_02,33.46,3.43,-0.8,1.0,406.7,101.47,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:27:02.571563+00:00,tank_03,wine:tank_03,14.51,3.23,6.01,1.0,397.7,101.42,82.0,8.49,70.2,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:27:07.575390+00:00,tank_01,wine:tank_01,24.69,3.36,-1.0,1.0,374.6,101.3,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:27:07.576365+00:00,tank_02,wine:tank_02,32.7,3.42,-0.8,1.0,496.9,101.41,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:27:07.577342+00:00,tank_03,wine:tank_03,13.81,3.22,5.93,1.0,473.5,101.45,82.0,8.53,70.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:27:12.583611+00:00,tank_01,wine:tank_01,24.32,3.36,-1.0,1.0,484.0,101.43,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:27:12.584658+00:00,tank_02,wine:tank_02,32.17,3.43,-0.8,1.0,414.0,101.33,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:27:12.585593+00:00,tank_03,wine:tank_03,13.54,3.21,5.86,1.0,414.2,101.3,82.0,8.57,70.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:27:17.591980+00:00,tank_01,wine:tank_01,25.02,3.38,-1.0,1.0,351.4,101.43,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:27:17.592949+00:00,tank_02,wine:tank_02,32.83,3.4,-0.8,1.0,452.7,101.41,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:27:17.593866+00:00,tank_03,wine:tank_03,14.07,3.22,5.78,1.0,359.5,101.33,82.0,8.61,71.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:27:22.600453+00:00,tank_01,wine:tank_01,25.57,3.36,-1.0,1.0,458.4,101.32,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:27:22.601556+00:00,tank_02,wine:tank_02,33.52,3.42,-0.8,1.0,451.5,101.46,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:27:22.602586+00:00,tank_03,wine:tank_03,14.5,3.21,5.71,1.0,481.7,101.34,82.0,8.65,71.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:27:27.608983+00:00,tank_01,wine:tank_01,25.21,3.39,-1.0,1.0,420.0,101.39,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:27:27.609985+00:00,tank_02,wine:tank_02,33.23,3.42,-0.8,1.0,509.0,101.45,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:27:27.610937+00:00,tank_03,wine:tank_03,14.33,3.2,5.63,1.0,402.1,101.34,82.0,8.69,71.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:27:32.617646+00:00,tank_01,wine:tank_01,24.82,3.36,-1.0,1.0,405.6,101.37,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:27:32.618835+00:00,tank_02,wine:tank_02,32.3,3.42,-0.8,1.0,423.4,101.48,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:27:32.619971+00:00,tank_03,wine:tank_03,13.75,3.21,5.56,1.0,350.5,101.43,82.0,8.72,72.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:27:37.626384+00:00,tank_01,wine:tank_01,24.56,3.35,-1.0,1.0,463.3,101.27,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:27:37.627373+00:00,tank_02,wine:tank_02,32.08,3.43,-0.8,1.0,398.0,101.39,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:27:37.628326+00:00,tank_03,wine:tank_03,13.65,3.22,5.48,1.0,432.5,101.51,82.0,8.76,72.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:27:42.634901+00:00,tank_01,wine:tank_01,25.16,3.37,-1.0,1.0,436.6,101.33,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:27:42.636125+00:00,tank_02,wine:tank_02,32.82,3.42,-0.8,1.0,407.4,101.42,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:27:42.637519+00:00,tank_03,wine:tank_03,14.27,3.23,5.41,1.0,363.9,101.34,82.0,8.8,72.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:27:47.639676+00:00,tank_01,wine:tank_01,25.38,3.35,-1.0,1.0,421.6,101.48,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:27:47.640938+00:00,tank_02,wine:tank_02,33.37,3.44,-0.8,1.0,349.5,101.52,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:27:47.642345+00:00,tank_03,wine:tank_03,14.57,3.23,5.33,1.0,460.6,101.43,82.0,8.84,73.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:27:52.648866+00:00,tank_01,wine:tank_01,25.13,3.37,-1.0,1.0,331.2,101.25,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:27:52.650030+00:00,tank_02,wine:tank_02,32.83,3.42,-0.8,1.0,469.3,101.36,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:27:52.651358+00:00,tank_03,wine:tank_03,13.95,3.23,5.26,1.0,504.0,101.3,82.0,8.88,73.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:27:57.657746+00:00,tank_01,wine:tank_01,24.5,3.35,-1.0,1.0,492.1,101.37,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:27:57.658832+00:00,tank_02,wine:tank_02,32.32,3.4,-0.8,1.0,372.6,101.5,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:27:57.659804+00:00,tank_03,wine:tank_03,13.62,3.24,5.18,1.0,392.6,101.35,82.0,8.92,73.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:28:02.666498+00:00,tank_01,wine:tank_01,24.55,3.37,-1.0,1.0,408.2,101.33,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:28:02.667713+00:00,tank_02,wine:tank_02,32.34,3.44,-0.8,1.0,354.2,101.48,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:28:02.668865+00:00,tank_03,wine:tank_03,13.63,3.24,5.11,1.0,340.4,101.39,82.0,8.95,74.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:28:07.675580+00:00,tank_01,wine:tank_01,25.43,3.37,-1.0,1.0,391.8,101.38,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:28:07.676817+00:00,tank_02,wine:tank_02,33.15,3.43,-0.8,1.0,401.6,101.37,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:28:07.678076+00:00,tank_03,wine:tank_03,14.51,3.24,5.03,1.0,496.4,101.33,82.0,9.0,74.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:28:12.684702+00:00,tank_01,wine:tank_01,25.39,3.35,-1.0,1.0,345.5,101.25,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:28:12.685874+00:00,tank_02,wine:tank_02,33.48,3.4,-0.8,1.0,455.7,101.43,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:28:12.687252+00:00,tank_03,wine:tank_03,14.67,3.23,4.96,1.0,409.5,101.36,82.0,9.03,74.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:28:17.693700+00:00,tank_01,wine:tank_01,25.02,3.38,-1.0,1.0,345.7,101.48,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:28:17.694830+00:00,tank_02,wine:tank_02,32.59,3.41,-0.8,1.0,474.3,101.56,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:28:17.696033+00:00,tank_03,wine:tank_03,14.0,3.22,4.88,1.0,398.3,101.4,82.0,9.07,75.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:28:22.702660+00:00,tank_01,wine:tank_01,24.56,3.39,-1.0,1.0,339.8,101.4,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:28:22.703829+00:00,tank_02,wine:tank_02,32.18,3.41,-0.8,1.0,497.2,101.4,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:28:22.705154+00:00,tank_03,wine:tank_03,13.35,3.2,4.81,1.0,399.0,101.41,82.0,9.11,75.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:28:27.711785+00:00,tank_01,wine:tank_01,24.63,3.35,-1.0,1.0,349.4,101.32,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:28:27.713022+00:00,tank_02,wine:tank_02,32.34,3.4,-0.8,1.0,387.5,101.38,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:28:27.714126+00:00,tank_03,wine:tank_03,13.62,3.23,4.73,1.0,484.8,101.42,82.0,9.15,75.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:28:32.720813+00:00,tank_01,wine:tank_01,25.49,3.38,-1.0,1.0,433.9,101.55,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:28:32.721984+00:00,tank_02,wine:tank_02,33.24,3.43,-0.8,1.0,410.4,101.36,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:28:32.723115+00:00,tank_03,wine:tank_03,14.44,3.21,4.66,1.0,482.2,101.27,82.0,9.19,75.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:28:37.729505+00:00,tank_01,wine:tank_01,25.57,3.36,-1.0,1.0,396.8,101.4,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:28:37.730653+00:00,tank_02,wine:tank_02,33.08,3.4,-0.8,1.0,465.2,101.41,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:28:37.731609+00:00,tank_03,wine:tank_03,14.51,3.24,4.58,1.0,423.0,101.4,82.0,9.23,76.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:28:42.738036+00:00,tank_01,wine:tank_01,24.72,3.37,-1.0,1.0,348.8,101.29,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:28:42.739121+00:00,tank_02,wine:tank_02,32.88,3.41,-0.8,1.0,357.8,101.51,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:28:42.740145+00:00,tank_03,wine:tank_03,13.69,3.22,4.51,1.0,398.0,101.48,82.0,9.26,76.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:28:47.743417+00:00,tank_01,wine:tank_01,24.4,3.36,-1.0,1.0,403.4,101.44,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:28:47.744445+00:00,tank_02,wine:tank_02,32.13,3.41,-0.8,1.0,380.3,101.48,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:28:47.745390+00:00,tank_03,wine:tank_03,13.59,3.24,4.43,1.0,366.3,101.26,82.0,9.3,76.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:28:52.751794+00:00,tank_01,wine:tank_01,24.89,3.36,-1.0,1.0,359.4,101.41,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:28:52.752893+00:00,tank_02,wine:tank_02,32.41,3.43,-0.8,1.0,499.9,101.33,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:28:52.753823+00:00,tank_03,wine:tank_03,13.85,3.21,4.36,1.0,436.5,101.45,82.0,9.34,77.2,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:28:57.759316+00:00,tank_01,wine:tank_01,25.58,3.36,-1.0,1.0,340.0,101.53,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:28:57.760205+00:00,tank_02,wine:tank_02,33.18,3.44,-0.8,1.0,482.8,101.43,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:28:57.761117+00:00,tank_03,wine:tank_03,14.35,3.23,4.28,1.0,358.9,101.24,82.0,9.38,77.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:29:02.767552+00:00,tank_01,wine:tank_01,25.22,3.39,-1.0,1.0,493.1,101.43,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:29:02.768666+00:00,tank_02,wine:tank_02,33.0,3.41,-0.8,1.0,379.6,101.48,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:29:02.769741+00:00,tank_03,wine:tank_03,14.33,3.24,4.21,1.0,366.9,101.41,82.0,9.42,77.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:29:07.775581+00:00,tank_01,wine:tank_01,24.95,3.35,-1.0,1.0,500.7,101.44,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:29:07.776679+00:00,tank_02,wine:tank_02,32.49,3.41,-0.8,1.0,482.6,101.34,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:29:07.777726+00:00,tank_03,wine:tank_03,13.58,3.21,4.13,1.0,362.4,101.34,82.0,9.46,78.2,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:29:12.784182+00:00,tank_01,wine:tank_01,24.22,3.37,-1.0,1.0,394.7,101.29,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:29:12.785196+00:00,tank_02,wine:tank_02,32.28,3.43,-0.8,1.0,380.0,101.44,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:29:12.786054+00:00,tank_03,wine:tank_03,13.38,3.24,4.06,1.0,497.9,101.36,82.0,9.49,78.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:29:17.792340+00:00,tank_01,wine:tank_01,25.0,3.37,-1.0,1.0,447.2,101.29,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:29:17.793410+00:00,tank_02,wine:tank_02,32.69,3.43,-0.8,1.0,377.5,101.37,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:29:17.794468+00:00,tank_03,wine:tank_03,14.18,3.22,3.98,1.0,488.6,101.42,82.0,9.54,78.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:29:22.800964+00:00,tank_01,wine:tank_01,25.49,3.36,-1.0,1.0,492.8,101.49,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:29:22.802059+00:00,tank_02,wine:tank_02,33.27,3.42,-0.8,1.0,331.7,101.46,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:29:22.803147+00:00,tank_03,wine:tank_03,14.51,3.2,3.91,1.0,418.8,101.47,82.0,9.57,79.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:29:27.807466+00:00,tank_01,wine:tank_01,25.08,3.39,-1.0,1.0,438.6,101.44,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:29:27.808526+00:00,tank_02,wine:tank_02,33.31,3.42,-0.8,1.0,448.0,101.28,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:29:27.809517+00:00,tank_03,wine:tank_03,14.45,3.23,3.83,1.0,414.1,101.54,82.0,9.61,79.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:29:32.815950+00:00,tank_01,wine:tank_01,24.75,3.39,-1.0,1.0,351.5,101.34,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:29:32.817060+00:00,tank_02,wine:tank_02,32.57,3.41,-0.8,1.0,342.0,101.28,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:29:32.818146+00:00,tank_03,wine:tank_03,13.49,3.21,3.76,1.0,424.3,101.42,82.0,9.65,79.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:29:37.823546+00:00,tank_01,wine:tank_01,24.6,3.38,-1.0,1.0,423.9,101.41,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:29:37.824632+00:00,tank_02,wine:tank_02,32.12,3.44,-0.8,1.0,476.9,101.29,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:29:37.825654+00:00,tank_03,wine:tank_03,13.56,3.23,3.68,1.0,347.5,101.46,82.0,9.69,80.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:29:42.832075+00:00,tank_01,wine:tank_01,25.17,3.36,-1.0,1.0,370.8,101.53,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:29:42.833192+00:00,tank_02,wine:tank_02,33.14,3.44,-0.8,1.0,498.9,101.36,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:29:42.834244+00:00,tank_03,wine:tank_03,14.2,3.22,3.61,1.0,390.3,101.43,82.0,9.73,80.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:29:47.839610+00:00,tank_01,wine:tank_01,25.52,3.39,-1.0,1.0,346.8,101.5,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:29:47.840579+00:00,tank_02,wine:tank_02,33.58,3.42,-0.8,1.0,462.8,101.55,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:29:47.841493+00:00,tank_03,wine:tank_03,14.39,3.24,3.53,1.0,370.0,101.42,82.0,9.77,80.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:29:52.848059+00:00,tank_01,wine:tank_01,25.29,3.36,-1.0,1.0,419.7,101.5,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:29:52.849127+00:00,tank_02,wine:tank_02,32.79,3.42,-0.8,1.0,441.5,101.26,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:29:52.850157+00:00,tank_03,wine:tank_03,14.16,3.24,3.46,1.0,431.8,101.39,82.0,9.8,81.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:29:57.856663+00:00,tank_01,wine:tank_01,24.46,3.37,-1.0,1.0,505.3,101.37,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:29:57.857820+00:00,tank_02,wine:tank_02,32.45,3.4,-0.8,1.0,373.6,101.48,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:29:57.858974+00:00,tank_03,wine:tank_03,13.46,3.2,3.38,1.0,351.3,101.52,82.0,9.84,81.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:30:02.865187+00:00,tank_01,wine:tank_01,24.67,3.39,-1.0,1.0,497.5,101.41,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:30:02.866281+00:00,tank_02,wine:tank_02,32.57,3.42,-0.8,1.0,352.0,101.45,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:30:02.867271+00:00,tank_03,wine:tank_03,13.62,3.23,3.31,1.0,467.3,101.28,82.0,9.88,81.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:30:07.871605+00:00,tank_01,wine:tank_01,25.14,3.39,-1.0,1.0,398.3,101.32,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:30:07.872722+00:00,tank_02,wine:tank_02,33.23,3.4,-0.8,1.0,445.4,101.29,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:30:07.873715+00:00,tank_03,wine:tank_03,14.33,3.21,3.23,1.0,488.5,101.47,82.0,9.92,82.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:30:12.879568+00:00,tank_01,wine:tank_01,25.37,3.37,-1.0,1.0,377.9,101.53,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:30:12.880670+00:00,tank_02,wine:tank_02,33.39,3.44,-0.8,1.0,470.8,101.42,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:30:12.881727+00:00,tank_03,wine:tank_03,14.37,3.23,3.16,1.0,480.3,101.4,82.0,9.96,82.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:30:17.887633+00:00,tank_01,wine:tank_01,24.97,3.39,-1.0,1.0,416.1,101.44,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:30:17.888647+00:00,tank_02,wine:tank_02,32.87,3.42,-0.8,1.0,339.6,101.25,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:30:17.889670+00:00,tank_03,wine:tank_03,14.09,3.23,3.08,1.0,394.6,101.3,82.0,10.0,82.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:30:22.896154+00:00,tank_01,wine:tank_01,24.27,3.38,-1.0,1.0,465.0,101.31,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:30:22.897222+00:00,tank_02,wine:tank_02,32.31,3.41,-0.8,1.0,418.1,101.37,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:30:22.898294+00:00,tank_03,wine:tank_03,13.42,3.23,3.01,1.0,440.9,101.51,82.0,10.04,82.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:30:27.904681+00:00,tank_01,wine:tank_01,24.94,3.39,-1.0,1.0,368.6,101.53,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:30:27.905663+00:00,tank_02,wine:tank_02,32.37,3.43,-0.8,1.0,427.9,101.32,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:30:27.906530+00:00,tank_03,wine:tank_03,13.7,3.2,2.93,1.0,452.1,101.39,82.0,10.08,83.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:30:32.912955+00:00,tank_01,wine:tank_01,25.45,3.36,-1.0,1.0,462.4,101.29,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:30:32.914052+00:00,tank_02,wine:tank_02,33.42,3.44,-0.8,1.0,365.8,101.48,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:30:32.915119+00:00,tank_03,wine:tank_03,14.67,3.23,2.86,1.0,493.8,101.47,82.0,10.11,83.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:30:37.919473+00:00,tank_01,wine:tank_01,25.46,3.39,-1.0,1.0,422.0,101.4,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:30:37.920503+00:00,tank_02,wine:tank_02,33.26,3.44,-0.8,1.0,499.7,101.32,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:30:37.921558+00:00,tank_03,wine:tank_03,14.37,3.22,2.78,1.0,497.2,101.45,82.0,10.15,83.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:30:42.928055+00:00,tank_01,wine:tank_01,24.96,3.39,-1.0,1.0,502.6,101.36,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:30:42.929139+00:00,tank_02,wine:tank_02,32.49,3.41,-0.8,1.0,417.8,101.49,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:30:42.930222+00:00,tank_03,wine:tank_03,14.03,3.22,2.71,1.0,420.1,101.27,82.0,10.19,84.2,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:30:47.936674+00:00,tank_01,wine:tank_01,24.18,3.38,-1.0,1.0,486.7,101.3,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:30:47.937846+00:00,tank_02,wine:tank_02,31.98,3.43,-0.8,1.0,494.0,101.41,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:30:47.938915+00:00,tank_03,wine:tank_03,13.24,3.23,2.63,1.0,509.2,101.33,82.0,10.23,84.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:30:52.943526+00:00,tank_01,wine:tank_01,25.02,3.39,-1.0,1.0,393.4,101.54,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:30:52.944611+00:00,tank_02,wine:tank_02,32.86,3.4,-0.8,1.0,428.0,101.36,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:30:52.945641+00:00,tank_03,wine:tank_03,13.92,3.21,2.56,1.0,438.3,101.43,82.0,10.27,84.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:30:57.951646+00:00,tank_01,wine:tank_01,25.27,3.35,-1.0,1.0,465.8,101.26,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:30:57.952962+00:00,tank_02,wine:tank_02,33.52,3.4,-0.8,1.0,477.5,101.34,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:30:57.954280+00:00,tank_03,wine:tank_03,14.37,3.22,2.48,1.0,467.7,101.48,82.0,10.31,85.2,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:31:02.960923+00:00,tank_01,wine:tank_01,25.58,3.39,-1.0,1.0,339.4,101.37,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:31:02.962166+00:00,tank_02,wine:tank_02,33.15,3.41,-0.8,1.0,422.5,101.33,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:31:02.963333+00:00,tank_03,wine:tank_03,14.51,3.23,2.41,1.0,386.8,101.4,82.0,10.34,85.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:31:07.969966+00:00,tank_01,wine:tank_01,24.78,3.37,-1.0,1.0,489.1,101.36,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:31:07.971166+00:00,tank_02,wine:tank_02,32.31,3.41,-0.8,1.0,471.1,101.44,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:31:07.972276+00:00,tank_03,wine:tank_03,13.82,3.21,2.33,1.0,472.1,101.42,82.0,10.39,85.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:31:12.975770+00:00,tank_01,wine:tank_01,24.21,3.38,-1.0,1.0,349.3,101.49,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:31:12.976972+00:00,tank_02,wine:tank_02,32.21,3.4,-0.8,1.0,405.6,101.41,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:31:12.978099+00:00,tank_03,wine:tank_03,13.43,3.24,2.26,1.0,456.1,101.36,82.0,10.42,86.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:31:17.983375+00:00,tank_01,wine:tank_01,24.88,3.39,-1.0,1.0,506.3,101.55,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:31:17.984392+00:00,tank_02,wine:tank_02,32.8,3.4,-0.8,1.0,491.6,101.51,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:31:17.985412+00:00,tank_03,wine:tank_03,13.88,3.21,2.18,1.0,424.3,101.29,82.0,10.46,86.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:31:22.991402+00:00,tank_01,wine:tank_01,25.39,3.35,-1.0,1.0,343.5,101.48,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:31:22.992464+00:00,tank_02,wine:tank_02,33.59,3.41,-0.8,1.0,401.9,101.53,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:31:22.993447+00:00,tank_03,wine:tank_03,14.66,3.22,2.11,1.0,358.6,101.4,82.0,10.5,86.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:31:27.999503+00:00,tank_01,wine:tank_01,25.22,3.38,-1.0,1.0,508.0,101.4,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:31:28.000545+00:00,tank_02,wine:tank_02,33.04,3.4,-0.8,1.0,456.7,101.37,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:31:28.001544+00:00,tank_03,wine:tank_03,14.51,3.24,2.03,1.0,446.0,101.35,82.0,10.54,87.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:31:33.008114+00:00,tank_01,wine:tank_01,24.64,3.36,-1.0,1.0,351.8,101.52,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:31:33.009377+00:00,tank_02,wine:tank_02,32.37,3.42,-0.8,1.0,469.0,101.3,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:31:33.010526+00:00,tank_03,wine:tank_03,13.33,3.24,1.96,1.0,465.0,101.45,82.0,10.58,87.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:31:38.017209+00:00,tank_01,wine:tank_01,24.65,3.36,-1.0,1.0,481.5,101.33,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:31:38.018436+00:00,tank_02,wine:tank_02,32.32,3.44,-0.8,1.0,488.3,101.56,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:31:38.019535+00:00,tank_03,wine:tank_03,13.49,3.24,1.88,1.0,415.1,101.47,82.0,10.62,87.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:31:43.026127+00:00,tank_01,wine:tank_01,25.4,3.39,-1.0,1.0,403.2,101.25,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:31:43.027338+00:00,tank_02,wine:tank_02,32.95,3.4,-0.8,1.0,425.7,101.3,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:31:43.028476+00:00,tank_03,wine:tank_03,13.91,3.22,1.81,1.0,489.1,101.31,82.0,10.65,88.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:31:48.035104+00:00,tank_01,wine:tank_01,25.46,3.37,-1.0,1.0,391.5,101.45,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:31:48.036341+00:00,tank_02,wine:tank_02,33.55,3.41,-0.8,1.0,370.5,101.42,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:31:48.037539+00:00,tank_03,wine:tank_03,14.71,3.24,1.73,1.0,397.5,101.46,82.0,10.69,88.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:31:53.043744+00:00,tank_01,wine:tank_01,25.07,3.35,-1.0,1.0,362.2,101.33,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:31:53.044917+00:00,tank_02,wine:tank_02,33.08,3.41,-0.8,1.0,468.4,101.5,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:31:53.045990+00:00,tank_03,wine:tank_03,14.07,3.21,1.66,1.0,486.0,101.29,82.0,10.73,88.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:31:58.052696+00:00,tank_01,wine:tank_01,24.45,3.39,-1.0,1.0,372.4,101.38,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:31:58.053904+00:00,tank_02,wine:tank_02,32.08,3.44,-0.8,1.0,418.7,101.46,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:31:58.055086+00:00,tank_03,wine:tank_03,13.31,3.24,1.58,1.0,444.7,101.4,82.0,10.77,89.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:32:03.061838+00:00,tank_01,wine:tank_01,24.65,3.38,-1.0,1.0,443.9,101.41,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:32:03.063055+00:00,tank_02,wine:tank_02,32.22,3.42,-0.8,1.0,474.4,101.37,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:32:03.064088+00:00,tank_03,wine:tank_03,13.71,3.24,1.51,1.0,366.2,101.42,82.0,10.81,89.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:32:08.066744+00:00,tank_01,wine:tank_01,25.54,3.37,-1.0,1.0,481.9,101.55,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:32:08.067795+00:00,tank_02,wine:tank_02,33.07,3.41,-0.8,1.0,378.5,101.26,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:32:08.068886+00:00,tank_03,wine:tank_03,14.38,3.21,1.43,1.0,385.7,101.42,82.0,10.85,89.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:32:13.075575+00:00,tank_01,wine:tank_01,25.71,3.37,-1.0,1.0,369.5,101.45,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:32:13.076647+00:00,tank_02,wine:tank_02,33.51,3.4,-0.8,1.0,351.3,101.43,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:32:13.077681+00:00,tank_03,wine:tank_03,14.46,3.2,1.36,1.0,385.6,101.38,82.0,10.88,90.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:32:18.083578+00:00,tank_01,wine:tank_01,25.01,3.36,-1.0,1.0,505.5,101.29,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:32:18.084605+00:00,tank_02,wine:tank_02,32.65,3.41,-0.8,1.0,376.2,101.32,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:32:18.085448+00:00,tank_03,wine:tank_03,14.11,3.21,1.28,1.0,469.4,101.42,82.0,10.93,90.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:32:23.091892+00:00,tank_01,wine:tank_01,24.29,3.35,-1.0,1.0,457.2,101.34,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:32:23.092991+00:00,tank_02,wine:tank_02,32.08,3.4,-0.8,1.0,370.7,101.36,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:32:23.094017+00:00,tank_03,wine:tank_03,13.37,3.2,1.21,1.0,450.0,101.44,82.0,10.96,90.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:32:28.099553+00:00,tank_01,wine:tank_01,24.92,3.37,-1.0,1.0,442.0,101.54,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:32:28.100489+00:00,tank_02,wine:tank_02,32.41,3.41,-0.8,1.0,485.5,101.46,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:32:28.101307+00:00,tank_03,wine:tank_03,13.9,3.23,1.13,1.0,418.9,101.45,82.0,11.0,90.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:32:33.107604+00:00,tank_01,wine:tank_01,25.31,3.36,-1.0,1.0,388.2,101.29,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:32:33.108507+00:00,tank_02,wine:tank_02,33.01,3.43,-0.8,1.0,467.5,101.38,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:32:33.109340+00:00,tank_03,wine:tank_03,14.36,3.22,1.05,1.0,360.0,101.47,82.0,11.04,91.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:32:38.115351+00:00,tank_01,wine:tank_01,25.69,3.35,-1.0,1.0,341.8,101.42,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:32:38.116312+00:00,tank_02,wine:tank_02,33.33,3.43,-0.8,1.0,365.1,101.3,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:32:38.117332+00:00,tank_03,wine:tank_03,14.59,3.2,0.98,1.0,397.7,101.3,82.0,11.08,91.6,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:32:43.123525+00:00,tank_01,wine:tank_01,24.95,3.35,-1.0,1.0,354.1,101.35,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:32:43.124446+00:00,tank_02,wine:tank_02,32.78,3.41,-0.8,1.0,491.5,101.39,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:32:43.125398+00:00,tank_03,wine:tank_03,13.82,3.22,0.91,1.0,459.7,101.55,82.0,11.12,91.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:32:48.131357+00:00,tank_01,wine:tank_01,24.5,3.37,-1.0,1.0,366.2,101.25,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:32:48.132146+00:00,tank_02,wine:tank_02,32.38,3.4,-0.8,1.0,366.9,101.41,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:32:48.132985+00:00,tank_03,wine:tank_03,13.17,3.2,0.83,1.0,462.6,101.38,82.0,11.16,92.2,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:32:53.135406+00:00,tank_01,wine:tank_01,24.91,3.38,-1.0,1.0,416.2,101.45,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:32:53.136368+00:00,tank_02,wine:tank_02,32.7,3.4,-0.8,1.0,508.6,101.41,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:32:53.137279+00:00,tank_03,wine:tank_03,13.62,3.23,0.76,1.0,440.2,101.39,82.0,11.19,92.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:32:58.143714+00:00,tank_01,wine:tank_01,25.59,3.38,-1.0,1.0,388.0,101.28,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:32:58.144556+00:00,tank_02,wine:tank_02,33.09,3.43,-0.8,1.0,446.7,101.36,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:32:58.145449+00:00,tank_03,wine:tank_03,14.37,3.2,0.68,1.0,414.2,101.28,82.0,11.23,92.9,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:33:03.151850+00:00,tank_01,wine:tank_01,25.54,3.38,-1.0,1.0,506.0,101.45,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:33:03.153111+00:00,tank_02,wine:tank_02,33.13,3.43,-0.8,1.0,494.6,101.36,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:33:03.154290+00:00,tank_03,wine:tank_03,14.35,3.21,0.61,1.0,466.9,101.29,82.0,11.27,93.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:33:08.160666+00:00,tank_01,wine:tank_01,24.74,3.35,-1.0,1.0,473.9,101.47,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:33:08.161708+00:00,tank_02,wine:tank_02,32.29,3.43,-0.8,1.0,401.3,101.44,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:33:08.162549+00:00,tank_03,wine:tank_03,13.54,3.22,0.53,1.0,333.1,101.37,82.0,11.31,93.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:33:13.168902+00:00,tank_01,wine:tank_01,24.42,3.37,-1.0,1.0,499.3,101.41,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:33:13.169856+00:00,tank_02,wine:tank_02,32.29,3.42,-0.8,1.0,505.3,101.28,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:33:13.170810+00:00,tank_03,wine:tank_03,13.32,3.22,0.46,1.0,479.4,101.51,82.0,11.35,93.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:33:18.175356+00:00,tank_01,wine:tank_01,25.05,3.37,-1.0,1.0,484.5,101.28,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:33:18.176278+00:00,tank_02,wine:tank_02,32.96,3.41,-0.8,1.0,438.8,101.44,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:33:18.177080+00:00,tank_03,wine:tank_03,14.23,3.24,0.38,1.0,360.1,101.46,82.0,11.39,94.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:33:23.183450+00:00,tank_01,wine:tank_01,25.46,3.37,-1.0,1.0,385.2,101.44,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:33:23.184436+00:00,tank_02,wine:tank_02,33.21,3.44,-0.8,1.0,451.8,101.55,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:33:23.185370+00:00,tank_03,wine:tank_03,14.69,3.22,0.3,1.0,337.3,101.43,82.0,11.43,94.5,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:33:28.191279+00:00,tank_01,wine:tank_01,25.38,3.37,-1.0,1.0,470.1,101.33,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:33:28.192012+00:00,tank_02,wine:tank_02,32.92,3.43,-0.8,1.0,406.7,101.52,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:33:28.192897+00:00,tank_03,wine:tank_03,14.26,3.24,0.23,1.0,467.3,101.53,82.0,11.47,94.8,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:33:33.199364+00:00,tank_01,wine:tank_01,24.63,3.35,-1.0,1.0,335.9,101.52,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:33:33.200205+00:00,tank_02,wine:tank_02,32.27,3.4,-0.8,1.0,507.7,101.28,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:33:33.200848+00:00,tank_03,wine:tank_03,13.6,3.2,0.16,1.0,443.5,101.34,82.0,11.5,95.1,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:33:38.207155+00:00,tank_01,wine:tank_01,24.48,3.35,-1.0,1.0,503.2,101.29,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:33:38.208091+00:00,tank_02,wine:tank_02,32.5,3.42,-0.8,1.0,410.0,101.38,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:33:38.208988+00:00,tank_03,wine:tank_03,13.39,3.23,0.08,1.0,466.5,101.44,82.0,11.54,95.4,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:33:43.215460+00:00,tank_01,wine:tank_01,25.19,3.39,-1.0,1.0,386.6,101.41,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:33:43.216534+00:00,tank_02,wine:tank_02,32.83,3.4,-0.8,1.0,505.7,101.36,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:33:43.217607+00:00,tank_03,wine:tank_03,14.25,3.24,0.01,1.0,370.4,101.5,82.0,11.58,95.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:33:48.223637+00:00,tank_01,wine:tank_01,25.4,3.39,-1.0,1.0,386.3,101.51,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:33:48.224711+00:00,tank_02,wine:tank_02,33.28,3.44,-0.8,1.0,354.7,101.28,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:33:48.225708+00:00,tank_03,wine:tank_03,14.55,3.23,-0.07,1.0,418.3,101.33,82.0,11.62,96.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:33:53.232354+00:00,tank_01,wine:tank_01,25.4,3.37,-1.0,1.0,479.1,101.32,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:33:53.233528+00:00,tank_02,wine:tank_02,33.05,3.42,-0.8,1.0,468.4,101.51,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:33:53.234768+00:00,tank_03,wine:tank_03,13.99,3.24,-0.14,1.0,453.5,101.44,82.0,11.66,96.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:33:58.241248+00:00,tank_01,wine:tank_01,24.26,3.39,-1.0,1.0,474.1,101.43,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:33:58.242404+00:00,tank_02,wine:tank_02,32.22,3.44,-0.8,1.0,468.6,101.26,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:33:58.243353+00:00,tank_03,wine:tank_03,13.45,3.22,-0.22,1.0,331.5,101.25,82.0,11.7,96.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:34:03.250028+00:00,tank_01,wine:tank_01,24.57,3.37,-1.0,1.0,458.9,101.42,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:34:03.251094+00:00,tank_02,wine:tank_02,32.42,3.44,-0.8,1.0,411.3,101.35,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:34:03.252146+00:00,tank_03,wine:tank_03,13.45,3.24,-0.29,1.0,433.4,101.36,82.0,11.73,97.0,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:34:08.258734+00:00,tank_01,wine:tank_01,25.46,3.37,-1.0,1.0,494.7,101.3,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:34:08.260099+00:00,tank_02,wine:tank_02,32.96,3.41,-0.8,1.0,334.2,101.44,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:34:08.261157+00:00,tank_03,wine:tank_03,14.37,3.24,-0.37,1.0,484.7,101.45,82.0,11.78,97.3,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:34:13.267755+00:00,tank_01,wine:tank_01,25.53,3.35,-1.0,1.0,436.7,101.34,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:34:13.268853+00:00,tank_02,wine:tank_02,33.24,3.41,-0.8,1.0,365.6,101.33,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:34:13.269933+00:00,tank_03,wine:tank_03,14.82,3.21,-0.45,1.0,509.4,101.45,82.0,11.82,97.7,finished,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:34:18.275674+00:00,tank_01,wine:tank_01,24.76,3.36,-1.0,1.0,436.0,101.33,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:34:18.276731+00:00,tank_02,wine:tank_02,32.65,3.4,-0.8,1.0,411.1,101.53,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:34:18.277640+00:00,tank_03,wine:tank_03,14.01,3.2,-0.52,1.0,447.1,101.33,82.0,11.85,98.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:34:23.283959+00:00,tank_01,wine:tank_01,24.33,3.38,-1.0,1.0,426.6,101.4,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:34:23.284938+00:00,tank_02,wine:tank_02,32.22,3.42,-0.8,1.0,411.5,101.44,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:34:23.285852+00:00,tank_03,wine:tank_03,13.44,3.2,-0.59,1.0,454.0,101.52,82.0,11.89,98.3,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:34:28.292565+00:00,tank_01,wine:tank_01,24.71,3.36,-1.0,1.0,462.3,101.4,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:34:28.293766+00:00,tank_02,wine:tank_02,32.36,3.43,-0.8,1.0,505.9,101.33,82.0,13.6,100.0,finished,82.0,warning,Activate cooling or reduce target temperature.
+2026-06-04T11:34:28.294902+00:00,tank_03,wine:tank_03,13.65,3.21,-0.67,1.0,499.8,101.3,82.0,11.93,98.6,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:34:33.299658+00:00,tank_01,wine:tank_01,25.46,3.38,-1.0,1.0,467.6,101.42,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:34:33.300853+00:00,tank_02,wine:tank_02,33.18,3.43,-0.8,1.0,413.6,101.39,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:34:33.301860+00:00,tank_03,wine:tank_03,14.49,3.23,-0.74,1.0,353.3,101.43,82.0,11.97,98.9,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:34:38.308254+00:00,tank_01,wine:tank_01,25.49,3.38,-1.0,1.0,449.6,101.44,82.0,13.2,100.0,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.
+2026-06-04T11:34:38.309321+00:00,tank_02,wine:tank_02,33.08,3.4,-0.8,1.0,360.7,101.4,82.0,13.6,100.0,finished,68.0,critical,"Stop automatic escalation, inspect tank and activate corrective control."
+2026-06-04T11:34:38.310331+00:00,tank_03,wine:tank_03,14.32,3.21,-0.82,1.0,336.0,101.48,82.0,12.01,99.2,finished,100,finished,Fermentation is near completion; prepare clarification and transfer plan.

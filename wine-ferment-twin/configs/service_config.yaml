@@ -1,0 +1,11 @@
+service:
+  refresh_seconds: 5
+  default_history_hours: 48
+  prediction_hours: 24
+tanks:
+  - tank_id: tank_01
+    thing_id: wine:tank_01
+  - tank_id: tank_02
+    thing_id: wine:tank_02
+  - tank_id: tank_03
+    thing_id: wine:tank_03

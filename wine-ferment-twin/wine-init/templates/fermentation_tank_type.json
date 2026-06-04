@@ -1,0 +1,20 @@
+{
+  "id": "wine:FermentationTank",
+  "name": "FermentationTank",
+  "description": "Wine fermentation tank type",
+  "features": [
+    "temperature",
+    "ph",
+    "brix",
+    "specific_gravity",
+    "co2",
+    "pressure",
+    "liquid_level",
+    "alcohol_estimation",
+    "fermentation_progress",
+    "fermentation_stage",
+    "quality_score",
+    "risk_level",
+    "recommendation"
+  ]
+}

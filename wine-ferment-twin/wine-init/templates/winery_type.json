@@ -1,0 +1,6 @@
+{
+  "id": "wine:Winery",
+  "name": "Winery",
+  "description": "Wine production site root type",
+  "features": ["status", "risk_level"]
+}

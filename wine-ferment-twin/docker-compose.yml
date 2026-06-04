@@ -1,0 +1,29 @@
+services:
+  winetwin-service:
+    build: ./winetwin-service
+    environment:
+      WINE_SERVICE_HOST: 0.0.0.0
+      WINE_SERVICE_PORT: 8010
+      DITTO_BASE_URL: ${DITTO_BASE_URL:-http://192.168.49.2:30525}
+      DITTO_USERNAME: ${DITTO_USERNAME:-ditto}
+      DITTO_PASSWORD: ${DITTO_PASSWORD:-ditto}
+      EXTENDED_API_URL: ${EXTENDED_API_URL:-http://192.168.49.2:30526}
+      INFLUX_URL: ${INFLUX_URL:-http://192.168.49.2:30716}
+      INFLUX_TOKEN: ${INFLUX_TOKEN:-}
+      INFLUX_ORG: ${INFLUX_ORG:-opentwins}
+      INFLUX_BUCKET: ${INFLUX_BUCKET:-opentwins}
+      MONGO_URI: ${MONGO_URI:-mongodb://192.168.49.2:30717}
+      CORS_ALLOW_ORIGINS: "*"
+    ports:
+      - "8010:8010"
+    volumes:
+      - ./configs:/app/configs:ro
+      - ./logs:/app/logs
+
+  wine-frontend:
+    build: ./wine-frontend
+    environment:
+      VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://127.0.0.1:8010}
+    ports:
+      - "5173:80"
+

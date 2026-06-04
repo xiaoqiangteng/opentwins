@@ -1,0 +1,4 @@
+timestamp,tank_id,thing_id,temperature,ph,brix,specific_gravity,co2,pressure,liquid_level,alcohol_estimation,fermentation_progress,fermentation_stage,quality_score,risk_level,recommendation
+2026-06-04T11:08:50.508029+00:00,tank_01,wine:tank_01,24.92,3.43,24.5,1.1034,887.6,101.42,82.0,0.0,0,initial,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:08:50.509063+00:00,tank_02,wine:tank_02,25.99,3.49,25.0,1.1057,967.4,101.65,82.0,0.0,0,initial,100,normal,Continue normal fermentation monitoring.
+2026-06-04T11:08:50.510002+00:00,tank_03,wine:tank_03,13.97,3.28,22.5,1.0942,1028.7,101.52,82.0,0.0,0,initial,100,normal,Continue normal fermentation monitoring.

@@ -1,0 +1,46 @@
+simulation:
+  interval_seconds: 5
+  speed: 3600
+  total_days: 12
+  save_csv: true
+  mqtt_topic_prefix: "telemetry"
+mqtt:
+  host: "192.168.49.2"
+  port: 30511
+  username: "ditto"
+  password: "ditto"
+  qos: 1
+ditto:
+  namespace: "wine"
+  command: "merge"
+tanks:
+  - tank_id: "tank_01"
+    thing_id: "wine:tank_01"
+    parent_id: "wine:workshop_01"
+    wine_type: "red"
+    initial_brix: 24.5
+    final_brix: -1.0
+    max_alcohol: 13.2
+    target_temp: 25.0
+    initial_ph: 3.45
+    anomaly: null
+  - tank_id: "tank_02"
+    thing_id: "wine:tank_02"
+    parent_id: "wine:workshop_01"
+    wine_type: "red"
+    initial_brix: 25.0
+    final_brix: -0.8
+    max_alcohol: 13.6
+    target_temp: 26.0
+    initial_ph: 3.50
+    anomaly: "temperature_high"
+  - tank_id: "tank_03"
+    thing_id: "wine:tank_03"
+    parent_id: "wine:workshop_01"
+    wine_type: "white"
+    initial_brix: 22.5
+    final_brix: -1.0
+    max_alcohol: 12.1
+    target_temp: 14.0
+    initial_ph: 3.30
+    anomaly: "stuck_fermentation"

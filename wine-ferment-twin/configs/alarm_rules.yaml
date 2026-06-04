@@ -1,0 +1,14 @@
+red_wine:
+  temperature_warning_upper: 30.0
+  temperature_critical_upper: 33.0
+  ph_lower: 3.1
+  ph_upper: 3.8
+  brix_drop_min_12h: 0.2
+  co2_active_min: 1500
+white_wine:
+  temperature_warning_upper: 18.0
+  temperature_critical_upper: 22.0
+  ph_lower: 3.0
+  ph_upper: 3.7
+  brix_drop_min_12h: 0.15
+  co2_active_min: 1200

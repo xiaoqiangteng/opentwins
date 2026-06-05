@@ -11,14 +11,14 @@ UNITS={'temperature':'C','ph':'','brix':'Bx','specific_gravity':'','co2':'ppm','
 def risk_and_score(tank, p):
     wt=tank.get('wine_type','red'); temp=p.get('temperature'); ph=p.get('ph'); co2=p.get('co2'); brix=p.get('brix')
     warn=30 if wt=='red' else 18; crit=33 if wt=='red' else 22; phlo=3.1 if wt=='red' else 3.0; phhi=3.8 if wt=='red' else 3.7
-    score=100.0; risk='normal'; rec='Continue normal fermentation monitoring.'
-    if temp is None: return 'offline', 45.0, 'Check sensor power, wiring and gateway connectivity.'
-    if temp>crit or ph<3.0 or ph>3.9: risk='critical'; score-=32; rec='Stop automatic escalation, inspect tank and activate corrective control.'
-    elif temp>warn: risk='warning'; score-=18; rec='Activate cooling or reduce target temperature.'
-    if ph<phlo or ph>phhi: risk='critical' if risk!='offline' else risk; score-=18; rec='Check acidity and validate pH sensor calibration.'
-    if tank.get('anomaly')=='stuck_fermentation' and p['fermentation_progress']<40 and p['fermentation_stage']=='active': risk='warning'; score-=22; rec='Check yeast activity, nutrients, oxygen exposure and temperature profile.'
-    if p['fermentation_stage']=='active' and co2 < (1500 if wt=='red' else 1200): risk='warning'; score-=12; rec='CO2 is lower than expected for active fermentation; check yeast vitality.'
-    if p['fermentation_progress']>=98 and risk=='normal': risk='finished'; rec='Fermentation is near completion; prepare clarification and transfer plan.'
+    score=100.0; risk='normal'; rec='继续正常发酵监控。'
+    if temp is None: return 'offline', 45.0, '请检查传感器电源、线路和网关连通性。'
+    if temp>crit or ph<3.0 or ph>3.9: risk='critical'; score-=32; rec='请停止自动操作，检查发酵罐并启动纠正控制。'
+    elif temp>warn: risk='warning'; score-=18; rec='请启动冷却或降低目标温度。'
+    if ph<phlo or ph>phhi: risk='critical' if risk!='offline' else risk; score-=18; rec='请检查酸度并校验 pH 传感器。'
+    if tank.get('anomaly')=='stuck_fermentation' and p['fermentation_progress']<40 and p['fermentation_stage']=='active': risk='warning'; score-=22; rec='请检查酵母活性、营养物、氧气暴露和温度曲线。'
+    if p['fermentation_stage']=='active' and co2 < (1500 if wt=='red' else 1200): risk='warning'; score-=12; rec='活跃发酵阶段 CO2 低于预期，请检查酵母活性。'
+    if p['fermentation_progress']>=98 and risk=='normal': risk='finished'; rec='发酵接近完成，请准备澄清和转罐计划。'
     return risk, round(max(0,min(100,score)),1), rec
 
 def as_features(point, risk, score, rec):

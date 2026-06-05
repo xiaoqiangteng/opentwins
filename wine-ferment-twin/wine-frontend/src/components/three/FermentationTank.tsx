@@ -35,6 +35,8 @@ function makeLabel(text: string, accent: string) {
   return sprite;
 }
 
+const riskLabels: Record<string, string> = { normal: '正常', warning: '警告', critical: '危险', offline: '离线', finished: '已完成' };
+
 export function createFermentationTank(tank: Tank, selected: boolean) {
   const group = new THREE.Group();
   const statusColor = colorMap[tank.risk_level] || colorMap.normal;
@@ -55,7 +57,7 @@ export function createFermentationTank(tank: Tank, selected: boolean) {
   );
   ring.position.y = 2.02;
   ring.rotation.x = Math.PI / 2;
-  const label = makeLabel(`${tank.tank_id}  ${tank.risk_level}`, selected ? '#111111' : `#${statusColor.toString(16).padStart(6, '0')}`);
+  const label = makeLabel(`${tank.tank_id}  ${riskLabels[tank.risk_level] || tank.risk_level}`, selected ? '#111111' : `#${statusColor.toString(16).padStart(6, '0')}`);
   label.position.y = 3.55;
   group.add(body, cap, ring, label);
   group.userData.id = tank.tank_id;

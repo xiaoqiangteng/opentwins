@@ -26,4 +26,8 @@ class Settings:
     model_default_horizon_hours=int(os.getenv('MODEL_DEFAULT_HORIZON_HOURS','24'))
     alarm_rules=_load_yaml('alarm_rules.yaml',{})
     sim_config=_load_yaml('wine_simulation.yaml',{})
+    simulation_mode=os.getenv('SIMULATION_MODE','embedded').lower() in ('1','true','yes','on','embedded')
+    mqtt_host=os.getenv('MQTT_HOST','')
+    mqtt_port=int(os.getenv('MQTT_PORT','0')) or None
+    simulator_config_path=os.getenv('SIMULATOR_CONFIG_PATH',str(BASE_DIR/'configs'/'wine_simulation.yaml'))
 settings=Settings()

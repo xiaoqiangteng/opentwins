@@ -33,6 +33,15 @@ export type ModelicaResult = {
   raw_result_file?: string | null;
 };
 
+export type SimulationStatus = {
+  elapsed_hours: number;
+  total_hours: number;
+  progress_pct: number;
+  running: boolean;
+  stage: string;
+  mode?: string;
+};
+
 // 使用相对路径，由 Vite dev server proxy 转发到后端
 // 这样无论从本机、局域网还是 SSH 端口转发访问，都能正确路由
 const API_BASE = '';
@@ -67,4 +76,8 @@ export const wineApi = {
   modelicaHealth: () => get<any>('/api/wine/modelica/health'),
   modelicaPrediction: (id: string, horizon = 24) => get<ModelicaResult>(`/api/wine/tanks/${id}/modelica-prediction?horizon=${horizon}`),
   modelicaSimulate: (id: string, body: { temperature_delta: number; nutrient_boost?: number; horizon_hours?: number }) => post<ModelicaResult>(`/api/wine/tanks/${id}/modelica-simulate`, body),
+  simulationStatus: () => get<SimulationStatus>('/api/wine/simulation/status'),
+  simulationStart: () => post<any>('/api/wine/simulation/start', {}),
+  simulationPause: () => post<any>('/api/wine/simulation/pause', {}),
+  simulationReset: () => post<any>('/api/wine/simulation/reset', {}),
 };

@@ -8,9 +8,19 @@ from app.services.history_service import history
 from app.services.prediction_service import prediction, simulate
 from app.services import modelica_prediction_service
 from app.clients import modelica_client
+
 app=FastAPI(title='WineTwin Service',version='1.0.0',description='Business API for WineFermentTwin demo on OpenTwins.')
 origins=['*'] if settings.cors_allow_origins=='*' else [x.strip() for x in settings.cors_allow_origins.split(',') if x.strip()]
 app.add_middleware(CORSMiddleware,allow_origins=origins,allow_credentials=True,allow_methods=['*'],allow_headers=['*'])
+
+# ── 仿真引擎（嵌入式模式）─────────────────────────────────────────────────
+_engine=None
+def _get_engine():
+    global _engine
+    if _engine is None and settings.simulation_mode:
+        from app.services.simulation_engine import engine
+        _engine=engine
+    return _engine
 @app.get('/health')
 def health(): return {'status':'ok','ditto_base_url':settings.ditto_base_url,'influx_url':settings.influx_url,'use_modelica':settings.use_modelica,'modelica_service_url':settings.modelica_service_url}
 @app.post('/api/wine/init',response_model=ApiResponse)
@@ -65,3 +75,28 @@ def tank_modelica_simulate(tank_id:str, body:dict=Body(default={})):
         raise HTTPException(status_code=503, detail=f'Modelica what-if failed: {e}')
 @app.get('/api/wine/rules',response_model=ApiResponse)
 def rules(): return ApiResponse(data=settings.alarm_rules)
+
+# ── 仿真控制 API ──────────────────────────────────────────────────────────
+@app.get('/api/wine/simulation/status')
+def simulation_status():
+    eng=_get_engine()
+    if eng is None: return {'mode':'standalone','elapsed_hours':0,'total_hours':288,'progress_pct':0,'running':False,'stage':'独立进程模式'}
+    return eng.status()
+
+@app.post('/api/wine/simulation/start')
+def simulation_start():
+    eng=_get_engine()
+    if eng is None: raise HTTPException(503,'仿真引擎未启动（当前为独立进程模式）')
+    return eng.start()
+
+@app.post('/api/wine/simulation/pause')
+def simulation_pause():
+    eng=_get_engine()
+    if eng is None: raise HTTPException(503,'仿真引擎未启动（当前为独立进程模式）')
+    return eng.pause()
+
+@app.post('/api/wine/simulation/reset')
+def simulation_reset():
+    eng=_get_engine()
+    if eng is None: raise HTTPException(503,'仿真引擎未启动（当前为独立进程模式）')
+    return eng.reset()

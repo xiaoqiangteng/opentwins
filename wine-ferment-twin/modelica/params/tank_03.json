@@ -1,0 +1,8 @@
+{
+  "wine_type": "white",
+  "initial_brix_reference": 22.5,
+  "final_brix": -1.0,
+  "optimal_temperature": 14.0,
+  "warning_temperature": 18.0,
+  "critical_temperature": 22.0
+}

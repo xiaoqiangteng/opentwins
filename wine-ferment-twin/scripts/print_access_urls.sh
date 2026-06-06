@@ -6,6 +6,7 @@ while [[ $# -gt 0 ]]; do case "$1" in --host-ip) HOST_IP="$2"; shift 2;; --opent
 echo "WineFermentTwin Demo URLs"
 echo "Frontend:              http://${HOST_IP}:5173"
 echo "WineTwin Service API:   http://${HOST_IP}:8010/docs"
+echo "Modelica Service API:   http://${HOST_IP}:8020/docs"
 echo "Grafana/OpenTwins:      http://${OPENTWINS_HOST_IP}:30718"
 echo "Ditto API:              http://${OPENTWINS_HOST_IP}:30525"
 echo "Extended API:           http://${OPENTWINS_HOST_IP}:30526"

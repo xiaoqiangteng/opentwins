@@ -1,0 +1,9 @@
+loadFile("{model_file}");
+simulate(
+  WineFermentation.ContinuationFermentation,
+  startTime=0,
+  stopTime={horizon_hours},
+  numberOfIntervals={number_of_intervals},
+  outputFormat="csv",
+  simflags="-override=initialBrixReference={initial_brix_reference},finalBrix={final_brix},brixStart={brix_start},alcoholStart={alcohol_start},co2Start={co2_start},temperatureSet={temperature_set},optimalTemperature={optimal_temperature},warningTemperature={warning_temperature},criticalTemperature={critical_temperature},kSugar={k_sugar},yAlcohol={y_alcohol},yCO2={y_co2} -r={result_file}");
+getErrorString();

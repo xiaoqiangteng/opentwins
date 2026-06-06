@@ -28,6 +28,14 @@ def get_tank(tank_id):
     try: thing=DittoClient(settings.ditto_base_url,settings.ditto_username,settings.ditto_password).get_thing(thing_id(tank_id))
     except Exception: thing=None
     return normalize(tank_id,thing)
+def get_raw_twin(tank_id):
+    short_id=tank_id.split(':')[-1]
+    if short_id not in tank_ids(): return None
+    try:
+        return DittoClient(settings.ditto_base_url,settings.ditto_username,settings.ditto_password).get_thing(thing_id(short_id))
+    except Exception as e:
+        print('ditto raw read failed',tank_id,e)
+        return {'thingId':thing_id(short_id),'attributes':default_attrs(short_id),'features':default_features(short_id)}
 def overview():
     tanks=list_tanks(); alarms=sum(len(t['alarms']) for t in tanks); avg=sum((t['metrics']['quality_score']['value'] or 0) for t in tanks)/len(tanks)
     return {'winery':{'thing_id':'wine:winery_01','name':'Winery 01'},'workshop':{'thing_id':'wine:workshop_01','name':'Fermentation Workshop 01'},'tank_count':len(tanks),'alarm_count':alarms,'average_quality_score':round(avg,1),'tanks':tanks}

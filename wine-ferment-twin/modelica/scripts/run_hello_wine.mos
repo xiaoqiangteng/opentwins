@@ -1,0 +1,8 @@
+loadFile("modelica/WineFermentation.mo");
+simulate(
+  WineFermentation.HelloWine,
+  startTime=0,
+  stopTime=24,
+  numberOfIntervals=24,
+  outputFormat="csv");
+getErrorString();

@@ -6,6 +6,7 @@ import { WineWorkshopScene } from './components/three/WineWorkshopScene';
 import { MetricLineChart } from './components/charts/MetricLineChart';
 import { AlarmPanel } from './components/panels/AlarmPanel';
 import { RecommendationPanel } from './components/panels/RecommendationPanel';
+import { ModelicaSimulationPanel } from './components/panels/ModelicaSimulationPanel';
 import './styles.css';
 
 type Tab = 'overview' | 'history' | 'simulation';
@@ -87,7 +88,7 @@ function Simulation({ tank }: { tank: Tank }) {
   const [simulation, setSimulation] = useState<any>();
   useEffect(() => { wineApi.prediction(tank.tank_id).then(setPrediction); }, [tank.tank_id]);
   async function run() { setSimulation(await wineApi.simulate(tank.tank_id, { temperature_delta: delta, nutrient_boost: 1 })); }
-  return <section className="band two"><div><h2>24小时预测</h2><p>预计完成时间: {prediction?.estimated_completion_time || '--'}</p><MetricLineChart metric="future_progress" points={prediction?.future_progress || []}/></div><div className="controlPanel"><h2>参数扰动</h2><label>温度偏移量 <input type="range" min="-5" max="5" value={delta} onChange={(event) => setDelta(Number(event.target.value))}/><b>{delta} C</b></label><button onClick={run}><Activity size={16}/>运行仿真</button>{simulation && <p className="result">质量变化量: {simulation.projected_quality_delta}。 {simulation.recommendation}</p>}</div></section>;
+  return <section className="band simulationStack"><div className="two"><div><h2>经验公式 24小时预测</h2><p>预计完成时间: {prediction?.estimated_completion_time || '--'}</p><MetricLineChart metric="future_progress" points={prediction?.future_progress || []}/></div><div className="controlPanel"><h2>原规则参数扰动</h2><label>温度偏移量 <input type="range" min="-5" max="5" value={delta} onChange={(event) => setDelta(Number(event.target.value))}/><b>{delta} C</b></label><button onClick={run}><Activity size={16}/>运行仿真</button>{simulation && <p className="result">质量变化量: {simulation.projected_quality_delta}。 {simulation.recommendation}</p>}</div></div><ModelicaSimulationPanel tank={tank}/></section>;
 }
 
 createRoot(document.getElementById('root')!).render(<App/>);

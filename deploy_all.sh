@@ -8,7 +8,9 @@
 #   ./deploy_all.sh --demo-only            # 仅部署 WineTwin Demo（假设基础设施已就绪）
 #   ./deploy_all.sh --host-ip x.x.x.x      # 指定本机 IP（默认自动检测）
 #   ./deploy_all.sh --opentwins-ip x.x.x.x # 指定 OpenTwins 基础设施 IP（默认 = 本机 IP 或 minikube IP）
-#   ./deploy_all.sh --skip-images          # 跳过镜像预加载（已手动加载时使用）
+#   ./deploy_all.sh --skip-images          # 跳过镜像缓存检查/补齐
+#   ./deploy_all.sh --refresh-images       # 强制重新拉取镜像并导入 minikube
+#   ./deploy_all.sh --skip-modelica        # 跳过 OpenModelica 仿真服务（仅调试旧 Demo）
 # ═══════════════════════════════════════════════════════════════════════════════
 set -eo pipefail
 
@@ -24,7 +26,9 @@ ALIYUN_REGISTRY="crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com"
 # ── 参数解析 ──────────────────────────────────────────────────────────────────
 DEPLOY_INFRA=true
 DEPLOY_DEMO=true
+DEPLOY_MODELICA=true
 SKIP_IMAGES=false
+REFRESH_IMAGES=false
 HOST_IP=""
 OPENTWINS_HOST_IP=""
 
@@ -33,6 +37,8 @@ while [[ $# -gt 0 ]]; do
     --infra-only)    DEPLOY_DEMO=false;  shift ;;
     --demo-only)     DEPLOY_INFRA=false; shift ;;
     --skip-images)   SKIP_IMAGES=true;   shift ;;
+    --refresh-images) REFRESH_IMAGES=true; shift ;;
+    --skip-modelica) DEPLOY_MODELICA=false; shift ;;
     --host-ip)       HOST_IP="$2";       shift 2 ;;
     --opentwins-ip)  OPENTWINS_HOST_IP="$2"; shift 2 ;;
     -h|--help)
@@ -72,6 +78,8 @@ echo "  本机 IP:           $HOST_IP"
 echo "  OpenTwins 基础设施: $OPENTWINS_HOST_IP"
 echo "  部署基础设施:       $DEPLOY_INFRA"
 echo "  部署 WineTwin Demo: $DEPLOY_DEMO"
+echo "  部署 Modelica 服务: $DEPLOY_MODELICA"
+echo "  刷新 Docker 镜像:    $REFRESH_IMAGES"
 echo "=========================================="
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -93,25 +101,46 @@ if [[ "$DEPLOY_INFRA" == true ]]; then
       | sort -u
   }
 
-  # ── 镜像预加载 ───────────────────────────────────────────────────────────
-  preload_images() {
+  # ── 镜像缓存检查/补齐 ────────────────────────────────────────────────────
+  pull_image_with_retry() {
+    local img="$1"
+    local max_attempts="${IMAGE_PULL_RETRIES:-5}"
+    local attempt=1
+    while [[ "$attempt" -le "$max_attempts" ]]; do
+      info "  $img — 拉取尝试 ${attempt}/${max_attempts}..."
+      if docker pull "$img"; then
+        return 0
+      fi
+      err "  $img — 第 ${attempt} 次拉取失败"
+      attempt=$((attempt + 1))
+      sleep 8
+    done
+    return 1
+  }
+
+  ensure_images_cached() {
     IMAGES=$(extract_images)
     if [ -z "$IMAGES" ]; then
       die "未提取到任何镜像，请检查 helm template 是否正常"
     fi
     TOTAL=$(echo "$IMAGES" | wc -l)
-    info "共需 $TOTAL 个镜像，开始预加载..."
+    info "共需 $TOTAL 个镜像，检查宿主机/minikube 缓存..."
     while read -r IMG; do
       [ -z "$IMG" ] && continue
-      if minikube ssh -- "sudo docker image inspect $IMG" </dev/null >/dev/null 2>&1; then
+      if [[ "$REFRESH_IMAGES" == false ]] && minikube ssh -- "sudo docker image inspect $IMG" </dev/null >/dev/null 2>&1; then
         ok "  $IMG — minikube 已有"; continue
       fi
-      if docker image inspect "$IMG" >/dev/null 2>&1; then
+
+      if [[ "$REFRESH_IMAGES" == true ]]; then
+        info "  $IMG — 强制刷新宿主机缓存..."
+        if ! pull_image_with_retry "$IMG"; then err "  $IMG — 拉取失败，跳过"; continue; fi
+      elif docker image inspect "$IMG" >/dev/null 2>&1; then
         info "  $IMG — 从宿主机缓存加载..."
       else
-        info "  $IMG — 拉取到宿主机缓存..."
-        if ! docker pull "$IMG"; then err "  $IMG — 拉取失败，跳过"; continue; fi
+        info "  $IMG — 宿主机/minikube 都缺失，拉取到宿主机缓存..."
+        if ! pull_image_with_retry "$IMG"; then err "  $IMG — 拉取失败，跳过"; continue; fi
       fi
+
       if minikube image load "$IMG" </dev/null; then
         ok "  $IMG — 已导入 minikube"
       else
@@ -160,10 +189,10 @@ if [[ "$DEPLOY_INFRA" == true ]]; then
 
   # 4) 镜像预加载
   if [[ "$SKIP_IMAGES" == false ]]; then
-    step "A2: 镜像预加载"
-    preload_images
+    step "A2: 镜像缓存检查/补齐"
+    ensure_images_cached
   else
-    info "跳过镜像预加载 (--skip-images)"
+    info "跳过镜像缓存检查/补齐 (--skip-images)"
   fi
 
   # 5) Grafana 插件
@@ -431,16 +460,31 @@ if [[ "$DEPLOY_DEMO" == true ]]; then
   fi
   export INFLUX_TOKEN="${INFLUX_TOKEN:-}"
 
-  # 1) WineTwin Service (FastAPI/uvicorn) — 必须在 winetwin-service/ 目录下启动
+  # 1) OpenModelica Simulation Service (Docker, port 8020)
+  export USE_MODELICA="true"
+  export MODELICA_SERVICE_URL="http://127.0.0.1:8020"
+  export MODEL_DEFAULT_HORIZON_HOURS="${MODEL_DEFAULT_HORIZON_HOURS:-24}"
+  if [[ "$DEPLOY_MODELICA" == true ]]; then
+    bash scripts/deploy_modelica_service.sh
+    ok "OpenModelica Simulation Service 启动完成"
+  else
+    export USE_MODELICA="false"
+    info "跳过 OpenModelica Simulation Service (--skip-modelica)"
+  fi
+
+  # 2) WineTwin Service (FastAPI/uvicorn) — 必须在 winetwin-service/ 目录下启动
   (cd winetwin-service && \
     DITTO_BASE_URL="$DITTO_BASE_URL" \
     INFLUX_URL="$INFLUX_URL" INFLUX_TOKEN="$INFLUX_TOKEN" \
     CORS_ALLOW_ORIGINS="$CORS_ALLOW_ORIGINS" \
+    USE_MODELICA="$USE_MODELICA" \
+    MODELICA_SERVICE_URL="$MODELICA_SERVICE_URL" \
+    MODEL_DEFAULT_HORIZON_HOURS="$MODEL_DEFAULT_HORIZON_HOURS" \
     setsid -f "$PYTHON_BIN" -m uvicorn app.main:app --host 0.0.0.0 --port 8010 \
     > "$WINE_DEMO_DIR/logs/winetwin-service.log" 2>&1 < /dev/null)
   info "WineTwin Service 启动中 (port 8010)..."
 
-  # 2) Wine Frontend (Vite/React)
+  # 3) Wine Frontend (Vite/React)
   #    VITE_API_BASE_URL 设置为 http://127.0.0.1:8010 供 Vite proxy 使用
   #    前端 JS 使用相对路径 /api，由 Vite proxy 转发到后端
   #    这样无论是本机、局域网还是 SSH 端口转发访问，都能正常工作
@@ -450,7 +494,7 @@ if [[ "$DEPLOY_DEMO" == true ]]; then
     > "$WINE_DEMO_DIR/logs/wine-frontend.log" 2>&1 < /dev/null)
   info "Wine Frontend 启动中 (port 5173)..."
 
-  # 3) Wine Simulator (虚拟传感器数据发送)
+  # 4) Wine Simulator (虚拟传感器数据发送)
   MQTT_HOST="$MQTT_HOST" MQTT_PORT="$MQTT_PORT" \
     setsid -f "$PYTHON_BIN" wine-simulator/wine_fermentation_simulator.py \
     --config configs/wine_simulation.yaml \
@@ -474,6 +518,19 @@ if [[ "$DEPLOY_DEMO" == true ]]; then
     err "Wine Frontend 不可达 (http://${HOST_IP}:5173)"
   fi
 
+  if [[ "$DEPLOY_MODELICA" == true ]]; then
+    if curl -fsS --max-time 5 "http://${HOST_IP}:8020/health" >/dev/null 2>&1; then
+      ok "OpenModelica Simulation Service 可访问"
+    else
+      err "OpenModelica Simulation Service 不可达 (http://${HOST_IP}:8020)"
+    fi
+    if curl -fsS --max-time 20 "http://${HOST_IP}:8010/api/wine/modelica/health" >/dev/null 2>&1; then
+      ok "WineTwin Service 已接入 Modelica API"
+    else
+      err "WineTwin Service Modelica API 验证失败"
+    fi
+  fi
+
 fi  # DEPLOY_DEMO
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -495,6 +552,7 @@ echo ""
 echo "▸ WineFermentTwin Demo:"
 echo "  Frontend:       http://${HOST_IP}:5173"
 echo "  WineTwin API:   http://${HOST_IP}:8010/docs"
+echo "  Modelica API:   http://${HOST_IP}:8020/docs"
 echo "  Simulator 日志: $WINE_DEMO_DIR/logs/wine-simulator.log"
 echo ""
 echo "▸ OpenTwins 原始示例 (如需):"

@@ -1,0 +1,8 @@
+{
+  "wine_type": "red",
+  "initial_brix_reference": 24.5,
+  "final_brix": -1.0,
+  "optimal_temperature": 25.0,
+  "warning_temperature": 30.0,
+  "critical_temperature": 33.0
+}

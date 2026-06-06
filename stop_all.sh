@@ -37,7 +37,7 @@ step "停止 WineFermentTwin Demo"
 cd "$WINE_DEMO_DIR"
 
 # 通过 PID 文件停止
-for f in logs/winetwin-service.pid logs/wine-frontend.pid logs/wine-simulator.pid; do
+for f in logs/winetwin-service.pid logs/wine-frontend.pid logs/wine-simulator.pid logs/modelica-service.pid; do
   if [[ -f "$f" ]]; then
     pid="$(cat "$f")"
     kill "$pid" 2>/dev/null || true
@@ -49,6 +49,7 @@ done
 pkill -f "uvicorn app.main:app" 2>/dev/null || true
 pkill -f "wine_fermentation_simulator.py" 2>/dev/null || true
 pkill -f "vite.*5173" 2>/dev/null || true
+docker rm -f "${MODELICA_SERVICE_CONTAINER_NAME:-modelica-simulation-service}" >/dev/null 2>&1 && ok "OpenModelica Simulation Service 已停止" || true
 
 ok "WineFermentTwin Demo 已停止"
 

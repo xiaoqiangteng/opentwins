@@ -1,0 +1,11 @@
+logs/
+.venv/
+__pycache__/
+*.pyc
+wine-frontend/node_modules/
+wine-frontend/dist/
+wine-frontend/*.tsbuildinfo
+wine-simulator/data/generated_csv/
+modelica/results/*
+!modelica/results/.gitkeep
+simulation-service/runtime/

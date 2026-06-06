@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  modelica-simulation-service:
+    build:
+      context: .
+      dockerfile: simulation-service/Dockerfile
+      args:
+        OPENMODELICA_IMAGE: ${OPENMODELICA_IMAGE:-openmodelica/openmodelica:v1.26.7-minimal}
+    container_name: modelica-simulation-service
+    ports:
+      - "8020:8020"
+    environment:
+      MODEL_ROOT: /app
+      MODELICA_TIMEOUT_SECONDS: ${MODELICA_TIMEOUT_SECONDS:-120}
+    restart: unless-stopped
+
+  winetwin-service:
+    build: ./winetwin-service
+    container_name: winetwin-service
+    ports:
+      - "8010:8010"
+    environment:
+      DITTO_BASE_URL: ${DITTO_BASE_URL}
+      INFLUX_URL: ${INFLUX_URL}
+      INFLUX_TOKEN: ${INFLUX_TOKEN:-}
+      USE_MODELICA: "true"
+      MODELICA_SERVICE_URL: http://modelica-simulation-service:8020
+    depends_on:
+      - modelica-simulation-service
+    restart: unless-stopped
+
+  wine-frontend:
+    build: ./wine-frontend
+    container_name: wine-frontend
+    ports:
+      - "5173:80"
+    environment:
+      VITE_API_BASE_URL: http://${HOST_IP:-localhost}:8010
+    depends_on:
+      - winetwin-service
+    restart: unless-stopped

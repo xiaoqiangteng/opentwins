@@ -7,6 +7,7 @@
 #   ./watch_demo.sh --snapshot       # 输出最近 N 行日志快照，不追踪
 #   ./watch_demo.sh --simulator      # 仅查看 Wine Simulator 日志
 #   ./watch_demo.sh --service        # 仅查看 WineTwin Service 日志
+#   ./watch_demo.sh --modelica       # 仅查看 OpenModelica Simulation Service 日志
 #   ./watch_demo.sh --frontend       # 仅查看 Wine Frontend 日志
 #   ./watch_demo.sh --status         # 仅显示各服务运行状态摘要
 #   ./watch_demo.sh --lines 50       # 快照模式显示最近 50 行 (默认 30)
@@ -23,7 +24,7 @@ CYAN='\033[0;36m'; MAGENTA='\033[0;35m'; NC='\033[0m'; BOLD='\033[1m'
 
 # ── 默认参数 ────────────────────────────────────────────────────────────────
 MODE="follow"            # follow | snapshot | status
-FILTER="all"             # all | simulator | service | frontend
+FILTER="all"             # all | simulator | service | frontend | modelica
 LINES=30
 
 while [[ $# -gt 0 ]]; do
@@ -32,6 +33,7 @@ while [[ $# -gt 0 ]]; do
     --status)     MODE="status";     shift ;;
     --simulator)  FILTER="simulator"; shift ;;
     --service)    FILTER="service";   shift ;;
+    --modelica)   FILTER="modelica";  shift ;;
     --frontend)   FILTER="frontend";  shift ;;
     --lines)      LINES="$2";         shift 2 ;;
     -h|--help)    head -9 "$0" | tail -7; exit 0 ;;
@@ -43,24 +45,28 @@ done
 declare -A LOG_FILES=(
   [simulator]="$LOG_DIR/wine-simulator.log"
   [service]="$LOG_DIR/winetwin-service.log"
+  [modelica]="docker:modelica-simulation-service"
   [frontend]="$LOG_DIR/wine-frontend.log"
 )
 
 declare -A LOG_LABELS=(
   [simulator]="🍷 Wine Simulator  (虚拟传感器数据)"
   [service]="⚙️  WineTwin Service (FastAPI)"
+  [modelica]="🧮 Modelica Service (OpenModelica)"
   [frontend]="🖥️  Wine Frontend   (Vite/React)"
 )
 
 declare -A LOG_COLORS=(
   [simulator]="$CYAN"
   [service]="$GREEN"
+  [modelica]="$BLUE"
   [frontend]="$MAGENTA"
 )
 
 declare -A PROC_PATTERNS=(
   [simulator]="wine_fermentation_simulator.py"
   [service]="uvicorn app.main:app"
+  [modelica]="modelica-simulation-service"
   [frontend]="vite.*5173"
 )
 
@@ -68,14 +74,17 @@ declare -A PROC_PATTERNS=(
 check_status() {
   printf "\n${BOLD}── WineFermentTwin Demo 服务状态 ──${NC}\n\n"
 
-  for key in simulator service frontend; do
+  for key in simulator service modelica frontend; do
     local log="${LOG_FILES[$key]}"
     local label="${LOG_LABELS[$key]}"
     local color="${LOG_COLORS[$key]}"
     local pattern="${PROC_PATTERNS[$key]}"
 
-    # 检查进程
-    if pgrep -f "$pattern" >/dev/null 2>&1; then
+    # 检查进程 / Docker container
+    if [[ "$key" == "modelica" ]] && docker ps --format '{{.Names}}' | grep -qx "$pattern"; then
+      local pid=$(docker inspect -f '{{.State.Pid}}' "$pattern" 2>/dev/null || echo "container")
+      printf "  ${GREEN}● 运行中${NC}  %s  (PID: %s)\n" "$label" "$pid"
+    elif [[ "$key" != "modelica" ]] && pgrep -f "$pattern" >/dev/null 2>&1; then
       local pid=$(pgrep -f "$pattern" | head -1)
       printf "  ${GREEN}● 运行中${NC}  %s  (PID: %s)\n" "$label" "$pid"
     else
@@ -83,7 +92,11 @@ check_status() {
     fi
 
     # 日志文件信息
-    if [[ -f "$log" ]]; then
+    if [[ "$log" == docker:* ]]; then
+      local container="${log#docker:}"
+      local status=$(docker inspect -f '{{.State.Status}}' "$container" 2>/dev/null || echo "不存在")
+      printf "           日志: docker logs %s (状态: %s)\n" "$container" "$status"
+    elif [[ -f "$log" ]]; then
       local size=$(du -h "$log" | awk '{print $1}')
       local mtime=$(stat -c '%y' "$log" 2>/dev/null | cut -d'.' -f1 || echo "未知")
       printf "           日志: %s (%s, 最后更新: %s)\n" "$log" "$size" "$mtime"
@@ -136,6 +149,11 @@ check_status() {
   else
     printf "  ${RED}○ Frontend 不可达${NC}  http://localhost:5173\n"
   fi
+  if curl -fsS --max-time 3 "http://localhost:8020/health" >/dev/null 2>&1; then
+    printf "  ${GREEN}● Modelica API 可访问${NC}  http://localhost:8020/docs\n"
+  else
+    printf "  ${RED}○ Modelica API 不可达${NC}  http://localhost:8020/docs\n"
+  fi
 
   echo ""
 }
@@ -147,7 +165,7 @@ show_logs() {
   # 确定要显示哪些日志
   local keys=()
   if [[ "$FILTER" == "all" ]]; then
-    keys=(simulator service frontend)
+    keys=(simulator service modelica frontend)
   else
     keys=("$FILTER")
   fi
@@ -155,7 +173,9 @@ show_logs() {
   # 检查是否有日志文件存在
   local found_any=false
   for key in "${keys[@]}"; do
-    if [[ -f "${LOG_FILES[$key]}" ]]; then
+    if [[ "${LOG_FILES[$key]}" == docker:* ]]; then
+      docker inspect "${LOG_FILES[$key]#docker:}" >/dev/null 2>&1 && found_any=true
+    elif [[ -f "${LOG_FILES[$key]}" ]]; then
       found_any=true
     fi
   done
@@ -178,6 +198,14 @@ show_logs() {
       local label="${LOG_LABELS[$key]}"
       local color="${LOG_COLORS[$key]}"
 
+      if [[ "$log" == docker:* ]]; then
+        local container="${log#docker:}"
+        printf "${color}── %s ──%s${NC}\n" "$label" "$(printf ' %.0s' $(seq 1 $((60 - ${#label})) 2>/dev/null || true))"
+        docker logs --tail "$LINES" "$container" 2>&1 || true
+        echo ""
+        continue
+      fi
+
       if [[ ! -f "$log" ]]; then
         printf "${YELLOW}── %s ── 日志文件不存在 ──${NC}\n\n" "$label"
         continue
@@ -195,7 +223,11 @@ show_logs() {
   if [[ ${#keys[@]} -eq 1 ]]; then
     local key="${keys[0]}"
     local log="${LOG_FILES[$key]}"
-    if [[ -f "$log" ]]; then
+    if [[ "$log" == docker:* ]]; then
+      local container="${log#docker:}"
+      printf "${LOG_COLORS[$key]}── 实时追踪: ${LOG_LABELS[$key]} ──${NC}\n"
+      exec docker logs -f --tail "$LINES" "$container"
+    elif [[ -f "$log" ]]; then
       printf "${LOG_COLORS[$key]}── 实时追踪: ${LOG_LABELS[$key]} ──${NC}\n"
       exec tail -n "$LINES" -f "$log"
     else
@@ -215,6 +247,13 @@ show_logs() {
     local label="${LOG_LABELS[$key]}"
     local color="${LOG_COLORS[$key]}"
     local tag="$key"
+
+    if [[ "$log" == docker:* ]]; then
+      local container="${log#docker:}"
+      docker logs -f --tail "$LINES" "$container" 2>&1 \
+        | sed -u "s/^/${color}[${tag}]${NC} /" &
+      continue
+    fi
 
     if [[ ! -f "$log" ]]; then
       printf "${YELLOW}── %s ── 日志文件不存在，跳过 ──${NC}\n" "$label"

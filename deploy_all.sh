@@ -11,6 +11,7 @@
 #   ./deploy_all.sh --skip-images          # 跳过镜像缓存检查/补齐
 #   ./deploy_all.sh --refresh-images       # 强制重新拉取镜像并导入 minikube
 #   ./deploy_all.sh --skip-modelica        # 跳过 OpenModelica 仿真服务（仅调试旧 Demo）
+#   ./deploy_all.sh --skip-debug           # 跳过 WorldMind Debug Console / wmctl
 # ═══════════════════════════════════════════════════════════════════════════════
 set -eo pipefail
 
@@ -18,6 +19,7 @@ set -eo pipefail
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 OPENTWINS_CHART_DIR="$PROJECT_ROOT/OpenTwins"
 WINE_DEMO_DIR="$PROJECT_ROOT/wine-ferment-twin"
+DEBUG_DIR="$PROJECT_ROOT/worldmind-debug"
 
 RELEASE="opentwins"
 NAMESPACE="opentwins"
@@ -27,6 +29,7 @@ ALIYUN_REGISTRY="crpi-ur4vz1dcuzowzd01.cn-beijing.personal.cr.aliyuncs.com"
 DEPLOY_INFRA=true
 DEPLOY_DEMO=true
 DEPLOY_MODELICA=true
+DEPLOY_DEBUG=true
 SKIP_IMAGES=false
 REFRESH_IMAGES=false
 HOST_IP=""
@@ -39,10 +42,11 @@ while [[ $# -gt 0 ]]; do
     --skip-images)   SKIP_IMAGES=true;   shift ;;
     --refresh-images) REFRESH_IMAGES=true; shift ;;
     --skip-modelica) DEPLOY_MODELICA=false; shift ;;
+    --skip-debug)    DEPLOY_DEBUG=false; shift ;;
     --host-ip)       HOST_IP="$2";       shift 2 ;;
     --opentwins-ip)  OPENTWINS_HOST_IP="$2"; shift 2 ;;
     -h|--help)
-      head -12 "$0" | tail -10
+      head -13 "$0" | tail -11
       exit 0 ;;
     *) echo "未知参数: $1"; exit 1 ;;
   esac
@@ -79,6 +83,7 @@ echo "  OpenTwins 基础设施: $OPENTWINS_HOST_IP"
 echo "  部署基础设施:       $DEPLOY_INFRA"
 echo "  部署 WineTwin Demo: $DEPLOY_DEMO"
 echo "  部署 Modelica 服务: $DEPLOY_MODELICA"
+echo "  部署 Debug 工具:     $DEPLOY_DEBUG"
 echo "  刷新 Docker 镜像:    $REFRESH_IMAGES"
 echo "=========================================="
 
@@ -195,6 +200,32 @@ if [[ "$DEPLOY_INFRA" == true ]]; then
     info "跳过镜像缓存检查/补齐 (--skip-images)"
   fi
 
+  download_grafana_plugin() {
+    local plugin="$1"
+    local url=""
+    case "$plugin" in
+      ertis-opentwins-app.zip)
+        url="https://github.com/ertis-research/opentwins-in-grafana/releases/download/latest/ertis-opentwins-app.zip"
+        ;;
+      ertis-unity-panel.zip)
+        url="https://github.com/ertis-research/grafana-panel-unity/releases/download/latest/ertis-unity-panel.zip"
+        ;;
+      *)
+        return 1
+        ;;
+    esac
+
+    info "下载 Grafana 插件 $plugin ..."
+    if curl -fL --retry 3 --connect-timeout 10 -o "/tmp/$plugin" "$url"; then
+      return 0
+    fi
+
+    info "普通 GitHub 下载失败，尝试固定 github.com 官方 IP 兜底..."
+    curl -fL --retry 3 --connect-timeout 10 \
+      --resolve github.com:443:140.82.114.3 \
+      -o "/tmp/$plugin" "$url"
+  }
+
   # 5) Grafana 插件
   info "检查 Grafana 插件文件..."
   PLUGINS_MISSING=""
@@ -207,6 +238,9 @@ if [[ "$DEPLOY_INFRA" == true ]]; then
     info "缺失插件:${PLUGINS_MISSING}，尝试从宿主机 /tmp 复制..."
     COPY_FAILED=""
     for PLUGIN in $PLUGINS_MISSING; do
+      if [ ! -f "/tmp/$PLUGIN" ]; then
+        download_grafana_plugin "$PLUGIN" || true
+      fi
       if [ -f "/tmp/$PLUGIN" ]; then
         minikube ssh -- "sudo mkdir -p /mnt/data/grafana-plugins"
         minikube cp "/tmp/$PLUGIN" "minikube:/tmp/$PLUGIN"
@@ -220,9 +254,9 @@ if [[ "$DEPLOY_INFRA" == true ]]; then
       err "以下插件文件不在 /tmp/:"
       for PLUGIN in $COPY_FAILED; do echo "  $PLUGIN"; done
       echo ""
-      echo "  请先下载后重新运行："
-      echo "  curl -sL -o /tmp/ertis-opentwins-app.zip 'https://github.com/ertis-research/opentwins-in-grafana/releases/download/latest/ertis-opentwins-app.zip'"
-      echo "  curl -sL -o /tmp/ertis-unity-panel.zip 'https://github.com/ertis-research/grafana-panel-unity/releases/download/latest/ertis-unity-panel.zip'"
+      echo "  请检查服务器 GitHub 网络，或先手动下载后重新运行："
+      echo "  curl -fL --resolve github.com:443:140.82.114.3 -o /tmp/ertis-opentwins-app.zip 'https://github.com/ertis-research/opentwins-in-grafana/releases/download/latest/ertis-opentwins-app.zip'"
+      echo "  curl -fL --resolve github.com:443:140.82.114.3 -o /tmp/ertis-unity-panel.zip 'https://github.com/ertis-research/grafana-panel-unity/releases/download/latest/ertis-unity-panel.zip'"
       echo "  minikube ssh -- 'sudo mkdir -p /mnt/data/grafana-plugins'"
       echo "  minikube cp /tmp/ertis-opentwins-app.zip minikube:/tmp/ertis-opentwins-app.zip"
       echo "  minikube cp /tmp/ertis-unity-panel.zip minikube:/tmp/ertis-unity-panel.zip"
@@ -534,6 +568,104 @@ if [[ "$DEPLOY_DEMO" == true ]]; then
 fi  # DEPLOY_DEMO
 
 # ═════════════════════════════════════════════════════════════════════════════
+# 阶段 C: WorldMind Debug Console / wmctl
+# ═════════════════════════════════════════════════════════════════════════════
+
+if [[ "$DEPLOY_DEBUG" == true ]]; then
+
+  step "C1: 启动 WorldMind Debug Console"
+
+  [[ -d "$DEBUG_DIR/backend" ]] || die "Debug 模块不存在: $DEBUG_DIR"
+  mkdir -p "$DEBUG_DIR/logs" "$DEBUG_DIR/data"
+
+  DEBUG_PYTHON="python3"
+  if python3 -m venv --system-site-packages "$DEBUG_DIR/backend/.venv" >/dev/null 2>&1; then
+    DEBUG_PYTHON="$DEBUG_DIR/backend/.venv/bin/python"
+    "$DEBUG_PYTHON" -m pip install --upgrade pip
+    "$DEBUG_PYTHON" -m pip install -r "$DEBUG_DIR/backend/requirements.txt" -r "$DEBUG_DIR/cli/requirements.txt"
+    ok "Debug API / wmctl 依赖安装完成"
+  else
+    python3 -m pip install --user -r "$DEBUG_DIR/backend/requirements.txt" -r "$DEBUG_DIR/cli/requirements.txt"
+    ok "Debug API / wmctl 依赖安装完成 (pip --user)"
+  fi
+
+  DEBUG_INFLUX_TOKEN="${INFLUX_TOKEN:-}"
+  if [[ -z "$DEBUG_INFLUX_TOKEN" && -f "${OPENTWINS_CHART_DIR}/values.yaml" ]]; then
+    DEBUG_INFLUX_TOKEN="$(awk '/adminUser:/{in_admin=1} in_admin && /^[[:space:]]+token:/{gsub(/^[[:space:]]+token:[[:space:]]*"/,""); gsub(/"[[:space:]]*$/,""); print; exit}' "${OPENTWINS_CHART_DIR}/values.yaml")"
+  fi
+
+  if [[ ! -f "$DEBUG_DIR/.env" ]]; then
+    cat > "$DEBUG_DIR/.env" <<EOF
+DEBUG_API_HOST=0.0.0.0
+DEBUG_API_PORT=18080
+DEBUG_REQUEST_TIMEOUT=5
+DITTO_BASE_URL=http://${OPENTWINS_HOST_IP}:30525
+DITTO_USER=${DITTO_USERNAME:-ditto}
+DITTO_PASSWORD=${DITTO_PASSWORD:-ditto}
+DITTO_DEVOPS_USER=${DITTO_DEVOPS_USER:-devops}
+DITTO_DEVOPS_PASSWORD=${DITTO_DEVOPS_PASSWORD:-foobar}
+MQTT_HOST=${OPENTWINS_HOST_IP}
+MQTT_PORT=30511
+MQTT_USERNAME=${MQTT_USERNAME:-}
+MQTT_PASSWORD=${MQTT_PASSWORD:-}
+MQTT_DEFAULT_TOPIC=telemetry/#
+INFLUX_URL=http://${OPENTWINS_HOST_IP}:30716
+INFLUX_TOKEN=${DEBUG_INFLUX_TOKEN}
+INFLUX_ORG=${INFLUX_ORG:-opentwins}
+INFLUX_BUCKET=${INFLUX_BUCKET:-opentwins}
+GRAFANA_URL=http://${OPENTWINS_HOST_IP}:30718
+GRAFANA_API_TOKEN=${GRAFANA_API_TOKEN:-}
+TRACE_DB_PATH=$DEBUG_DIR/data/debug_trace.sqlite
+KUBERNETES_NAMESPACE=$NAMESPACE
+HELM_RELEASE=$RELEASE
+EOF
+    ok "Debug .env 已生成"
+  fi
+
+  set -a
+  # shellcheck disable=SC1091
+  source "$DEBUG_DIR/.env"
+  set +a
+
+  chmod +x "$DEBUG_DIR/cli/wmctl.py" "$DEBUG_DIR/cli/wmctl"
+  ln -sf "$DEBUG_DIR/cli/wmctl" "$DEBUG_DIR/wmctl"
+
+  pkill -f "uvicorn app.main:app.*--port ${DEBUG_API_PORT:-18080}" 2>/dev/null || true
+
+  (cd "$DEBUG_DIR/backend" && \
+    DEBUG_API_HOST="${DEBUG_API_HOST:-0.0.0.0}" \
+    DEBUG_API_PORT="${DEBUG_API_PORT:-18080}" \
+    DITTO_BASE_URL="${DITTO_BASE_URL:-http://${OPENTWINS_HOST_IP}:30525}" \
+    DITTO_USER="${DITTO_USER:-ditto}" \
+    DITTO_PASSWORD="${DITTO_PASSWORD:-ditto}" \
+    DITTO_DEVOPS_USER="${DITTO_DEVOPS_USER:-devops}" \
+    DITTO_DEVOPS_PASSWORD="${DITTO_DEVOPS_PASSWORD:-foobar}" \
+    MQTT_HOST="${MQTT_HOST:-${OPENTWINS_HOST_IP}}" \
+    MQTT_PORT="${MQTT_PORT:-30511}" \
+    INFLUX_URL="${INFLUX_URL:-http://${OPENTWINS_HOST_IP}:30716}" \
+    INFLUX_TOKEN="${INFLUX_TOKEN:-$DEBUG_INFLUX_TOKEN}" \
+    INFLUX_ORG="${INFLUX_ORG:-opentwins}" \
+    INFLUX_BUCKET="${INFLUX_BUCKET:-opentwins}" \
+    GRAFANA_URL="${GRAFANA_URL:-http://${OPENTWINS_HOST_IP}:30718}" \
+    GRAFANA_API_TOKEN="${GRAFANA_API_TOKEN:-}" \
+    TRACE_DB_PATH="${TRACE_DB_PATH:-$DEBUG_DIR/data/debug_trace.sqlite}" \
+    KUBERNETES_NAMESPACE="${KUBERNETES_NAMESPACE:-$NAMESPACE}" \
+    HELM_RELEASE="${HELM_RELEASE:-$RELEASE}" \
+    setsid -f "$DEBUG_PYTHON" -m uvicorn app.main:app --host "${DEBUG_API_HOST:-0.0.0.0}" --port "${DEBUG_API_PORT:-18080}" \
+    > "$DEBUG_DIR/logs/worldmind-debug-api.log" 2>&1 < /dev/null)
+  info "WorldMind Debug API 启动中 (port ${DEBUG_API_PORT:-18080})..."
+
+  sleep 2
+  if curl -fsS --max-time 5 "http://${HOST_IP}:${DEBUG_API_PORT:-18080}/api/debug/health" >/dev/null 2>&1 \
+     || curl -fsS --max-time 5 "http://127.0.0.1:${DEBUG_API_PORT:-18080}/api/debug/health" >/dev/null 2>&1; then
+    ok "WorldMind Debug API 可访问"
+  else
+    err "WorldMind Debug API 暂不可达，请查看 $DEBUG_DIR/logs/worldmind-debug-api.log"
+  fi
+
+fi  # DEPLOY_DEBUG
+
+# ═════════════════════════════════════════════════════════════════════════════
 # 完成摘要
 # ═════════════════════════════════════════════════════════════════════════════
 
@@ -554,6 +686,12 @@ echo "  Frontend:       http://${HOST_IP}:5173"
 echo "  WineTwin API:   http://${HOST_IP}:8010/docs"
 echo "  Modelica API:   http://${HOST_IP}:8020/docs"
 echo "  Simulator 日志: $WINE_DEMO_DIR/logs/wine-simulator.log"
+echo ""
+echo "▸ WorldMind Debug Console:"
+echo "  Debug API:      http://${HOST_IP}:18080/docs"
+echo "  Health:         http://${HOST_IP}:18080/api/debug/health"
+echo "  wmctl:          $DEBUG_DIR/cli/wmctl doctor"
+echo "  使用说明:       $DEBUG_DIR/docs/部署命令与Debug使用说明.md"
 echo ""
 echo "▸ OpenTwins 原始示例 (如需):"
 echo "  cd OpenTwins && python3 get_data_simulate.py"

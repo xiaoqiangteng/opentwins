@@ -1,0 +1,12 @@
+services:
+  worldmind-debug-api:
+    build: ./backend
+    container_name: worldmind-debug-api
+    env_file:
+      - ./.env
+    ports:
+      - "18080:18080"
+    volumes:
+      - ./data:/app/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

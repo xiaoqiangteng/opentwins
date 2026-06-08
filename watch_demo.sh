@@ -9,6 +9,7 @@
 #   ./watch_demo.sh --service        # 仅查看 WineTwin Service 日志
 #   ./watch_demo.sh --modelica       # 仅查看 OpenModelica Simulation Service 日志
 #   ./watch_demo.sh --frontend       # 仅查看 Wine Frontend 日志
+#   ./watch_demo.sh --debug          # 仅查看 WorldMind Debug API 日志
 #   ./watch_demo.sh --status         # 仅显示各服务运行状态摘要
 #   ./watch_demo.sh --lines 50       # 快照模式显示最近 50 行 (默认 30)
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -17,6 +18,7 @@ set -eo pipefail
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WINE_DEMO_DIR="$PROJECT_ROOT/wine-ferment-twin"
 LOG_DIR="$WINE_DEMO_DIR/logs"
+DEBUG_DIR="$PROJECT_ROOT/worldmind-debug"
 
 # ── 颜色 ────────────────────────────────────────────────────────────────────
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; BLUE='\033[0;34m'
@@ -35,6 +37,7 @@ while [[ $# -gt 0 ]]; do
     --service)    FILTER="service";   shift ;;
     --modelica)   FILTER="modelica";  shift ;;
     --frontend)   FILTER="frontend";  shift ;;
+    --debug)      FILTER="debug";     shift ;;
     --lines)      LINES="$2";         shift 2 ;;
     -h|--help)    head -9 "$0" | tail -7; exit 0 ;;
     *)            echo "未知参数: $1"; exit 1 ;;
@@ -47,6 +50,7 @@ declare -A LOG_FILES=(
   [service]="$LOG_DIR/winetwin-service.log"
   [modelica]="docker:modelica-simulation-service"
   [frontend]="$LOG_DIR/wine-frontend.log"
+  [debug]="$DEBUG_DIR/logs/worldmind-debug-api.log"
 )
 
 declare -A LOG_LABELS=(
@@ -54,6 +58,7 @@ declare -A LOG_LABELS=(
   [service]="⚙️  WineTwin Service (FastAPI)"
   [modelica]="🧮 Modelica Service (OpenModelica)"
   [frontend]="🖥️  Wine Frontend   (Vite/React)"
+  [debug]="🔎 WorldMind Debug API"
 )
 
 declare -A LOG_COLORS=(
@@ -61,6 +66,7 @@ declare -A LOG_COLORS=(
   [service]="$GREEN"
   [modelica]="$BLUE"
   [frontend]="$MAGENTA"
+  [debug]="$YELLOW"
 )
 
 declare -A PROC_PATTERNS=(
@@ -68,13 +74,14 @@ declare -A PROC_PATTERNS=(
   [service]="uvicorn app.main:app"
   [modelica]="modelica-simulation-service"
   [frontend]="vite.*5173"
+  [debug]="uvicorn app.main:app.*--port 18080"
 )
 
 # ── 服务状态检测 ────────────────────────────────────────────────────────────
 check_status() {
   printf "\n${BOLD}── WineFermentTwin Demo 服务状态 ──${NC}\n\n"
 
-  for key in simulator service modelica frontend; do
+  for key in simulator service modelica frontend debug; do
     local log="${LOG_FILES[$key]}"
     local label="${LOG_LABELS[$key]}"
     local color="${LOG_COLORS[$key]}"
@@ -154,6 +161,11 @@ check_status() {
   else
     printf "  ${RED}○ Modelica API 不可达${NC}  http://localhost:8020/docs\n"
   fi
+  if curl -fsS --max-time 2 "http://localhost:18080/api/debug/health" >/dev/null 2>&1; then
+    printf "  ${GREEN}● Debug API 可访问${NC}  http://localhost:18080/docs\n"
+  else
+    printf "  ${RED}○ Debug API 不可达${NC}  http://localhost:18080/docs\n"
+  fi
 
   echo ""
 }
@@ -165,7 +177,7 @@ show_logs() {
   # 确定要显示哪些日志
   local keys=()
   if [[ "$FILTER" == "all" ]]; then
-    keys=(simulator service modelica frontend)
+    keys=(simulator service modelica frontend debug)
   else
     keys=("$FILTER")
   fi

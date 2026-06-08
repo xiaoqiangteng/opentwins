@@ -1,0 +1,1 @@
+# wmctl uses Python standard library only. This file is kept for deployment symmetry.

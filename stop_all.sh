@@ -11,6 +11,7 @@ set -eo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WINE_DEMO_DIR="$PROJECT_ROOT/wine-ferment-twin"
+DEBUG_DIR="$PROJECT_ROOT/worldmind-debug"
 RELEASE="opentwins"
 NAMESPACE="opentwins"
 
@@ -52,6 +53,13 @@ pkill -f "vite.*5173" 2>/dev/null || true
 docker rm -f "${MODELICA_SERVICE_CONTAINER_NAME:-modelica-simulation-service}" >/dev/null 2>&1 && ok "OpenModelica Simulation Service 已停止" || true
 
 ok "WineFermentTwin Demo 已停止"
+
+# ── 停止 WorldMind Debug Console ───────────────────────────────────────────
+step "停止 WorldMind Debug Console"
+pkill -f "uvicorn app.main:app.*--port 18080" 2>/dev/null && ok "WorldMind Debug API 已停止" || info "WorldMind Debug API 未运行"
+if [[ -d "$DEBUG_DIR/logs" ]]; then
+  info "Debug 日志目录: $DEBUG_DIR/logs"
+fi
 
 # ── 停止 OpenTwins 原始示例的 get_data_simulate.py（如果正在运行）────
 pkill -f "get_data_simulate.py" 2>/dev/null && ok "OpenTwins get_data_simulate.py 已停止" || true

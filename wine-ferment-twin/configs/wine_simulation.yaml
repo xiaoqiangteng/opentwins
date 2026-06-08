@@ -24,6 +24,15 @@ tanks:
     target_temp: 25.0
     initial_ph: 3.45
     anomaly: null
+    # --- 动力学参数：标准红葡萄酒 ---
+    fermentation_k_mult: 1.0          # 正常发酵速率
+    heat_amplitude: 4.0               # 发酵热幅度 4°C
+    daily_temp_amplitude: 0.6         # 日温波动 0.6°C
+    co2_peak: 7200                    # CO2 峰值 7200ppm
+    co2_peak_pos: 0.32                # CO2 峰位在 32% 进度
+    co2_peak_width: 0.14              # CO2 峰宽
+    ph_drop_rate: 0.08                # pH 下降速率
+
   - tank_id: "tank_02"
     thing_id: "wine:tank_02"
     parent_id: "wine:workshop_01"
@@ -34,6 +43,15 @@ tanks:
     target_temp: 26.0
     initial_ph: 3.50
     anomaly: "temperature_high"
+    # --- 动力学参数：快速发酵红葡萄酒 ---
+    fermentation_k_mult: 1.25         # 发酵速率快 25%
+    heat_amplitude: 5.2               # 发酵热更大 5.2°C（高糖 → 高热）
+    daily_temp_amplitude: 0.8         # 日温波动更大
+    co2_peak: 9500                    # CO2 峰值更高
+    co2_peak_pos: 0.28                # CO2 峰更早出现
+    co2_peak_width: 0.16              # CO2 峰更宽
+    ph_drop_rate: 0.10                # pH 下降更快
+
   - tank_id: "tank_03"
     thing_id: "wine:tank_03"
     parent_id: "wine:workshop_01"
@@ -44,3 +62,11 @@ tanks:
     target_temp: 14.0
     initial_ph: 3.30
     anomaly: "stuck_fermentation"
+    # --- 动力学参数：白葡萄酒 ---
+    fermentation_k_mult: 0.75         # 白葡萄酒发酵更慢
+    heat_amplitude: 2.0               # 发酵热小得多（低温发酵）
+    daily_temp_amplitude: 0.3         # 日温波动小
+    co2_peak: 4800                    # CO2 峰值更低
+    co2_peak_pos: 0.38                # CO2 峰更晚出现
+    co2_peak_width: 0.12              # CO2 峰更窄
+    ph_drop_rate: 0.06                # pH 下降更缓

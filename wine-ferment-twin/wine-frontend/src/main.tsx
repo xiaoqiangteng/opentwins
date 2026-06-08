@@ -143,8 +143,17 @@ function App() {
 function History({ tank }: { tank: Tank }) {
   const [metric, setMetric] = useState('brix');
   const [data, setData] = useState<any[]>([]);
-  useEffect(() => { wineApi.history(tank.tank_id, metric).then((res) => setData(res.points || [])).catch(() => setData([])); }, [tank.tank_id, metric]);
-  return <section className="band"><div className="tabs">{metricNames.map((name) => <button className={metric === name ? 'active' : ''} onClick={() => setMetric(name)} key={name}>{metricLabels[name] || name}</button>)}</div><MetricLineChart metric={metric} points={data}/></section>;
+  useEffect(() => {
+    let cancelled = false;
+    wineApi.history(tank.tank_id, metric)
+      .then((res) => { if (!cancelled) setData(res.points || []); })
+      .catch(() => { if (!cancelled) setData([]); });
+    return () => { cancelled = true; };
+  }, [tank.tank_id, metric]);
+  return <section className="band">
+    <div className="tabs">{metricNames.map((name) => <button className={metric === name ? 'active' : ''} onClick={() => setMetric(name)} key={name}>{metricLabels[name] || name}</button>)}</div>
+    <MetricLineChart metric={metric} points={data}/>
+  </section>;
 }
 
 function Simulation({ tank }: { tank: Tank }) {

@@ -61,6 +61,22 @@ export function WineWorkshopScene({ tanks, selected, onSelect }: { tanks: Tank[]
     function animate() {
       frame = requestAnimationFrame(animate);
       scene.rotation.y = Math.sin(Date.now() / 6000) * 0.03;
+
+      // 选中 tank 的粒子环绕旋转动画
+      const time = Date.now() / 1000;
+      scene.traverse((obj) => {
+        if (obj.name === 'selectionParticles' && obj instanceof THREE.Points) {
+          obj.rotation.y = time * 0.5;
+          // 粒子上下浮动
+          const positions = obj.geometry.attributes.position;
+          for (let i = 0; i < positions.count; i++) {
+            const y = positions.getY(i);
+            positions.setY(i, y + Math.sin(time * 2 + i * 0.3) * 0.002);
+          }
+          positions.needsUpdate = true;
+        }
+      });
+
       renderer.render(scene, camera);
     }
     animate();

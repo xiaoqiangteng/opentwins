@@ -84,6 +84,96 @@ def cmd_mqtt_tail(args: argparse.Namespace) -> None:
         _dump(msg.get("payload"))
 
 
+def cmd_mqtt_listen(args: argparse.Namespace) -> None:
+    """实时流式订阅 MQTT 消息，直接在 CLI 中连接 MQTT broker。"""
+    try:
+        import paho.mqtt.client as mqtt
+    except ImportError:
+        print("[ERROR] 缺少 paho-mqtt 依赖，请: pip install paho-mqtt", file=sys.stderr)
+        return
+
+    mqtt_host = os.getenv("MQTT_HOST", "192.168.49.2")
+    mqtt_port = int(os.getenv("MQTT_PORT", "30511"))
+    mqtt_username = os.getenv("MQTT_USERNAME", "")
+    mqtt_password = os.getenv("MQTT_PASSWORD", "")
+    topic = args.topic
+
+    count = 0
+    limit = args.limit
+    stop_event = [False]
+
+    def on_connect(_client, _userdata, flags, rc, properties=None):
+        if rc == 0:
+            _client.subscribe(topic)
+            print(f"已订阅: {topic}  (按 Ctrl+C 停止)", flush=True)
+        else:
+            print(f"[ERROR] MQTT 连接失败: rc={rc}", file=sys.stderr, flush=True)
+            stop_event[0] = True
+
+    def on_message(_client, _userdata, msg):
+        nonlocal count
+        payload_text = msg.payload.decode("utf-8", errors="replace")
+        try:
+            payload = json.loads(payload_text)
+        except ValueError:
+            payload = payload_text
+        ts = time.strftime("%Y-%m-%d %H:%M:%S")
+        print(f"\n{ts} {msg.topic}", flush=True)
+        print(json.dumps(payload, ensure_ascii=False, indent=2), flush=True)
+        count += 1
+        if limit and count >= limit:
+            stop_event[0] = True
+
+    client = mqtt.Client()
+    if mqtt_username:
+        client.username_pw_set(mqtt_username, mqtt_password or None)
+    client.on_connect = on_connect
+    client.on_message = on_message
+
+    try:
+        client.connect(mqtt_host, mqtt_port, 10)
+    except Exception as exc:
+        print(f"[ERROR] MQTT 连接失败: {exc}", file=sys.stderr)
+        return
+
+    client.loop_start()
+    try:
+        while not stop_event[0]:
+            time.sleep(0.1)
+    except KeyboardInterrupt:
+        print(f"\n已停止 (共收到 {count} 条消息)", flush=True)
+    finally:
+        client.loop_stop()
+        client.disconnect()
+
+
+def cmd_twin_list(args: argparse.Namespace) -> None:
+    params = {}
+    if args.namespace:
+        params["namespace"] = args.namespace
+    data = _get("/ditto/things", params if params else None)
+    things = data.get("things", [])
+    if not things:
+        print("没有找到 Ditto Thing")
+        return
+    for t in things:
+        thing_id = t.get("thing_id") or t.get("raw", {}).get("thingId", "?")
+        attrs = t.get("raw", {}).get("attributes", {})
+        name = attrs.get("name", "")
+        wine_type = attrs.get("wine_type", attrs.get("type", ""))
+        risk = ""
+        features = t.get("raw", {}).get("features", {})
+        rl = features.get("risk_level", {}).get("properties", {}).get("value")
+        if rl:
+            risk = f"  risk={rl}"
+        temp = features.get("temperature", {}).get("properties", {}).get("value")
+        temp_str = f"  temp={temp}°C" if temp is not None else ""
+        progress = features.get("fermentation_progress", {}).get("properties", {}).get("value")
+        progress_str = f"  progress={progress}%" if progress is not None else ""
+        print(f"{thing_id}  {name}  [{wine_type}]{risk}{temp_str}{progress_str}")
+    print(f"\n共 {data.get('count', len(things))} 个 Thing")
+
+
 def cmd_twin_echo(args: argparse.Namespace) -> None:
     data = _get(f"/ditto/things/{quote(args.thing_id, safe='')}")
     _dump(data)
@@ -165,14 +255,22 @@ def build_parser() -> argparse.ArgumentParser:
 
     mqtt = sub.add_parser("mqtt", help="MQTT 调试")
     mqtt_sub = mqtt.add_subparsers(dest="mqtt_command", required=True)
-    mqtt_tail = mqtt_sub.add_parser("tail", help="订阅 MQTT topic 并输出消息样例")
+    mqtt_tail = mqtt_sub.add_parser("tail", help="采集 MQTT 消息样例（等待指定秒数后返回）")
     mqtt_tail.add_argument("--topic", default="telemetry/#")
     mqtt_tail.add_argument("--seconds", type=int, default=10)
     mqtt_tail.add_argument("--limit", type=int, default=20)
     mqtt_tail.set_defaults(func=cmd_mqtt_tail)
 
+    mqtt_listen = mqtt_sub.add_parser("listen", help="实时流式监听 MQTT 消息（Ctrl+C 停止）")
+    mqtt_listen.add_argument("--topic", default="telemetry/#")
+    mqtt_listen.add_argument("--limit", type=int, default=0, help="最大消息数，0=不限")
+    mqtt_listen.set_defaults(func=cmd_mqtt_listen)
+
     twin = sub.add_parser("twin", help="Ditto Thing 调试")
     twin_sub = twin.add_subparsers(dest="twin_command", required=True)
+    twin_list = twin_sub.add_parser("list", help="列出所有 Ditto Thing")
+    twin_list.add_argument("--namespace", default="", help="按 namespace 过滤，如 wine")
+    twin_list.set_defaults(func=cmd_twin_list)
     twin_echo = twin_sub.add_parser("echo", help="查看 Ditto Thing 当前状态")
     twin_echo.add_argument("thing_id")
     twin_echo.set_defaults(func=cmd_twin_echo)

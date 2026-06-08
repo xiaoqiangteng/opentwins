@@ -10,6 +10,18 @@ from app.services.echo_service import EchoService
 router = APIRouter(prefix="/api/debug/ditto", tags=["ditto"])
 
 
+@router.get("/things")
+def list_things(namespace: str = ""):
+    try:
+        things = DittoAdapter(settings).list_things(namespace)
+        summaries = []
+        for raw in things:
+            summaries.append(EchoService().summarize_thing(raw.get("thingId", ""), raw))
+        return {"count": len(summaries), "things": summaries}
+    except Exception as exc:
+        raise api_error(exc)
+
+
 @router.get("/things/{thing_id:path}/features/{feature}/value")
 def get_feature_value(thing_id: str, feature: str):
     try:

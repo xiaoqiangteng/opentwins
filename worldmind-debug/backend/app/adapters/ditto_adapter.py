@@ -33,6 +33,20 @@ class DittoAdapter:
         self._get("/api/2/things")
         return True
 
+    def list_things(self, namespace: str = "") -> List[Dict[str, Any]]:
+        """列出 Ditto 中的所有 Thing，可按 namespace 过滤。"""
+        if namespace:
+            path = f"/api/2/things?namespace={quote(namespace, safe='')}"
+        else:
+            path = "/api/2/things"
+        data = self._get(path)
+        if isinstance(data, list):
+            return data
+        if isinstance(data, dict):
+            items = data.get("items") or data.get("things") or []
+            return items if isinstance(items, list) else [data]
+        return []
+
     def get_thing(self, thing_id: str) -> Dict[str, Any]:
         encoded = quote(thing_id, safe="")
         return self._get(f"/api/2/things/{encoded}")

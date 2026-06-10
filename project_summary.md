@@ -77,6 +77,7 @@
 | **Grafana** | 10.2.2 | 可视化仪表盘 + OpenTwins 管理界面 | ✅ 已部署 |
 | **Ditto Extended API** | latest | Ditto 扩展 REST API，支持 Type（类型模板）和 Twin 批量操作 | ✅ 已部署 |
 | **Ditto Fixer** | alpine | 后台守护进程，检测并修复 Ditto 僵尸连接 | ✅ 已部署 |
+| **WorldMind Debug Console** | Python/FastAPI | 旁路调试工具链，提供健康检查、MQTT 监听、Thing 观测、链路追踪等调试能力 | ✅ 已部署 |
 | **MQTT-to-Mongo** | ertis/mqtttomongo | MQTT 消息转存 MongoDB 的桥接服务（轻量版使用） | 代码存在但未集成到主 Chart |
 
 ---
@@ -137,6 +138,60 @@ Ditto 是整个平台的灵魂，其核心概念：
 3. **恢复**：当 Ditto 重启后，检测 recovery flag，重新打开之前活跃的连接
 4. **僵尸连接防护**：API 返回空列表时不覆盖快照，保留最后已知良好状态
 
+### 3.5 WorldMind Debug Console — 旁路调试工具链
+
+`worldmind-debug` 是 OpenTwins 的旁路调试工具集，提供类似 ROS `rostopic echo`、`rostopic hz`、`rosnode info` 的观测能力。本模块**只读访问** OpenTwins 各组件，不修改核心部署架构。
+
+#### 架构组成
+
+| 模块 | 技术栈 | 端口 | 功能 |
+|------|--------|------|------|
+| **Debug API** | Python + FastAPI | 18080 | 调试 REST API 后端，统一代理访问 Ditto/MQTT/InfluxDB/Grafana |
+| **wmctl CLI** | Python (纯标准库) | — | 命令行调试工具，调用 Debug API 或直连 MQTT Broker |
+
+#### Debug API 核心能力
+
+- **Doctor 健康检查**：一键检测 MQTT、Ditto、Ditto Connections、InfluxDB、Telegraf、Grafana 六大组件连通性
+- **MQTT 调试**：`tail`（采样指定秒数的消息）和 `listen`（实时流式订阅）
+- **Ditto Thing 观测**：`list`（列出所有 Thing）、`echo`（查看 Thing 完整状态）、`watch`（周期性轮询 Feature 值变化）
+- **Ditto Connection 诊断**：列出连接、查看连接状态/指标/日志
+- **InfluxDB 时序查询**：按 measurement 查询最近 N 分钟的数据
+- **链路追踪（Trace）**：基于 SQLite 的本地调试 trace 记录，按 trace_id 检索事件链
+
+#### wmctl 常用命令
+
+```bash
+wmctl doctor                          # 一键健康检查
+wmctl mqtt tail --topic 'telemetry/#' --seconds 10   # 采样 MQTT 消息
+wmctl mqtt listen --topic 'telemetry/#'               # 实时监听（Ctrl+C 停止）
+wmctl twin list --namespace wine      # 列出指定命名空间的 Thing
+wmctl twin echo wine:tank_001         # 查看某个 Thing 当前状态
+wmctl twin watch wine:tank_001 --feature ph --interval 2  # 周期性观察 Feature 值
+wmctl conn list                       # 列出 Ditto Connections
+wmctl conn status <connection_id>     # 查看连接状态
+wmctl influx recent --measurement tank_001 --minutes 60     # InfluxDB 近期数据
+wmctl trace <trace_id>                # 查看调试链路
+```
+
+#### 部署集成
+
+Debug Console 已集成到 `deploy_all.sh` 统一部署脚本（阶段 C），支持 `--skip-debug` 参数跳过。部署流程：
+1. 创建 Python venv 并安装依赖
+2. 从 `values.yaml` 自动提取 InfluxDB Token，生成 `.env` 配置
+3. 后台启动 FastAPI uvicorn 服务
+
+#### 关键配置项
+
+| 环境变量 | 默认值 | 说明 |
+|----------|--------|------|
+| `DEBUG_API_HOST` | 0.0.0.0 | API 监听地址 |
+| `DEBUG_API_PORT` | 18080 | API 监听端口 |
+| `DITTO_BASE_URL` | http://localhost:8080 | Ditto API 地址 |
+| `MQTT_HOST` / `MQTT_PORT` | localhost:1883 | MQTT Broker 地址 |
+| `INFLUX_URL` / `INFLUX_TOKEN` | http://localhost:8086 | InfluxDB 连接 |
+| `GRAFANA_URL` / `GRAFANA_API_TOKEN` | http://localhost:3000 | Grafana 连接 |
+| `TRACE_DB_PATH` | ./data/debug_trace.sqlite | 链路追踪 SQLite 路径 |
+
 ---
 
 ## 4. 部署架构
@@ -158,10 +213,28 @@ Ditto 是整个平台的灵魂，其核心概念：
 | Mosquitto | 30511 | 1883 | MQTT Broker |
 | InfluxDB 2 | 30716 | 80 | 时序数据库 |
 | MongoDB | 30717 | 27017 | 文档数据库 |
+| Debug API | 18080 (宿主机) | 18080 | WorldMind Debug Console API |
 
 ### 4.3 部署自动化脚本
 
-`redeploy_steps.sh` 实现了完全自动化的一键重新部署流程：
+`deploy_all.sh` 是统一的部署入口脚本，支持分阶段部署：
+
+```bash
+./deploy_all.sh                        # 全部部署（基础设施 + WineTwin Demo + Debug Console）
+./deploy_all.sh --infra-only           # 仅部署 OpenTwins 基础设施
+./deploy_all.sh --demo-only            # 仅部署 WineTwin Demo（假设基础设施已就绪）
+./deploy_all.sh --skip-debug           # 跳过 WorldMind Debug Console / wmctl
+./deploy_all.sh --skip-modelica        # 跳过 OpenModelica 仿真服务
+./deploy_all.sh --skip-images          # 跳过镜像缓存检查
+./deploy_all.sh --refresh-images       # 强制重新拉取镜像
+```
+
+部署分为三个阶段：
+- **阶段 A**：OpenTwins 基础设施（Helm 部署、镜像预加载、Grafana 插件安装、Post-install Job）
+- **阶段 B**：WineFermentTwin Demo + OpenModelica 仿真服务
+- **阶段 C**：WorldMind Debug Console / wmctl（Python venv 安装、.env 自动生成、FastAPI 后台启动）
+
+`redeploy_steps.sh` 则是完全重新部署的自动化脚本：
 
 1. **前置检查**：Clash 代理状态、Minikube 运行状态、阿里云镜像仓库登录
 2. **镜像预加载**：从 Helm template 提取镜像列表 → 检查 minikube/宿主机缓存 → docker pull → minikube image load
@@ -330,6 +403,7 @@ Raspberry Pi 3B (example:raspberry)
 | 可视化 | Grafana 10.2.2 + 自研插件 |
 | 扩展 API | Node.js (Ditto Extended API) + Nginx 反代 |
 | 数据模拟 | Python 3 (paho-mqtt) |
+| 调试工具链 | Python + FastAPI (WorldMind Debug Console) + wmctl CLI |
 | 镜像仓库 | 阿里云容器镜像服务 |
 | 代理 | Clash (HTTP Proxy) |
 
@@ -361,6 +435,10 @@ opentwins/
 │   ├── redeploy_steps.sh           # 完全重新部署自动化脚本
 │   └── opentwins_ditto_fixer_pvc.yaml # Ditto Fixer PVC 手动资源
 │
+├── deploy_all.sh                   # 统一部署入口脚本（基础设施 + Demo + Debug Console）
+├── stop_all.sh                     # 统一停止脚本
+├── watch_demo.sh                   # Demo 运行状态监控脚本
+│
 ├── OpenTwins-Lightweight/          # 轻量版 Helm Chart（仅 Ditto+MongoDB+Mosquitto）
 │   ├── Chart.yaml
 │   ├── values.yaml
@@ -381,7 +459,42 @@ opentwins/
 │   ├── values.yaml
 │   └── templates/
 │
+├── worldmind-debug/                # WorldMind Debug Console 调试工具链
+│   ├── README.md                   #   使用说明
+│   ├── .env.example                #   环境变量示例
+│   ├── backend/                    #   Debug API (FastAPI)
+│   │   ├── app/
+│   │   │   ├── main.py             #     FastAPI 入口 (端口 18080)
+│   │   │   ├── config.py           #     Settings 配置类
+│   │   │   ├── adapters/           #     各组件适配器 (Ditto/MQTT/InfluxDB/Grafana/Telegraf)
+│   │   │   ├── api/                #     REST 路由 (health/mqtt/ditto/influxdb/grafana/trace/logs)
+│   │   │   ├── services/           #     业务逻辑 (doctor/echo/trace)
+│   │   │   └── models/             #     Pydantic 数据模型
+│   │   └── requirements.txt
+│   ├── cli/                        #   wmctl CLI 工具
+│   │   ├── wmctl                   #     入口脚本
+│   │   ├── wmctl.py                #     主程序 (纯标准库，无额外依赖)
+│   │   └── requirements.txt
+│   └── docker-compose.debug.yml    #   可选 Docker Compose 部署
+│
 └── passwd                          # Mosquitto 密码文件
+
+├── docs/                           # 项目文档
+│   ├── debug-console/              #   Debug Console 文档
+│   │   ├── README.md               #     概览
+│   │   ├── API_REFERENCE.md        #     Debug API 接口文档
+│   │   ├── WMCTL_REFERENCE.md      #     wmctl CLI 命令参考
+│   │   ├── TOPICS_IDS_MEASUREMENTS.md #  关键 Topic / ID / Measurement 映射
+│   │   └── TROUBLESHOOTING.md      #     常见问题排查
+│   ├── wine-demo/                  #   WineFermentTwin Demo 文档
+│   │   ├── README.md               #     概览
+│   │   ├── API_REFERENCE.md        #     Wine Demo API 文档
+│   │   ├── MQTT_AND_TWIN_MODEL.md  #     MQTT 协议与孪生模型说明
+│   │   └── legacy/                 #     旧版文档归档
+│   └── opentwins-deployment/       #   OpenTwins 部署文档
+│       ├── README.md               #     概览
+│       ├── CURRENT_DEPLOYMENT.md   #     当前部署配置记录
+│       └── DEPLOYMENT_COMMANDS.md  #     部署命令参考
 ```
 
 ---
